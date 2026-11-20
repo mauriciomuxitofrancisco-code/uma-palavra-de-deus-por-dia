@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#17345d">
+<title>Uma Palavra de Deus por Dia</title>
+<style>
+:root{--navy:#17345d;--gold:#d5aa3c;--ink:#20283a;--paper:#fffdf8}
+*{box-sizing:border-box}
+body{margin:0;background:#f2f4f7;color:var(--ink);font-family:Georgia,serif;line-height:1.6}
+main{max-width:680px;margin:24px auto;padding:16px}
+header{background:linear-gradient(135deg,#102747,var(--navy));color:white;text-align:center;padding:30px 20px;border-radius:22px 22px 8px 8px;border-bottom:5px solid var(--gold)}
+.symbol{font-size:34px;color:var(--gold)}
+h1{font-size:clamp(27px,6vw,38px);line-height:1.15;margin:8px 0}
+.subtitle{font:12px Arial,sans-serif;letter-spacing:2px;color:#e9d8a7}
+.card{background:var(--paper);padding:24px;margin:14px 0;border-radius:12px;box-shadow:0 4px 18px #15233a12}
+.date{font: bold 13px Arial,sans-serif;color:var(--navy);letter-spacing:1px;text-transform:uppercase}
+h2{font-size:21px;color:var(--navy);margin:0 0 10px}
+.verse{font-size:25px;font-style:italic;line-height:1.4;margin:14px 0}
+.ref{font: bold 14px Arial,sans-serif;color:#8a681c}
+.label{font: bold 12px Arial,sans-serif;letter-spacing:1px;text-transform:uppercase;color:#9a741e}
+footer{text-align:center;color:#596477;font:13px Arial,sans-serif;padding:16px}
+</style>
+</head>
+<body>
+<main>
+<header>
+  <div class="symbol">✝</div>
+  <h1>Uma Palavra de Deus por Dia</h1>
+  <div class="subtitle">ALIMENTO DIÁRIO PARA A TUA FÉ</div>
+</header>
+<section class="card">
+  <div class="date" id="today"></div>
+  <div class="label">Versículo do dia</div>
+  <p class="verse" id="verse"></p>
+  <div class="ref" id="reference"></div>
+</section>
+<section class="card">
+  <h2>♡ Reflexão</h2>
+  <p id="reflection"></p>
+</section>
+<section class="card">
+  <h2>🙏 Oração do dia</h2>
+  <p id="prayer"></p>
+</section>
+<footer>Que Deus ilumine o teu caminho hoje e sempre. ♡</footer>
+</main>
+<script>
+const messages = [
+ {v:"O Senhor é o meu pastor; nada me faltará.",r:"Salmo 23,1",f:"Deus cuida de nós e acompanha cada passo. Mesmo quando surgem dificuldades, podemos procurar nele orientação e confiança.",p:"Senhor, guia os meus passos, fortalece a minha fé e ensina-me a confiar no teu cuidado. Ámen."},
+ {v:"Tudo posso naquele que me fortalece.",r:"Filipenses 4,13",f:"A força para enfrentar cada dia também nasce da fé, da esperança e da confiança em Deus.",p:"Senhor, dá-me coragem e sabedoria para enfrentar este dia com confiança. Ámen."},
+ {v:"O amor é paciente, o amor é bondoso.",r:"1 Coríntios 13,4",f:"Amar é agir com paciência, respeito e bondade nas pequenas escolhas de todos os dias.",p:"Jesus, ensina-me a tratar cada pessoa com paciência, respeito e bondade. Ámen."},
+ {v:"Não temas, porque eu sou contigo.",r:"Isaías 41,10",f:"Não precisamos de enfrentar as preocupações sem esperança. A fé recorda-nos que Deus está perto.",p:"Senhor, fica comigo nas minhas preocupações e ajuda-me a caminhar com esperança. Ámen."},
+ {v:"A tua palavra é lâmpada para os meus pés e luz para o meu caminho.",r:"Salmo 119,105",f:"A Palavra de Deus pode iluminar as nossas decisões e ajudar-nos a escolher o bem.",p:"Senhor, ilumina as minhas decisões e ajuda-me a viver segundo a tua Palavra. Ámen."},
+ {v:"Bem-aventurados os pacificadores.",r:"Mateus 5,9",f:"Podemos construir a paz através do diálogo, do perdão e de gestos concretos de reconciliação.",p:"Senhor, faz de mim instrumento de paz na minha família, na comunidade e no mundo. Ámen."},
+ {v:"Pedi, e dar-se-vos-á; buscai, e encontrareis.",r:"Mateus 7,7",f:"A oração aproxima-nos de Deus. Rezemos com confiança e mantenhamos o coração aberto à sua vontade.",p:"Pai, escuta a minha oração e ajuda-me a procurar sempre o que é bom. Ámen."}
+];
+const start = new Date(2026,0,1);
+const now = new Date();
+const day = Math.floor((new Date(now.getFullYear(),now.getMonth(),now.getDate())-start)/86400000);
+const item = messages[((day % messages.length)+messages.length)%messages.length];
+document.getElementById("today").textContent = new Intl.DateTimeFormat("pt-PT",{weekday:"long",day:"numeric",month:"long",year:"numeric"}).format(now);
+document.getElementById("verse").textContent = "“"+item.v+"”";
+document.getElementById("reference").textContent = item.r;
+document.getElementById("reflection").textContent = item.f;
+document.getElementById("prayer").textContent = item.p;
+</script>
+</body>
+</html>
