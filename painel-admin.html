@@ -182,3 +182,108 @@ th{color:var(--red)}
 </section>
 <p class="small">Painel administrativo · Maurício Francisco</p>
  </main>
+<script>
+const API="https://fra.cloud.appwrite.io/v1";
+const PROJECT="6b01acb000015409164b";
+const FUNCTION_ID="gestor_codigos_01";
+let codigos=[];
+
+function mensagem(t){
+ document.getElementById("mensagem").textContent=t;
+}
+function escapar(v){
+ return String(v??"").replace(/[&<>"']/g,c=>({
+ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+ })[c]);
+}
+async function executar(action,data={}){
+ const token=document.getElementById("token").value.trim();
+ if(!token) throw Error("Introduza o código de administrador.");
+ const r=await fetch(`${API}/functions/${FUNCTION_ID}/executions`,{
+  method:"POST",
+  headers:{
+   "Content-Type":"application/json",
+   "X-Appwrite-Project":PROJECT
+  },
+  body:JSON.stringify({
+   body:JSON.stringify({action,...data}),
+   async:false,
+   method:"POST",
+   path:"/",
+   headers:{"x-admin-token":token}
+  })
+ });
+ const j=await r.json();
+ if(!r.ok) throw Error(j.message||"Erro no Appwrite.");
+ let b=j.responseBody||j.stdout||j;
+ if(typeof b==="string"){
+  try{b=JSON.parse(b)}catch(e){}
+ }
+ if(b&&b.sucesso===false) throw Error(b.erro||b.mensagem||"Operação não concluída.");
+ return b;
+}
+async function ligar(){
+ try{
+  mensagem("A verificar ligação...");
+  await listar();
+  mensagem("Ligação efetuada.");
+ }catch(e){mensagem("Falha: "+e.message);}
+}
+async function listar(){
+ const d=await executar("listar");
+ codigos=Array.isArray(d)?d:(d.codigos||d.rows||d.dados||[]);
+ mostrarLista();
+ atualizarResumo();
+ mensagem("Lista atualizada.");
+}
+function mostrarLista(){
+ const termo=document.getElementById("pesquisa").value.toLowerCase();
+ const arr=codigos.filter(c=>
+  String(c.Código||c.codigo||c.code||"").toLowerCase().includes(termo)
+ );
+ document.getElementById("lista").innerHTML=arr.length?
+ arr.map(c=>`<tr>
+ <td>${escapar(c.Código||c.codigo||c.code||"")}</td>
+ <td>${escapar(c.Validade||c.validade||"")}</td>
+ <td>${escapar(c.Estado||c.estado||"")}</td>
+ </tr>`).join("") :
+ '<tr><td colspan="3">Nenhum código encontrado.</td></tr>';
+}
+function atualizarResumo(){
+ const estado=c=>String(c.Estado||c.estado||"").toLowerCase();
+ document.getElementById("total").textContent=codigos.length;
+ document.getElementById("ativos").textContent=codigos.filter(c=>estado(c)==="ativo").length;
+ document.getElementById("expirados").textContent=codigos.filter(c=>estado(c).includes("expirado")).length;
+ document.getElementById("suspensos").textContent=codigos.filter(c=>estado(c).includes("suspenso")).length;
+}
+async function gerar(){
+ const quantidade=Number(document.getElementById("quantidade").value);
+ const duracaoDias=Number(document.getElementById("duracao").value);
+ if(quantidade<1||duracaoDias<1){
+  mensagem("Indique quantidade e duração válidas.");return;
+ }
+ try{
+  mensagem("A gerar códigos...");
+  const d=await executar("gerar",{quantidade,duracaoDias});
+  mensagem(d.mensagem||"Pedido de geração concluído.");
+  await listar();
+ }catch(e){mensagem("Erro: "+e.message);}
+}
+async function gerir(action){
+ const codigo=prompt("Introduza o código da pulseira:");
+ if(!codigo)return;
+ const data={codigo};
+ if(action==="renovar"){
+  data.duracaoDias=Number(document.getElementById("renovacao").value);
+  if(data.duracaoDias<1){mensagem("Indique uma duração válida.");return;}
+ }
+ try{
+  mensagem("A processar...");
+  const d=await executar(action,data);
+  mensagem(d.mensagem||"Operação concluída.");
+  await listar();
+ }catch(e){mensagem("Erro: "+e.message);}
+}
+</script>
+</body>
+</html>
