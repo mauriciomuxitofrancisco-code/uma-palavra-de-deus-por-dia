@@ -51,7 +51,7 @@ table{width:100%;border-collapse:collapse;min-width:600px}th,td{text-align:left;
 </section>
 </main>
 <script>
-const API='https://fra.cloud.appwrite.io/v1';
+const API="https://fra.cloud.appwrite.io/v1";
 const PROJECT='6b01acb000015409164b';
 const FUNCTION_ID='gestor-codigos';
 let records=[];
@@ -223,6 +223,14 @@ async function executar(action,data={}){
  return b;
 }
 async function ligar(){
+  try{
+    mensagem("A verificar ligação...");
+    await listar();
+    mensagem("Ligação efetuada.");
+  }catch(e){
+    mensagem("Erro: " + e.message);
+  }
+}
  try{
   mensagem("A verificar ligação...");
   await listar();
