@@ -8,9 +8,7 @@
   <title>Uma Palavra de Deus por Dia</title>
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -31,19 +29,14 @@
       box-shadow: 0 5px 22px #003b5533;
     }
 
+    h1, h2, h3 { color: #006F96; }
+
     h1 {
-      color: #006F96;
       font-size: 27px;
       line-height: 1.3;
     }
 
-    h2 {
-      color: #006F96;
-    }
-
-    p {
-      line-height: 1.7;
-    }
+    p { line-height: 1.7; }
 
     input, button {
       width: 100%;
@@ -66,13 +59,17 @@
       cursor: pointer;
     }
 
-    button:hover {
-      background: #006F96;
+    button:hover { background: #006F96; }
+
+    button:disabled {
+      opacity: 0.6;
+      cursor: wait;
     }
 
     #mensagem {
       margin-top: 18px;
       color: #a52a2a;
+      overflow-wrap: anywhere;
     }
 
     #conteudo {
@@ -80,14 +77,7 @@
       text-align: left;
     }
 
-    #conteudo h2,
-    #conteudo h3 {
-      color: #006F96;
-    }
-
-    #conteudo button {
-      margin-top: 25px;
-    }
+    #conteudo button { margin-top: 25px; }
 
     .assinatura {
       margin-top: 28px;
@@ -98,7 +88,6 @@
 </head>
 
 <body>
-
 <div class="container">
 
   <div id="entrada">
@@ -110,40 +99,71 @@
       id="codigo"
       placeholder="Código da pulseira"
       autocomplete="off"
+      autocapitalize="characters"
     >
 
-    <button onclick="verificarCodigo()">Entrar</button>
+    <button id="botaoEntrar" onclick="verificarCodigo()">
+      Entrar
+    </button>
 
-    <p id="mensagem"></p>
+    <p id="mensagem" role="status"></p>
   </div>
 
   <div id="conteudo"></div>
 
-  <p class="assinatura">
-    Uma Palavra de Deus por Dia
-  </p>
-
+  <p class="assinatura">Uma Palavra de Deus por Dia</p>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-<!-- Motor das mensagens diárias -->
 <script src="./dias.js"></script>
 
 <script>
-const SUPABASE_URL = "https://okcmbnucjzkeiduivsny.supabase.co";
+const SUPABASE_URL =
+  "https://okcmbnucjzkeiduivsny.supabase.co";
 
-const SUPABASE_KEY = "sb_publishable_7F_7S5UWTRO-l2tDBP-LeQ__J28PZ6v";
+const SUPABASE_KEY =
+  "sb_publishable_7F_7S5UWTRO-l2tDBP-LeQ__J28PZ6v";
 
-const db = window.supabase.createClient(
-  SUPABASE_URL,
-  SUPABASE_KEY
-);
+let db = null;
+
+try {
+  if (!window.supabase || !window.supabase.createClient) {
+    throw new Error("A biblioteca do Supabase não foi carregada.");
+  }
+
+  db = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+  );
+
+} catch (erro) {
+  console.error("Erro ao iniciar Supabase:", erro);
+}
+
+async function validarCodigo(codigo) {
+  if (!db) {
+    throw new Error("Não foi possível iniciar a ligação ao Supabase.");
+  }
+
+  const resposta = await db.rpc(
+    "validar_pulseira",
+    { p_codigo: codigo }
+  );
+
+  if (resposta.error) {
+    console.error("Erro Supabase:", resposta.error);
+    throw resposta.error;
+  }
+
+  return resposta.data === true;
+}
 
 async function verificarCodigo() {
   const campo = document.getElementById("codigo");
   const mensagem = document.getElementById("mensagem");
-  const codigo = campo.value.trim();
+  const botao = document.getElementById("botaoEntrar");
+
+  const codigo = campo.value.trim().toUpperCase();
 
   if (!codigo) {
     mensagem.textContent = "Introduz o código da pulseira.";
@@ -151,17 +171,14 @@ async function verificarCodigo() {
   }
 
   mensagem.textContent = "A verificar o código...";
+  botao.disabled = true;
 
   try {
-    const { data, error } = await db.rpc(
-      "validar_pulseira",
-      { p_codigo: codigo }
-    );
+    const valido = await validarCodigo(codigo);
 
-    if (error) throw error;
-
-    if (data === true) {
+    if (valido) {
       localStorage.setItem("codigo_pulseira", codigo);
+      mensagem.textContent = "";
       mostrarConteudo();
     } else {
       mensagem.textContent =
@@ -169,10 +186,14 @@ async function verificarCodigo() {
     }
 
   } catch (erro) {
-    mensagem.textContent =
-      "Não foi possível verificar. Tenta novamente.";
+    console.error("Falha na validação:", erro);
 
-    console.error(erro);
+    mensagem.textContent =
+      "Erro de ligação: " +
+      (erro.message || erro.details || "Não foi possível contactar o Supabase.");
+
+  } finally {
+    botao.disabled = false;
   }
 }
 
@@ -189,10 +210,13 @@ function mostrarConteudo() {
       "<p>Não foi possível carregar a Palavra do Dia. Atualiza a página.</p>";
   }
 
-  const botaoSair = document.createElement("button");
-  botaoSair.textContent = "Sair";
-  botaoSair.onclick = sair;
-  area.appendChild(botaoSair);
+  if (!document.getElementById("botaoSair")) {
+    const botaoSair = document.createElement("button");
+    botaoSair.id = "botaoSair";
+    botaoSair.textContent = "Sair";
+    botaoSair.onclick = sair;
+    area.appendChild(botaoSair);
+  }
 }
 
 function sair() {
@@ -206,19 +230,16 @@ async function verificarAcessoGuardado() {
   if (!codigo) return;
 
   try {
-    const { data, error } = await db.rpc(
-      "validar_pulseira",
-      { p_codigo: codigo }
-    );
+    const valido = await validarCodigo(codigo);
 
-    if (!error && data === true) {
+    if (valido) {
       mostrarConteudo();
     } else {
       localStorage.removeItem("codigo_pulseira");
     }
 
   } catch (erro) {
-    console.error(erro);
+    console.error("Erro ao verificar acesso guardado:", erro);
   }
 }
 
