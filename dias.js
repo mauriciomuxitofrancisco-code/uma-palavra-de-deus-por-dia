@@ -2,304 +2,250 @@
 (() => {
   "use strict";
 
-  const INICIO = "2026-12-05";
-  const FIM = "2027-12-04";
+  const INICIO = "2026-11-24";
+  const FIM = "2027-11-23";
   const FUSO = "Africa/Luanda";
 
-  const palavras = {
-    1: {
-      tema: "Deus está contigo",
-      versiculo: "Não temas, porque eu sou contigo. — Isaías 41:10",
-      reflexao: "Hoje começa uma nova caminhada. Mesmo quando não sabes o que vem amanhã, lembra-te de que Deus caminha contigo. A tua vida está nas mãos d'Ele.",
-      proposito: "Entrega a Deus as tuas preocupações e confia na Sua direção.",
-      oracao: "Senhor, guia os meus passos, fortalece a minha fé e nunca permitas que eu me afaste da Tua presença. Amém.",
-      frase: "Com Deus ao teu lado, nunca caminhas sozinho."
-    },
-    2: {
-      tema: "Confia de todo o coração",
-      versiculo: "Confia no Senhor de todo o teu coração. — Provérbios 3:5",
-      reflexao: "Nem sempre compreenderás o caminho, mas podes confiar naquele que conhece o teu futuro. Deus vê além daquilo que os teus olhos conseguem alcançar.",
-      proposito: "Antes de tomares uma decisão, apresenta-a a Deus em oração.",
-      oracao: "Pai, ensina-me a confiar em Ti mesmo quando não compreendo o que está a acontecer. Amém.",
-      frase: "A confiança em Deus transforma a incerteza em esperança."
-    },
-    3: {
-      tema: "A força vem de Deus",
-      versiculo: "Tudo posso naquele que me fortalece. — Filipenses 4:13",
-      reflexao: "Há dias em que as forças parecem faltar. Nesses momentos, lembra-te de que não precisas enfrentar tudo sozinho. Deus pode renovar o teu ânimo.",
-      proposito: "Enfrenta hoje uma dificuldade com fé e coragem.",
-      oracao: "Senhor, renova as minhas forças e ajuda-me a continuar sem perder a esperança. Amém.",
-      frase: "Quando a tua força termina, Deus continua a sustentar-te."
-    },
-    4: {
-      tema: "Não tenhas medo",
-      versiculo: "Não temas, porque eu te remi; chamei-te pelo teu nome, tu és meu. — Isaías 43:1",
-      reflexao: "Deus conhece-te profundamente. Não és esquecido nem abandonado. Mesmo nas situações difíceis, podes encontrar segurança no amor do Senhor.",
-      proposito: "Entrega a Deus um medo que tens guardado no coração.",
-      oracao: "Senhor, tira de mim o medo e ajuda-me a descansar no Teu amor. Amém.",
-      frase: "És conhecido e amado por Deus."
-    },
-    5: {
-      tema: "Deus ouve a tua oração",
-      versiculo: "Clama a mim, e responder-te-ei. — Jeremias 33:3",
-      reflexao: "Nenhuma oração sincera é insignificante. Podes falar com Deus sobre as tuas alegrias, dúvidas e lágrimas. Ele convida-te a aproximar-te.",
-      proposito: "Reserva alguns minutos para conversar com Deus em silêncio.",
-      oracao: "Pai, obrigado porque posso aproximar-me de Ti. Escuta o meu coração e guia-me. Amém.",
-      frase: "Fala com Deus: Ele conhece o teu coração."
-    },
-    6: {
-      tema: "A paz que vem do Senhor",
-      versiculo: "Deixo-vos a paz, a minha paz vos dou. — João 14:27",
-      reflexao: "A paz de Jesus não depende de tudo estar perfeito. Ela pode guardar o teu coração mesmo quando existem problemas à tua volta.",
-      proposito: "Quando sentires ansiedade, faz uma pausa e ora.",
-      oracao: "Jesus, acalma o meu coração e ensina-me a viver na Tua paz. Amém.",
-      frase: "A paz de Cristo é maior do que a inquietação."
-    },
-    7: {
-      tema: "O amor nunca falha",
-      versiculo: "O amor é paciente, é benigno. — 1 Coríntios 13:4",
-      reflexao: "O amor verdadeiro aparece nas atitudes simples: ouvir, perdoar, respeitar e cuidar. Deus chama-te a refletir esse amor nas tuas relações.",
-      proposito: "Demonstra amor através de uma atitude concreta.",
-      oracao: "Senhor, torna o meu coração mais paciente, bondoso e disposto a amar. Amém.",
-      frase: "Que as tuas atitudes revelem o amor de Deus."
-    },
-    8: {
-      tema: "Deus renova a tua esperança",
-      versiculo: "Os que esperam no Senhor renovarão as suas forças. — Isaías 40:31",
-      reflexao: "Esperar nem sempre é fácil. Mas a espera pode fortalecer a tua fé e ensinar-te a depender de Deus. Não desistas por causa da demora.",
-      proposito: "Escolhe uma situação em que precisas de voltar a ter esperança e entrega-a a Deus.",
-      oracao: "Pai, renova a minha esperança e dá-me paciência para esperar no Teu tempo. Amém.",
-      frase: "A espera com Deus nunca é uma caminhada sem propósito."
-    },
-    9: {
-      tema: "Sê agradecido",
-      versiculo: "Em tudo dai graças. — 1 Tessalonicenses 5:18",
-      reflexao: "A gratidão ajuda-te a reconhecer as bênçãos que muitas vezes passam despercebidas. Mesmo em dias difíceis, existem motivos para agradecer.",
-      proposito: "Identifica três motivos pelos quais podes agradecer hoje.",
-      oracao: "Senhor, abre os meus olhos para reconhecer a Tua bondade em cada dia. Amém.",
-      frase: "Um coração agradecido reconhece a presença de Deus."
-    },
-    10: {
-      tema: "A Palavra ilumina o caminho",
-      versiculo: "Lâmpada para os meus pés é tua palavra e luz para o meu caminho. — Salmos 119:105",
-      reflexao: "A Palavra de Deus oferece orientação para as decisões e atitudes do dia a dia. Quanto mais a conheces, mais aprendes a caminhar segundo a vontade do Senhor.",
-      proposito: "Lê hoje um pequeno trecho da Bíblia e medita nele.",
-      oracao: "Senhor, ilumina as minhas escolhas através da Tua Palavra. Amém.",
-      frase: "Deixa a Palavra de Deus iluminar cada passo."
-    },
-    11: {
-      tema: "Perdoar também é amar",
-      versiculo: "Perdoai-vos uns aos outros, como também Deus vos perdoou em Cristo. — Efésios 4:32",
-      reflexao: "O perdão nem sempre apaga a dor imediatamente, mas ajuda a libertar o coração do peso do ressentimento. Deus ensina-te a perdoar com sinceridade.",
-      proposito: "Ora por alguém com quem precisas de encontrar paz.",
-      oracao: "Pai, ajuda-me a perdoar e cura as feridas que ainda carrego. Amém.",
-      frase: "O perdão abre espaço para a paz."
-    },
-    12: {
-      tema: "Deus cuida de ti",
-      versiculo: "Lançando sobre ele toda a vossa ansiedade, porque ele tem cuidado de vós. — 1 Pedro 5:7",
-      reflexao: "Não precisas carregar sozinho todas as preocupações. Deus convida-te a entregar-lhe aquilo que pesa no teu coração.",
-      proposito: "Escreve uma preocupação e apresenta-a a Deus em oração.",
-      oracao: "Senhor, entrego-Te as minhas preocupações. Ajuda-me a confiar no Teu cuidado. Amém.",
-      frase: "O cuidado de Deus alcança até aquilo que não consegues explicar."
-    },
-    13: {
-      tema: "Escolhe fazer o bem",
-      versiculo: "Não nos cansemos de fazer o bem. — Gálatas 6:9",
-      reflexao: "Uma pequena atitude de bondade pode transformar o dia de alguém. Continua a fazer o bem, mesmo quando ninguém reconhece o teu esforço.",
-      proposito: "Ajuda alguém sem esperar recompensa.",
-      oracao: "Deus, usa as minhas mãos e palavras para levar bondade a outras pessoas. Amém.",
-      frase: "Faz o bem: Deus vê cada gesto de amor."
-    },
-    14: {
-      tema: "A alegria do Senhor",
-      versiculo: "A alegria do Senhor é a vossa força. — Neemias 8:10",
-      reflexao: "A verdadeira alegria não depende apenas das circunstâncias. Ela nasce da relação com Deus e da certeza de que Ele permanece contigo.",
-      proposito: "Procura hoje uma oportunidade para agradecer e partilhar alegria.",
-      oracao: "Senhor, enche o meu coração com a alegria que vem da Tua presença. Amém.",
-      frase: "A alegria que vem de Deus fortalece a alma."
-    },
-    15: {
-      tema: "Sê paciente",
-      versiculo: "O amor é paciente. — 1 Coríntios 13:4",
-      reflexao: "A paciência ensina-te a respeitar o tempo das coisas e das pessoas. Nem tudo acontece quando desejas, mas podes escolher agir com serenidade.",
-      proposito: "Pratica a paciência numa situação que normalmente te irrita.",
-      oracao: "Senhor, dá-me calma para esperar e sabedoria para agir no momento certo. Amém.",
-      frase: "A paciência também é uma expressão de fé."
-    },
-    16: {
-      tema: "Deus é o teu refúgio",
-      versiculo: "Deus é o nosso refúgio e fortaleza, socorro bem presente na angústia. — Salmos 46:1",
-      reflexao: "Quando a vida parece difícil, podes encontrar abrigo em Deus. Ele é uma fonte de força e consolo nos momentos de angústia.",
-      proposito: "Procura um momento tranquilo para descansar na presença de Deus.",
-      oracao: "Senhor, sê o meu refúgio e fortalece-me nos momentos de dificuldade. Amém.",
-      frase: "Em Deus encontras abrigo para o coração."
-    },
-    17: {
-      tema: "Caminha com humildade",
-      versiculo: "Deus resiste aos soberbos, mas dá graça aos humildes. — Tiago 4:6",
-      reflexao: "A humildade permite reconhecer que todos precisamos de aprender e crescer. Caminhar com Deus é também aprender a ouvir e servir.",
-      proposito: "Ouve alguém com atenção e evita responder com orgulho.",
-      oracao: "Pai, ensina-me a viver com humildade e a reconhecer que preciso de Ti. Amém.",
-      frase: "Um coração humilde está disponível para aprender com Deus."
-    },
-    18: {
-      tema: "A fé abre caminhos",
-      versiculo: "A fé é o firme fundamento das coisas que se esperam. — Hebreus 11:1",
-      reflexao: "Ter fé não significa nunca sentir dúvidas. Significa continuar a confiar em Deus mesmo quando ainda não vês o resultado.",
-      proposito: "Dá hoje um passo de coragem numa área em que tens hesitado.",
-      oracao: "Senhor, aumenta a minha fé e ajuda-me a confiar nas Tuas promessas. Amém.",
-      frase: "Continua a crer, mesmo antes de veres."
-    },
-    19: {
-      tema: "Guarda o teu coração",
-      versiculo: "Sobre tudo o que se deve guardar, guarda o teu coração. — Provérbios 4:23",
-      reflexao: "Aquilo que alimentas no pensamento influencia as tuas palavras e atitudes. Procura cultivar pensamentos que promovam a verdade, a paz e o amor.",
-      proposito: "Afasta-te hoje de algo que prejudica a tua paz interior.",
-      oracao: "Senhor, guarda o meu coração e orienta os meus pensamentos. Amém.",
-      frase: "Cuida do teu coração e aproxima-o de Deus."
-    },
-    20: {
-      tema: "Jesus é a luz",
-      versiculo: "Eu sou a luz do mundo. — João 8:12",
-      reflexao: "Jesus oferece direção quando tudo parece confuso. Segui-lo é escolher a verdade, o amor e a esperança em cada passo.",
-      proposito: "Procura ser luz para alguém através de uma atitude bondosa.",
-      oracao: "Jesus, ilumina a minha vida e ajuda-me a refletir a Tua luz. Amém.",
-      frase: "Quem caminha com Jesus não precisa viver nas trevas."
-    },
-    21: {
-      tema: "Deus conhece o teu coração",
-      versiculo: "Tu, Senhor, me sondaste e me conheces. — Salmos 139:1",
-      reflexao: "Podes apresentar-te diante de Deus sem máscaras. Ele conhece as tuas lutas, os teus sonhos e aquilo que ainda não consegues dizer.",
-      proposito: "Fala com Deus com sinceridade sobre aquilo que sentes.",
-      oracao: "Senhor, obrigado porque me conheces por completo. Ajuda-me a viver com sinceridade diante de Ti. Amém.",
-      frase: "Deus conhece-te profundamente e continua a amar-te."
-    },
-    22: {
-      tema: "Semeia paz",
-      versiculo: "Bem-aventurados os pacificadores, porque serão chamados filhos de Deus. — Mateus 5:9",
-      reflexao: "A paz começa muitas vezes numa escolha: não alimentar discussões, ouvir com respeito e procurar reconciliação quando possível.",
-      proposito: "Evita alimentar um conflito e procura uma atitude de paz.",
-      oracao: "Pai, faz de mim um instrumento de paz na minha família e comunidade. Amém.",
-      frase: "Onde chega a paz, o amor encontra espaço."
-    },
-    23: {
-      tema: "A bondade de Deus permanece",
-      versiculo: "Porque a sua benignidade dura para sempre. — Salmos 136:1",
-      reflexao: "Os dias mudam e as circunstâncias também, mas a bondade de Deus permanece. Recorda as vezes em que recebeste força para continuar.",
-      proposito: "Lembra-te de uma bênção passada e agradece a Deus por ela.",
-      oracao: "Senhor, obrigado pela Tua bondade que me acompanha em todos os momentos. Amém.",
-      frase: "A bondade de Deus não perde a sua força com o passar do tempo."
-    },
-    24: {
-      tema: "O amor de Deus veio ao mundo",
-      versiculo: "Porque Deus amou o mundo de tal maneira que deu o seu Filho unigénito. — João 3:16",
-      reflexao: "O nascimento de Jesus recorda-nos o amor de Deus pela humanidade. Nesta época, que a esperança, a generosidade e a fé ocupem o centro do teu coração.",
-      proposito: "Partilha amor e bondade com alguém que precisa de carinho.",
-      oracao: "Pai, obrigado por Jesus e pelo Teu grande amor. Que a minha vida revele esse amor. Amém.",
-      frase: "O maior presente é o amor que Deus nos ofereceu em Jesus."
-    },
-    25: {
-      tema: "Nasceu o Salvador",
-      versiculo: "Hoje vos nasceu, na cidade de David, o Salvador, que é Cristo, o Senhor. — Lucas 2:11",
-      reflexao: "O Natal anuncia a chegada de Jesus, a esperança prometida. Mais do que presentes e celebrações, recorda o significado espiritual deste dia: Deus aproximou-se de nós.",
-      proposito: "Agradece a Deus pelo nascimento de Jesus e partilha uma mensagem de esperança.",
-      oracao: "Senhor, obrigado pelo presente de Jesus. Que a Sua luz habite na minha vida e na minha família. Amém.",
-      frase: "Jesus é a razão da nossa esperança."
-    },
-    26: {
-      tema: "Continua a amar",
-      versiculo: "Amados, se Deus assim nos amou, também nós devemos amar uns aos outros. — 1 João 4:11",
-      reflexao: "O amor de Deus recebido deve tornar-se amor oferecido. Depois das celebrações, continua a demonstrar cuidado, respeito e generosidade.",
-      proposito: "Faz algo concreto para apoiar alguém próximo de ti.",
-      oracao: "Deus, ensina-me a amar com atitudes sinceras e generosas. Amém.",
-      frase: "Recebe o amor de Deus e partilha-o com o mundo."
-    },
-    27: {
-      tema: "Deus está a trabalhar em ti",
-      versiculo: "Aquele que em vós começou a boa obra a aperfeiçoará. — Filipenses 1:6",
-      reflexao: "O teu crescimento espiritual é uma caminhada. Mesmo quando não percebes mudanças, Deus pode estar a trabalhar no teu coração e a ensinar-te a amadurecer.",
-      proposito: "Reconhece uma área da tua vida em que desejas crescer com Deus.",
-      oracao: "Senhor, continua a transformar a minha vida e ajuda-me a não desistir do crescimento espiritual. Amém.",
-      frase: "Deus ainda está a escrever a tua história."
-    }
-  };
+  const temas = [
+    ["A presença de Deus", "Salmos 23:1-4"],
+    ["A fé que move montanhas", "Mateus 17:20"],
+    ["O poder da oração", "Filipenses 4:6-7"],
+    ["A confiança em Deus", "Provérbios 3:5-6"],
+    ["O amor de Deus", "Romanos 8:38-39"],
+    ["A esperança em Cristo", "Romanos 15:13"],
+    ["A paz que vem de Deus", "João 14:27"],
+    ["A força de Deus", "Isaías 40:29-31"],
+    ["A sabedoria do Senhor", "Tiago 1:5"],
+    ["O perdão de Deus", "1 João 1:9"],
+    ["A misericórdia divina", "Lamentações 3:22-23"],
+    ["A graça de Deus", "2 Coríntios 12:9"],
+    ["A proteção do Senhor", "Salmos 91:1-2"],
+    ["A fidelidade de Deus", "Deuteronómio 7:9"],
+    ["A alegria no Senhor", "Neemias 8:10"],
+    ["A coragem para avançar", "Josué 1:9"],
+    ["A luz de Cristo", "João 8:12"],
+    ["A palavra de Deus", "Salmos 119:105"],
+    ["A bondade do Senhor", "Salmos 34:8"],
+    ["A vitória sobre o medo", "2 Timóteo 1:7"],
+    ["A paciência e a perseverança", "Romanos 12:12"],
+    ["O cuidado de Deus", "1 Pedro 5:7"],
+    ["A renovação da mente", "Romanos 12:2"],
+    ["A vida em Cristo", "João 10:10"],
+    ["A humildade diante de Deus", "Tiago 4:10"],
+    ["A gratidão em todo o tempo", "1 Tessalonicenses 5:18"],
+    ["A força de Deus", "Isaías 40:31"],
+    ["A confiança nas promessas", "Números 23:19"],
+    ["O caminho do Senhor", "Salmos 37:5"],
+    ["O consolo de Deus", "2 Coríntios 1:3-4"],
+    ["A liberdade em Cristo", "Gálatas 5:1"],
+    ["O fruto do Espírito", "Gálatas 5:22-23"],
+    ["A santidade da vida", "1 Pedro 1:15-16"],
+    ["O serviço com amor", "Gálatas 5:13"],
+    ["A família nas mãos de Deus", "Josué 24:15"],
+    ["A vitória da fé", "1 João 5:4"],
+    ["A justiça de Deus", "Mateus 6:33"],
+    ["A coragem para testemunhar", "Atos 1:8"],
+    ["A fidelidade nas pequenas coisas", "Lucas 16:10"],
+    ["O descanso em Deus", "Mateus 11:28-29"],
+    ["A generosidade do coração", "2 Coríntios 9:7"],
+    ["A reconciliação", "2 Coríntios 5:18"],
+    ["A direção do Espírito Santo", "João 16:13"],
+    ["A esperança nas dificuldades", "Romanos 5:3-5"],
+    ["A comunhão com Deus", "João 15:4-5"],
+    ["A palavra que transforma", "Hebreus 4:12"],
+    ["O amor ao próximo", "Marcos 12:31"],
+    ["A coragem para recomeçar", "Isaías 43:18-19"],
+    ["A promessa da vida eterna", "João 3:16"],
+    ["A vitória em Cristo", "Romanos 8:37"],
+    ["A presença do Espírito Santo", "João 14:16-17"],
+    ["A alegria da salvação", "Salmos 51:12"],
+    ["A confiança no futuro", "Jeremias 29:11"],
+    ["A fidelidade até ao fim", "Apocalipse 2:10"]
+  ];
+
+  const reflexoes = [
+    "Deus conhece a tua caminhada e não te abandona. Mesmo quando não compreendes o que acontece, podes confiar no cuidado dele.",
+    "A fé não significa ausência de dificuldades. Significa escolher confiar em Deus mesmo quando ainda não consegues ver a resposta.",
+    "A oração aproxima o teu coração do Senhor. Fala com Deus com sinceridade e entrega-lhe as tuas preocupações.",
+    "Nem sempre terás todas as respostas. Entrega os teus caminhos ao Senhor e procura agir com sabedoria.",
+    "O amor de Deus não depende das circunstâncias. Ele continua presente e oferece uma nova oportunidade.",
+    "Não permitas que as dificuldades apaguem a esperança. Deus pode renovar as tuas forças.",
+    "A paz verdadeira não depende de tudo estar perfeito. Aprende a entregar as tuas preocupações a Deus.",
+    "Quando te sentires fraco, lembra-te de que a força do Senhor não tem limites.",
+    "Pede sabedoria a Deus antes de tomar decisões. Um coração disposto a aprender encontra direção.",
+    "Reconhecer os erros e procurar o perdão abre espaço para uma vida transformada.",
+    "A misericórdia do Senhor renova-se. Não deixes que o passado te impeça de procurar um novo começo.",
+    "A graça de Deus lembra-te de que não precisas enfrentar tudo sozinho.",
+    "Faz do Senhor o teu refúgio. A confiança nele pode dar-te coragem.",
+    "Deus é fiel às suas promessas. Continua firme e não percas a confiança.",
+    "A alegria que vem de Deus pode permanecer mesmo nos dias difíceis.",
+    "A coragem nasce quando decides avançar confiando que Deus caminha contigo.",
+    "A luz de Cristo ajuda-te a reconhecer o caminho certo.",
+    "A Palavra de Deus orienta os teus passos. Lê, medita e pratica os seus ensinamentos.",
+    "Aprende a reconhecer a bondade do Senhor nas pequenas e grandes bênçãos.",
+    "O medo pode surgir, mas não precisa controlar a tua vida.",
+    "Perseverar é continuar a fazer o bem mesmo quando os resultados demoram.",
+    "Entrega as tuas preocupações ao Senhor. Ele conhece aquilo que pesa no teu coração.",
+    "Permite que Deus transforme a tua maneira de pensar.",
+    "Em Cristo encontras vida e propósito. Aproxima-te dele diariamente.",
+    "A humildade ajuda-te a reconhecer que precisas de Deus.",
+    "A gratidão muda a maneira como olhas para a vida.",
+    "A força de Deus sustenta-te quando as tuas próprias forças parecem terminar.",
+    "As promessas de Deus são dignas de confiança.",
+    "Entrega o teu caminho ao Senhor e procura seguir a sua orientação.",
+    "Deus é fonte de consolo nos momentos de tristeza.",
+    "A liberdade em Cristo chama-te a viver longe daquilo que te prende.",
+    "O Espírito de Deus pode desenvolver em ti amor, paciência e bondade.",
+    "A santidade começa nas escolhas diárias.",
+    "Servir com amor é uma forma de demonstrar a tua fé.",
+    "Coloca a tua família nas mãos de Deus.",
+    "A fé dá-te coragem para enfrentar os desafios.",
+    "Procura primeiro aquilo que agrada a Deus.",
+    "A tua vida pode ser um testemunho de esperança.",
+    "A fidelidade também se revela nas pequenas tarefas.",
+    "Jesus convida-te a encontrar descanso nele.",
+    "A generosidade nasce de um coração agradecido.",
+    "A reconciliação exige humildade e disposição para perdoar.",
+    "O Espírito Santo orienta e ensina.",
+    "As dificuldades não precisam destruir a tua esperança.",
+    "A comunhão com Deus cresce quando permaneces perto dele.",
+    "A Palavra de Deus pode corrigir, ensinar e transformar.",
+    "Amar o próximo é demonstrar o amor de Deus.",
+    "Deus pode abrir um novo caminho mesmo depois de uma fase difícil.",
+    "A promessa da vida eterna lembra-te de que a tua esperança vai além desta vida.",
+    "Em Cristo podes encontrar força para continuar.",
+    "O Espírito Santo está presente para ajudar e orientar.",
+    "A salvação é motivo de alegria e gratidão.",
+    "Confia o teu futuro ao Senhor.",
+    "Continua fiel mesmo quando o caminho é difícil."
+  ];
+
+  const propositos = [
+    "Reserva alguns minutos para orar e entregar esta área da tua vida a Deus.",
+    "Lê a passagem bíblica indicada e escreve uma lição que podes aplicar hoje.",
+    "Pratica uma atitude de amor, paciência ou bondade com alguém.",
+    "Identifica uma preocupação e entrega-a a Deus em oração.",
+    "Agradece a Deus por três coisas concretas da tua vida.",
+    "Evita uma atitude negativa e escolhe responder com fé e sabedoria.",
+    "Procura ajudar alguém sem esperar reconhecimento."
+  ];
+
+  const oracoes = [
+    "Senhor, guia os meus passos e ajuda-me a confiar em ti em todos os momentos. Amém.",
+    "Pai, aumenta a minha fé e ensina-me a permanecer firme diante das dificuldades. Amém.",
+    "Meu Deus, aproxima o meu coração de ti e ensina-me a procurar a tua presença todos os dias. Amém.",
+    "Senhor, dá-me sabedoria para tomar boas decisões e coragem para praticar a tua vontade. Amém.",
+    "Pai celestial, obrigado pelo teu amor. Ajuda-me a viver com gratidão, esperança e bondade. Amém.",
+    "Senhor, renova as minhas forças e não permitas que eu perca a esperança. Amém.",
+    "Deus amado, cuida da minha vida e ajuda-me a ser instrumento de paz e amor. Amém."
+  ];
+
+  const frases = [
+    "Deus está contigo em cada passo.",
+    "A tua esperança está nas mãos de Deus.",
+    "Continua a confiar: Deus não te abandona.",
+    "A fé abre caminho para a esperança.",
+    "O amor de Deus é maior do que qualquer dificuldade.",
+    "Com Deus, podes encontrar forças para recomeçar.",
+    "Entrega a Deus o que pesa no teu coração."
+  ];
 
   function dataAngola() {
-    const partes = new Intl.DateTimeFormat("en-CA", {
+    const partes = new Intl.DateTimeFormat("en-GB", {
       timeZone: FUSO,
       year: "numeric",
       month: "2-digit",
       day: "2-digit"
     }).formatToParts(new Date());
 
-    const p = Object.fromEntries(
-      partes.map(x => [x.type, x.value])
-    );
+    const valor = tipo => partes.find(p => p.type === tipo).value;
 
-    return `${p.year}-${p.month}-${p.day}`;
+    return `${valor("year")}-${valor("month")}-${valor("day")}`;
   }
 
   function numeroDia(data) {
-    const [a, m, d] = data.split("-").map(Number);
-    const [ia, im, id] = INICIO.split("-").map(Number);
-
-    const atual = Date.UTC(a, m - 1, d);
-    const inicio = Date.UTC(ia, im - 1, id);
+    const inicio = new Date(INICIO + "T00:00:00Z");
+    const atual = new Date(data + "T00:00:00Z");
 
     return Math.floor((atual - inicio) / 86400000) + 1;
   }
 
-  function elemento(tag, texto) {
-    const el = document.createElement(tag);
-    el.textContent = texto;
-    return el;
+  function criarConteudo(numero) {
+    const indice = numero - 1;
+    const semana = Math.floor(indice / 7);
+    const foco = indice % 7;
+    const base = temas[semana % temas.length];
+
+    let tema = base[0];
+
+    if (numero === 27) {
+      tema = "A força de Deus";
+    }
+
+    return {
+      tema,
+      versiculo: base[1],
+      reflexao: reflexoes[semana % reflexoes.length],
+      proposito: propositos[foco],
+      oracao: oracoes[foco],
+      frase: frases[foco]
+    };
   }
 
-  window.mostrarPalavraDoDia = function () {
+  function adicionar(area, rotulo, texto) {
+    const subtitulo = document.createElement("h3");
+    subtitulo.textContent = rotulo;
+    area.appendChild(subtitulo);
+
+    const paragrafo = document.createElement("p");
+    paragrafo.textContent = texto;
+    area.appendChild(paragrafo);
+  }
+
+  function mostrarPalavraDoDia() {
     const area = document.getElementById("conteudo");
     if (!area) return;
 
+    area.innerHTML = "";
+
     const hoje = dataAngola();
-    const dia = numeroDia(hoje);
+    const numero = numeroDia(hoje);
 
-    const [a, m, d] = hoje.split("-");
-    const dataFormatada = `${d}/${m}/${a}`;
-
-    area.replaceChildren();
-    area.appendChild(elemento("h2", "Uma Palavra de Deus por Dia"));
+    const titulo = document.createElement("h2");
+    titulo.textContent = "Uma Palavra de Deus por Dia";
+    area.appendChild(titulo);
 
     if (hoje < INICIO) {
-      area.appendChild(elemento("p", "A nossa caminhada começa em 5 de dezembro de 2026."));
+      adicionar(
+        area,
+        "Em breve",
+        "O programa começa no dia 24 de novembro de 2026. Volta nessa data para receber a tua primeira palavra."
+      );
       return;
     }
 
-    if (hoje > FIM) {
-      area.appendChild(elemento("p", "A caminhada dos 365 dias foi concluída. Que Deus continue contigo!"));
+    if (hoje > FIM || numero < 1 || numero > 365) {
+      adicionar(
+        area,
+        "Programa concluído",
+        "Os 365 dias chegaram ao fim. Que Deus continue a guiar a tua caminhada!"
+      );
       return;
     }
 
-    const conteudo = palavras[dia];
+    const palavra = criarConteudo(numero);
 
-    area.appendChild(elemento("p", `Dia ${dia} de 365 · ${dataFormatada}`));
+    adicionar(area, "Data", `Dia ${numero} de 365 — ${hoje}`);
+    adicionar(area, "Tema de hoje", palavra.tema);
+    adicionar(area, "Passagem bíblica", palavra.versiculo);
+    adicionar(area, "Reflexão", palavra.reflexao);
+    adicionar(area, "Propósito do dia", palavra.proposito);
+    adicionar(area, "Oração", palavra.oracao);
+    adicionar(area, "Frase especial", palavra.frase);
+    adicionar(area, "Uma bênção para ti", "Que a Palavra de Deus ilumine o teu dia!");
+  }
 
-    if (!conteudo) {
-      area.appendChild(elemento("h3", "A Palavra deste dia"));
-      area.appendChild(elemento("p", "O conteúdo deste dia está a ser preparado."));
-      return;
-    }
+  window.mostrarPalavraDoDia = mostrarPalavraDoDia;
 
-    area.appendChild(elemento("h3", conteudo.tema));
-    area.appendChild(elemento("h3", "Passagem bíblica"));
-    area.appendChild(elemento("p", conteudo.versiculo));
-    area.appendChild(elemento("h3", "Reflexão"));
-    area.appendChild(elemento("p", conteudo.reflexao));
-    area.appendChild(elemento("h3", "Propósito do dia"));
-    area.appendChild(elemento("p", conteudo.proposito));
-    area.appendChild(elemento("h3", "Oração"));
-    area.appendChild(elemento("p", conteudo.oracao));
-    area.appendChild(elemento("h3", "Uma frase para guardar"));
-    area.appendChild(elemento("p", conteudo.frase));
-    area.appendChild(elemento("p", "Que Deus abençoe o teu dia!"));
-  };
 })();
+      
