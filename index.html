@@ -8,7 +8,9 @@
   <title>Uma Palavra de Deus por Dia</title>
 
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
@@ -29,14 +31,18 @@
       box-shadow: 0 5px 22px #003b5533;
     }
 
-    h1, h2, h3 { color: #006F96; }
+    h1, h2, h3 {
+      color: #006F96;
+    }
 
     h1 {
       font-size: 27px;
       line-height: 1.3;
     }
 
-    p { line-height: 1.7; }
+    p {
+      line-height: 1.7;
+    }
 
     input, button {
       width: 100%;
@@ -59,7 +65,9 @@
       cursor: pointer;
     }
 
-    button:hover { background: #006F96; }
+    button:hover {
+      background: #006F96;
+    }
 
     button:disabled {
       opacity: 0.6;
@@ -77,7 +85,9 @@
       text-align: left;
     }
 
-    #conteudo button { margin-top: 25px; }
+    #conteudo button {
+      margin-top: 25px;
+    }
 
     .assinatura {
       margin-top: 28px;
@@ -88,75 +98,115 @@
 </head>
 
 <body>
+
 <div class="container">
 
   <div id="entrada">
     <h1>Uma Palavra de Deus por Dia</h1>
-    <p>Uma mensagem de fé, esperança e amor para cada dia.</p>
-    <p>Introduz o código da tua pulseira para entrar.</p>
+
+    <p>
+      Uma mensagem de fé, esperança e amor para cada dia.
+    </p>
+
+    <p>
+      Introduz o código da tua pulseira para entrar.
+    </p>
 
     <input
       id="codigo"
+      type="text"
       placeholder="Código da pulseira"
       autocomplete="off"
       autocapitalize="characters"
+      spellcheck="false"
     >
 
-    <button id="botaoEntrar" onclick="verificarCodigo()">
+    <button id="botaoEntrar" type="button">
       Entrar
     </button>
 
-    <p id="mensagem" role="status"></p>
+    <p id="mensagem" role="status" aria-live="polite"></p>
   </div>
 
   <div id="conteudo"></div>
 
-  <p class="assinatura">Uma Palavra de Deus por Dia</p>
+  <p class="assinatura">
+    Uma Palavra de Deus por Dia
+  </p>
+
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="./dias.js"></script>
 
 <script>
+"use strict";
+
+/* CONFIGURAÇÃO DO SUPABASE */
+
 const SUPABASE_URL =
   "https://okcmbnucjzkeiduivsny.supabase.co";
 
 const SUPABASE_KEY =
-  "sb_publishable_7F_7S5UWTRO-l2tDBP-LeQ__J28PZ6v";
+  "sb_publishable_7F_7S5UWTRO-l2tDB-PLeQ__J28PZ6v";
 
 let db = null;
 
-try {
-  if (!window.supabase || !window.supabase.createClient) {
-    throw new Error("A biblioteca do Supabase não foi carregada.");
+/* INICIAR LIGAÇÃO */
+
+function iniciarSupabase() {
+  if (!window.supabase ||
+      typeof window.supabase.createClient !== "function") {
+    throw new Error(
+      "A biblioteca do Supabase não carregou. Verifica a ligação à internet."
+    );
+  }
+
+  if (!SUPABASE_KEY ||
+      SUPABASE_KEY.includes("COLOCA_A_TUA_CHAVE")) {
+    throw new Error("A chave pública do Supabase não está configurada.");
   }
 
   db = window.supabase.createClient(
     SUPABASE_URL,
     SUPABASE_KEY
   );
+}
 
+try {
+  iniciarSupabase();
 } catch (erro) {
   console.error("Erro ao iniciar Supabase:", erro);
 }
 
+/* VALIDAR PULSEIRA */
+
 async function validarCodigo(codigo) {
   if (!db) {
-    throw new Error("Não foi possível iniciar a ligação ao Supabase.");
+    throw new Error(
+      "Não foi possível iniciar a ligação ao Supabase."
+    );
   }
 
-  const resposta = await db.rpc(
+  const { data, error } = await db.rpc(
     "validar_pulseira",
-    { p_codigo: codigo }
+    {
+      p_codigo: codigo
+    }
   );
 
-  if (resposta.error) {
-    console.error("Erro Supabase:", resposta.error);
-    throw resposta.error;
+  if (error) {
+    console.error("Erro Supabase:", error);
+
+    throw new Error(
+      error.message || "O Supabase não conseguiu validar o código."
+    );
   }
 
-  return resposta.data === true;
+  return data === true;
 }
+
+/* ENTRAR NO SITE */
 
 async function verificarCodigo() {
   const campo = document.getElementById("codigo");
@@ -166,7 +216,10 @@ async function verificarCodigo() {
   const codigo = campo.value.trim().toUpperCase();
 
   if (!codigo) {
-    mensagem.textContent = "Introduz o código da pulseira.";
+    mensagem.textContent =
+      "Introduz o código da pulseira.";
+
+    campo.focus();
     return;
   }
 
@@ -178,8 +231,11 @@ async function verificarCodigo() {
 
     if (valido) {
       localStorage.setItem("codigo_pulseira", codigo);
+
       mensagem.textContent = "";
+
       mostrarConteudo();
+
     } else {
       mensagem.textContent =
         "Código inválido, suspenso ou com a validade terminada.";
@@ -189,18 +245,21 @@ async function verificarCodigo() {
     console.error("Falha na validação:", erro);
 
     mensagem.textContent =
-      "Erro de ligação: " +
-      (erro.message || erro.details || "Não foi possível contactar o Supabase.");
+      "Não foi possível verificar: " +
+      (erro.message || "Erro de ligação ao Supabase.");
 
   } finally {
     botao.disabled = false;
   }
 }
 
+/* MOSTRAR PALAVRA DO DIA */
+
 function mostrarConteudo() {
   document.getElementById("entrada").style.display = "none";
 
   const area = document.getElementById("conteudo");
+
   area.style.display = "block";
 
   if (typeof window.mostrarPalavraDoDia === "function") {
@@ -212,22 +271,31 @@ function mostrarConteudo() {
 
   if (!document.getElementById("botaoSair")) {
     const botaoSair = document.createElement("button");
+
     botaoSair.id = "botaoSair";
+    botaoSair.type = "button";
     botaoSair.textContent = "Sair";
     botaoSair.onclick = sair;
+
     area.appendChild(botaoSair);
   }
 }
+
+/* SAIR */
 
 function sair() {
   localStorage.removeItem("codigo_pulseira");
   location.reload();
 }
 
+/* VERIFICAR ACESSO GUARDADO */
+
 async function verificarAcessoGuardado() {
   const codigo = localStorage.getItem("codigo_pulseira");
 
-  if (!codigo) return;
+  if (!codigo) {
+    return;
+  }
 
   try {
     const valido = await validarCodigo(codigo);
@@ -239,11 +307,31 @@ async function verificarAcessoGuardado() {
     }
 
   } catch (erro) {
-    console.error("Erro ao verificar acesso guardado:", erro);
+    console.error(
+      "Erro ao verificar acesso guardado:",
+      erro
+    );
   }
 }
 
+/* EVENTOS */
+
+document
+  .getElementById("botaoEntrar")
+  .addEventListener("click", verificarCodigo);
+
+document
+  .getElementById("codigo")
+  .addEventListener("keydown", function(evento) {
+    if (evento.key === "Enter") {
+      verificarCodigo();
+    }
+  });
+
+/* INICIAR */
+
 verificarAcessoGuardado();
+
 </script>
 
 </body>
