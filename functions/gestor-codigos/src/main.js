@@ -2,6 +2,9 @@ import * as sdk from "node-appwrite";
 import { randomBytes } from "node:crypto";
 
 export default async ({ req, res, log, error }) => {
+  log("Execução iniciada");
+  log("Método: " + req.method);
+  log("Pedido recebido");
   try {
     const env = process.env;
 
