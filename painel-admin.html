@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Painel — Maurício Francisco</title>
+<style>
+:root{--red:#781927;--gold:#c59b48;--bg:#f5f1eb;--ink:#2b2524;--muted:#746b65}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px Arial,sans-serif}
+header{background:linear-gradient(120deg,#5f101d,#8a1d2b);color:white;padding:24px 18px;border-bottom:4px solid var(--gold)}
+header h1{margin:0;font-size:24px}header p{margin:7px 0 0;color:#f4dfb4}
+main{max-width:1000px;margin:20px auto;padding:0 14px}.panel,.stat{background:white;border:1px solid #e8dfd6;border-radius:13px;padding:15px;box-shadow:0 3px 12px #30140b0a;margin-bottom:14px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.stat small{color:var(--muted)}.stat strong{display:block;color:var(--red);font-size:27px;margin-top:8px}
+h2{font-size:18px;margin:0 0 13px}.fields{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+label{display:block;font-size:13px;color:var(--muted);margin-bottom:5px}input,select,button{width:100%;padding:11px;border:1px solid #d9d0c7;border-radius:8px;font-size:15px;background:#fff}
+button{background:var(--red);color:white;border:0;font-weight:bold;cursor:pointer}button.alt{background:#f1e7d5;color:#5c4319;border:1px solid #dfc58d}
+small.note{color:var(--muted)}.row-actions{display:flex;gap:6px}.row-actions button{padding:8px;font-size:12px}
+table{width:100%;border-collapse:collapse;min-width:600px}th,td{text-align:left;padding:10px 8px;border-bottom:1px solid #eee6df;font-size:13px}
+.wrap{overflow-x:auto}.state-active{color:#287447;font-weight:bold}.state-expired{color:#a05a10;font-weight:bold}.state-suspended{color:#a12b35;font-weight:bold}
+#message{font-size:13px;color:var(--muted);margin-top:9px}
+@media(max-width:680px){.grid{grid-template-columns:repeat(2,1fr)}.fields{grid-template-columns:1fr}header h1{font-size:21px}}
+</style></head>
+<body>
+<header><h1>Maurício Francisco</h1><p>Gestão de Pulseiras · Uma Palavra de Deus por Dia</p></header>
+<main>
+<section class="panel">
+<h2>Ligar ao Appwrite</h2>
+<div class="fields">
+<div><label for="token">Código de administração (ADMIN_TOKEN)</label><input id="token" type="password" autocomplete="off" placeholder="Introduz o token configurado no Appwrite"></div>
+<div style="display:flex;align-items:end"><button id="connect">Ligar e carregar códigos</button></div>
+</div><div id="message">A ligação só funciona depois de publicar a função atualizada e configurar ADMIN_TOKEN.</div>
+</section>
+<section class="grid">
+<div class="stat"><small>Total de códigos</small><strong id="total">—</strong></div>
+<div class="stat"><small>Acessos ativos</small><strong id="active">—</strong></div>
+<div class="stat"><small>Acesso expirado</small><strong id="expired">—</strong></div>
+<div class="stat"><small>Acesso suspenso</small><strong id="suspended">—</strong></div>
+</section>
+<section class="panel"><h2>Gerar códigos</h2>
+<div class="fields">
+<div><label for="quantity">Quantidade</label><input id="quantity" type="number" min="1" max="50" value="1"></div>
+<div><label for="days">Validade em dias</label><input id="days" type="number" min="1" max="3650" value="30"></div>
+<div style="display:flex;align-items:end"><button id="generate">Gerar códigos</button></div>
+</div></section>
+<section class="panel"><h2>Consultar e gerir códigos</h2>
+<div class="fields">
+<div><label for="search">Pesquisar código</label><input id="search" placeholder="Escreve o código"></div>
+<div><label for="filter">Estado</label><select id="filter"><option value="Todos">Todos</option><option>Ativo</option><option>Expirado</option><option>Suspenso</option></select></div>
+<div style="display:flex;align-items:end"><button class="alt" id="refresh">Atualizar lista</button></div>
+</div>
+<div class="wrap" style="margin-top:13px"><table><thead><tr><th>Código</th><th>Validade</th><th>Duração</th><th>Estado</th><th>Ações</th></tr></thead><tbody id="rows"><tr><td colspan="5">Liga o painel ao Appwrite para carregar os códigos.</td></tr></tbody></table></div>
+</section>
+</main>
+<script>
+const API='https://fra.cloud.appwrite.io/v1';
+const PROJECT='6b01acb000015409164b';
+const FUNCTION_ID='gestor-codigos';
+let records=[];
+const $=id=>document.getElementById(id);
+async function call(action,data={}){
+ const token=$('token').value.trim();
+ if(!token) throw new Error('Introduz o token de administração.');
+ const r=await fetch(`${API}/functions/${FUNCTION_ID}/executions`,{
+  method:'POST',
+  headers:{'Content-Type':'application/json','X-Appwrite-Project':PROJECT},
+  body:JSON.stringify({body:JSON.stringify({action,...data}),async:false,method:'POST',path:'/',headers:{'x-admin-token':token}})
+ });
+ if(!r.ok) throw new Error('Falha ao chamar a função ('+r.status+'). Confirma deployment, ID e domínio autorizado.');
+ const execution=await r.json();
+ let result={};
+ try{result=JSON.parse(execution.responseBody||'{}')}catch(e){throw new Error('A função não devolveu uma resposta JSON válida.')}
+ if(!result.sucesso) throw new Error(result.erro||'A função devolveu um erro.');
+ return result;
+}
+function render(){
+ $('total').textContent=records.length;
+ $('active').textContent=records.filter(r=>r.estado==='Ativo').length;
+ $('expired').textContent=records.filter(r=>r.estado==='Expirado').length;
+ $('suspended').textContent=records.filter(r=>r.estado==='Suspenso').length;
+ const q=$('search').value.trim().toUpperCase(), f=$('filter').value;
+ const list=records.filter(r=>(!q||String(r.codigo).toUpperCase().includes(q))&&(f==='Todos'||r.estado===f));
+ $('rows').innerHTML=list.length?list.map(r=>{
+ const cls=r.estado==='Ativo'?'state-active':r.estado==='Expirado'?'state-expired':'state-suspended';
+ const buttons=r.estado==='Suspenso'?`<button class="alt" onclick="manage('${r.id}','reativar')">Reativar</button>`:`<button class="alt" onclick="manage('${r.id}','suspender')">Suspender</button>`;
+ return `<tr><td><b>${r.codigo}</b></td><td>${r.validade||'—'}</td><td>${r.duracaoDias||'—'} dias</td><td class="${cls}">${r.estado}</td><td><div class="row-actions">${buttons}<button onclick="renew('${r.id}')">Renovar</button></div></td></tr>`;
+ }).join(''):'<tr><td colspan="5">Nenhum código encontrado.</td></tr>';
+}
+async function load(){const x=await call('listar');records=x.codigos||[];render()}
+async function manage(id,action){try{await call(action,{id});await load();$('message').textContent='Estado atualizado.'}catch(e){$('message').textContent=e.message}}
+async function renew(id){const raw=prompt('Quantos dias queres acrescentar?','30');if(raw===null)return;const dias=Number(raw);if(!Number.isInteger(dias)||dias<1||dias>3650){$('message').textContent='Indica um número de dias válido (1 a 3650).';return}try{await call('renovar',{id,dias});await load();$('message').textContent='Acesso renovado.'}catch(e){$('message').textContent=e.message}}
+$('connect').onclick=async()=>{try{await load();$('message').textContent='Ligação concluída. Códigos carregados do Appwrite.'}catch(e){$('message').textContent=e.message}};
+$('generate').onclick=async()=>{try{const quantidade=Number($('quantity').value),dias=Number($('days').value);if(!Number.isInteger(quantidade)||quantidade<1||quantidade>50||!Number.isInteger(dias)||dias<1||dias>3650)throw new Error('Quantidade: 1–50. Validade: 1–3650 dias.');const x=await call('gerar',{quantidade,dias});await load();$('message').textContent=x.codigos.length+' código(s) criado(s) e guardado(s) no Appwrite.'}catch(e){$('message').textContent=e.message}};
+$('refresh').onclick=async()=>{try{await load();$('message').textContent='Lista atualizada.'}catch(e){$('message').textContent=e.message}};
+$('search').oninput=render;$('filter').onchange=render;
+window.manage=manage;window.renew=renew;
+</script></body></html>
