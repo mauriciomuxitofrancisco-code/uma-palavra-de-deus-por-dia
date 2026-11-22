@@ -1,4 +1,4 @@
-<!doctype html>
+[22/11, 05:15] Maurício Francisco: <!doctype html>
 <html lang="pt">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -93,3 +93,92 @@ $('refresh').onclick=async()=>{try{await load();$('message').textContent='Lista 
 $('search').oninput=render;$('filter').onchange=render;
 window.manage=manage;window.renew=renew;
 </script></body></html>
+[22/11, 10:25] Maurício Francisco: gestor_codigos_01
+[22/11, 10:39] Maurício: <!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Painel — Maurício Francisco</title>
+<style>
+:root {
+  --red:#781d2b;
+  --dark:#351018;
+  --gold:#d6ad59;
+  --bg:#f6f2ed;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:#30252a;font-family:Arial,sans-serif}
+header{background:linear-gradient(135deg,var(--dark),var(--red));color:white;padding:25px 18px;border-bottom:4px solid var(--gold)}
+header h1{margin:0;font-size:23px}
+header p{margin:7px 0 0;color:#f0dcae}
+main{max-width:950px;margin:22px auto;padding:0 14px}
+.card{background:white;border-radius:12px;padding:18px;margin-bottom:16px;box-shadow:0 3px 12px #0000000d}
+h2{font-size:18px;color:var(--red);margin:0 0 15px}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.stat{background:#fbf7f0;border:1px solid #eadfc9;border-radius:10px;padding:15px}
+.stat span{display:block;font-size:13px;color:#68565a}
+.stat strong{display:block;font-size:27px;color:var(--red);margin-top:7px}
+input,select,button{width:100%;padding:12px;border-radius:8px;border:1px solid #d9cfc8;font-size:15px;margin:6px 0}
+button{border:0;background:var(--red);color:white;font-weight:bold;cursor:pointer}
+button.gold{background:#a77c2d}
+button.gray{background:#65575a}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.status{font-size:13px;color:#68565a;margin-top:8px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{padding:10px 7px;border-bottom:1px solid #eee;text-align:left}
+th{color:var(--red)}
+.table-wrap{overflow-x:auto}
+.small{font-size:12px;color:#76686b}
+@media(max-width:520px){.grid{grid-template-columns:1fr}header h1{font-size:20px}}
+</style>
+</head>
+<body>
+<header>
+<h1>Maurício Francisco</h1>
+<p>Uma Palavra de Deus por Dia · Painel Administrativo</p>
+</header>
+<main>
+<section class="card">
+<h2>Ligação ao sistema</h2>
+<input id="token" type="password" placeholder="Código de administrador">
+<button class="gold" onclick="ligar()">LIGAR AO APPWRITE</button>
+<div id="mensagem" class="status">Aguardando ligação...</div>
+</section>
+<section class="card">
+<h2>Resumo dos códigos</h2>
+<div class="stats">
+<div class="stat"><span>Total de códigos</span><strong id="total">0</strong></div>
+<div class="stat"><span>Acessos ativos</span><strong id="ativos">0</strong></div>
+<div class="stat"><span>Acesso expirado</span><strong id="expirados">0</strong></div>
+<div class="stat"><span>Acesso suspenso</span><strong id="suspensos">0</strong></div>
+</div>
+</section>
+<section class="card">
+<h2>Gerar novos códigos</h2>
+<label>Quantidade de códigos</label>
+<input id="quantidade" type="number" min="1" max="500" value="10">
+<label>Duração do acesso (dias)</label>
+<input id="duracao" type="number" min="1" value="30">
+<button onclick="gerar()">GERAR CÓDIGOS</button>
+</section>
+<section class="card">
+<h2>Pesquisar e gerir códigos</h2>
+<input id="pesquisa" placeholder="Pesquisar código..." oninput="mostrarLista()">
+<button class="gray" onclick="listar()">ATUALIZAR LISTA</button>
+<div class="grid">
+<button onclick="gerir('suspender')">SUSPENDER CÓDIGO</button>
+<button class="gold" onclick="gerir('reativar')">REATIVAR CÓDIGO</button>
+</div>
+<label>Renovar acesso — duração em dias</label>
+<input id="renovacao" type="number" min="1" value="30">
+<button class="gold" onclick="gerir('renovar')">RENOVAR ACESSO</button>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Código</th><th>Validade</th><th>Estado</th></tr></thead>
+<tbody id="lista"><tr><td colspan="3">Ainda não existem dados carregados.</td></tr></tbody>
+</table>
+</div>
+</section>
+<p class="small">Painel administrativo · Maurício Francisco</p>
+ </main>
