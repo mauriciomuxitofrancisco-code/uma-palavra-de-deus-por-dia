@@ -9,148 +9,41 @@
 
 <style>
 *{box-sizing:border-box}
-
-body{
-  margin:0;
-  background:#f3f5f9;
-  color:#1b2940;
-  font-family:Arial,sans-serif
-}
-
-header{
-  background:#008CBA;
-  color:white;
-  padding:25px 18px
-}
-
+body{margin:0;background:#f3f5f9;color:#1b2940;font-family:Arial,sans-serif}
+header{background:#008CBA;color:white;padding:25px 18px}
 header h2{margin:0;font-size:21px}
 header p{color:#e0f5fc;font-size:13px}
-
 main{padding:18px;max-width:950px;margin:auto}
-
-.notice{
-  background:#e8f3ff;
-  padding:14px;
-  border-radius:10px;
-  font-size:12px;
-  color:#244d75;
-  margin-bottom:18px
-}
-
-.cards{
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:10px
-}
-
-.card,.panel{
-  background:white;
-  padding:17px;
-  border-radius:12px;
-  margin-bottom:16px;
-  box-shadow:0 2px 8px #00000008
-}
-
+.notice{background:#e8f3ff;padding:14px;border-radius:10px;font-size:12px;color:#244d75;margin-bottom:18px}
+.cards{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.card,.panel{background:white;padding:17px;border-radius:12px;margin-bottom:16px;box-shadow:0 2px 8px #00000008}
 .card span{font-size:12px;color:#68758a}
 .card strong{display:block;font-size:25px;margin-top:8px}
-
 h3{font-size:16px;margin-top:0}
-
-label{
-  display:block;
-  font-size:12px;
-  margin:12px 0 6px
-}
-
-input,select{
-  width:100%;
-  padding:12px;
-  border:1px solid #dce1e9;
-  border-radius:8px;
-  background:white
-}
-
-button{
-  padding:11px 14px;
-  border:0;
-  border-radius:8px;
-  background:#142541;
-  color:white;
-  font-weight:bold;
-  cursor:pointer;
-  margin:5px 3px 5px 0
-}
-
+label{display:block;font-size:12px;margin:12px 0 6px}
+input,select{width:100%;padding:12px;border:1px solid #dce1e9;border-radius:8px;background:white}
+button{padding:11px 14px;border:0;border-radius:8px;background:#142541;color:white;font-weight:bold;cursor:pointer;margin:5px 3px 5px 0}
 button.light{background:#e9edf4;color:#263750}
 button.green{background:#187b55}
 button:disabled{opacity:.5;cursor:not-allowed}
-
-table{
-  width:100%;
-  border-collapse:collapse;
-  min-width:600px
-}
-
-th,td{
-  text-align:left;
-  padding:12px 8px;
-  border-bottom:1px solid #e9edf2;
-  font-size:12px
-}
-
+table{width:100%;border-collapse:collapse;min-width:600px}
+th,td{text-align:left;padding:12px 8px;border-bottom:1px solid #e9edf2;font-size:12px}
 th{color:#66738a}
-
 .tablewrap{overflow-x:auto}
-
 .status{font-weight:bold}
 .actions button{margin:3px 2px}
-
-footer{
-  text-align:center;
-  color:#8791a1;
-  font-size:11px;
-  padding:20px
-}
-
+footer{text-align:center;color:#8791a1;font-size:11px;padding:20px}
 .hidden{display:none!important}
-
-.error{
-  color:#a32635;
-  font-size:13px;
-  white-space:pre-wrap
-}
-
+.error{color:#a32635;font-size:13px;white-space:pre-wrap}
 .muted{color:#68758a;font-size:12px}
-
-.warning-panel{
-  border-left:5px solid #e5a000;
-  background:#fffaf0
-}
-
-.expired-panel{
-  border-left:5px solid #c43d48;
-  background:#fff6f6
-}
-
-.alert-list{
-  margin:8px 0 0;
-  padding-left:20px;
-  font-size:13px;
-  line-height:1.9;
-  overflow-wrap:anywhere
-}
-
+.warning-panel{border-left:5px solid #e5a000;background:#fffaf0}
+.expired-panel{border-left:5px solid #c43d48;background:#fff6f6}
+.alert-list{margin:8px 0 0;padding-left:20px;font-size:13px;line-height:1.9;overflow-wrap:anywhere}
 .success-text{color:#187b55}
 .warning-text{color:#a36b00}
 .danger-text{color:#b52e3a}
-
-@media(max-width:750px){
-  .cards{grid-template-columns:repeat(2,1fr)}
-}
-
-@media(max-width:380px){
-  .cards{grid-template-columns:1fr 1fr}
-}
+@media(max-width:750px){.cards{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:380px){.cards{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 
@@ -195,83 +88,46 @@ Os avisos são calculados através da data de validade.
 </div>
 
 <div class="cards">
-
-<div class="card">
-<span>Total de códigos</span>
-<strong id="total">0</strong>
+<div class="card"><span>Total de códigos</span><strong id="total">0</strong></div>
+<div class="card"><span>Códigos ativos</span><strong id="ativos">0</strong></div>
+<div class="card"><span>Suspensos</span><strong id="suspensos">0</strong></div>
+<div class="card"><span>Expirados</span><strong id="expirados">0</strong></div>
+<div class="card"><span>A expirar em 3 dias</span><strong id="aExpirar">0</strong></div>
 </div>
 
-<div class="card">
-<span>Códigos ativos</span>
-<strong id="ativos">0</strong>
-</div>
-
-<div class="card">
-<span>Suspensos</span>
-<strong id="suspensos">0</strong>
-</div>
-
-<div class="card">
-<span>Expirados</span>
-<strong id="expirados">0</strong>
-</div>
-
-<div class="card">
-<span>A expirar em 3 dias</span>
-<strong id="aExpirar">0</strong>
-</div>
-
-</div>
-
-<div id="avisoExpiracao" class="panel warning-panel">
+<div class="panel warning-panel">
 <h3>⚠ Pulseiras a expirar</h3>
 <p class="muted">Códigos cuja validade termina nos próximos 3 dias.</p>
-<ul id="listaExpiracao" class="alert-list">
-<li>A carregar...</li>
-</ul>
+<ul id="listaExpiracao" class="alert-list"><li>A carregar...</li></ul>
 </div>
 
-<div id="avisoExpirados" class="panel expired-panel">
+<div class="panel expired-panel">
 <h3>⚠ Pulseiras expiradas</h3>
 <p class="muted">Estes códigos precisam de renovação para voltar a funcionar.</p>
-<ul id="listaExpirados" class="alert-list">
-<li>A carregar...</li>
-</ul>
+<ul id="listaExpirados" class="alert-list"><li>A carregar...</li></ul>
 </div>
 
 <div class="panel">
 <h3>Gerar novo código</h3>
-
 <label for="duracao">Duração do código</label>
-
 <select id="duracao">
 <option value="30">30 dias</option>
 <option value="90">90 dias</option>
 <option value="180">180 dias</option>
 <option value="365">365 dias</option>
 </select>
-
 <button id="generateButton" type="button">+ Gerar código</button>
-
 <p id="actionMessage" class="muted" aria-live="polite"></p>
 </div>
 
 <div class="panel">
 <h3>Consultar códigos</h3>
-
 <input id="pesquisa" placeholder="Pesquisar código..." autocomplete="off">
-
 <div class="tablewrap">
 <table>
 <thead>
-<tr>
-<th>Código</th>
-<th>Validade</th>
-<th>Estado</th>
-<th>Ações</th>
-</tr>
+<tr><th>Código</th><th>Validade</th><th>Estado</th><th>Ações</th></tr>
 </thead>
-
 <tbody id="lista">
 <tr><td colspan="4">A carregar...</td></tr>
 </tbody>
@@ -282,77 +138,59 @@ Os avisos são calculados através da data de validade.
 </section>
 </main>
 
-<footer>
-Uma Palavra de Deus por Dia · Painel de Administração
-</footer>
+<footer>Uma Palavra de Deus por Dia · Painel de Administração</footer>
 
 <script type="module">
 
-import {
-  createClient
-} from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
-
+import {createClient} from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
 
 /* CONFIGURAÇÃO SUPABASE */
 
 const SUPABASE_URL =
 "https://okcmbnucjzkeiduivsny.supabase.co";
 
+/* CHAVE CORRIGIDA */
+
 const SUPABASE_PUBLISHABLE_KEY =
-"sb_publishable_7F_7S5UWTRO-l2tDBPLeQ__J28PZ6v";
+"sb_publishable_7F_7S5UWTRO-l2tDB-PLeQ__J28PZ6v";
 
 const supabase = createClient(
   SUPABASE_URL,
   SUPABASE_PUBLISHABLE_KEY
 );
 
-
 /* ELEMENTOS */
 
-const loginPanel = document.getElementById("loginPanel");
-const appPanel = document.getElementById("appPanel");
-const loginForm = document.getElementById("loginForm");
-const loginError = document.getElementById("loginError");
-const actionMessage = document.getElementById("actionMessage");
-const lista = document.getElementById("lista");
+const loginPanel=document.getElementById("loginPanel");
+const appPanel=document.getElementById("appPanel");
+const loginForm=document.getElementById("loginForm");
+const loginError=document.getElementById("loginError");
+const actionMessage=document.getElementById("actionMessage");
+const lista=document.getElementById("lista");
 
-let codigos = [];
-let atualizando = false;
-
+let codigos=[];
+let atualizando=false;
 
 /* MENSAGENS */
 
-function mensagem(texto, erro=false) {
-  actionMessage.textContent = texto;
-  actionMessage.className = erro ? "error" : "muted";
+function mensagem(texto,erro=false){
+  actionMessage.textContent=texto;
+  actionMessage.className=erro?"error":"muted";
 }
 
+/* DATAS */
 
-/* DATAS
-   A coluna validade é do tipo DATE.
-   Por isso usamos YYYY-MM-DD,
-   sem conversão para UTC.
-*/
-
-function hojeISO() {
-  const agora = new Date();
-
-  const ano = agora.getFullYear();
-  const mes = String(agora.getMonth()+1).padStart(2,"0");
-  const dia = String(agora.getDate()).padStart(2,"0");
-
+function hojeISO(){
+  const agora=new Date();
+  const ano=agora.getFullYear();
+  const mes=String(agora.getMonth()+1).padStart(2,"0");
+  const dia=String(agora.getDate()).padStart(2,"0");
   return `${ano}-${mes}-${dia}`;
 }
 
-function adicionarDiasISO(data, dias) {
-  const partes = data.split("-").map(Number);
-
-  const d = new Date(
-    partes[0],
-    partes[1]-1,
-    partes[2]
-  );
-
+function adicionarDiasISO(data,dias){
+  const partes=data.split("-").map(Number);
+  const d=new Date(partes[0],partes[1]-1,partes[2]);
   d.setDate(d.getDate()+dias);
 
   return [
@@ -362,260 +200,156 @@ function adicionarDiasISO(data, dias) {
   ].join("-");
 }
 
-function dataFormatada(valor) {
-  if (!valor) return "Sem data";
-
-  const partes = String(valor).slice(0,10).split("-");
-
-  if (partes.length !== 3) return "Data inválida";
-
+function dataFormatada(valor){
+  if(!valor)return "Sem data";
+  const partes=String(valor).slice(0,10).split("-");
+  if(partes.length!==3)return "Data inválida";
   return `${partes[2]}/${partes[1]}/${partes[0]}`;
 }
 
-
 /* ESTADO DA PULSEIRA */
 
-function estado(c) {
-
-  if (c.status === "suspenso") {
-    return "Suspenso";
-  }
-
-  if (!c.validade || c.validade < hojeISO()) {
-    return "Expirado";
-  }
-
+function estado(c){
+  if(c.status==="suspenso")return "Suspenso";
+  if(!c.validade||c.validade<hojeISO())return "Expirado";
   return "Ativo";
 }
 
+/* PRÓXIMA EXPIRAÇÃO */
 
-/* VERIFICAR PRÓXIMA EXPIRAÇÃO */
-
-function estaAExpirar(c) {
-
-  if (estado(c) !== "Ativo") {
-    return false;
-  }
-
-  const hoje = hojeISO();
-  const limite = adicionarDiasISO(hoje,3);
-
-  return c.validade >= hoje &&
-         c.validade <= limite;
+function estaAExpirar(c){
+  if(estado(c)!=="Ativo")return false;
+  const hoje=hojeISO();
+  const limite=adicionarDiasISO(hoje,3);
+  return c.validade>=hoje&&c.validade<=limite;
 }
-
 
 /* GERAR CÓDIGO */
 
-function criarCodigo() {
-
-  const chars =
-  "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
-
-  const bytes = new Uint8Array(8);
-
+function criarCodigo(){
+  const chars="ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+  const bytes=new Uint8Array(8);
   crypto.getRandomValues(bytes);
 
-  let codigo = "UPDD-";
+  let codigo="UPDD-";
 
-  for (const byte of bytes) {
-    codigo += chars[byte % chars.length];
+  for(const byte of bytes){
+    codigo+=chars[byte%chars.length];
   }
 
   return codigo;
 }
 
-
 /* CARREGAR CÓDIGOS */
 
-async function carregarCodigos() {
+async function carregarCodigos(){
+  if(atualizando)return;
+  atualizando=true;
 
-  if (atualizando) return;
+  lista.innerHTML='<tr><td colspan="4">A carregar...</td></tr>';
 
-  atualizando = true;
-
-  lista.innerHTML =
-  '<tr><td colspan="4">A carregar...</td></tr>';
-
-  try {
-
-    const {data,error} = await supabase
+  try{
+    const {data,error}=await supabase
       .from("pulseiras")
       .select("id,codigo,validade,status,criado_em")
       .order("criado_em",{ascending:false});
 
-    if(error) {
-
-      lista.innerHTML =
-      '<tr><td colspan="4">Erro ao consultar códigos.</td></tr>';
-
-      mensagem(
-        "Erro Supabase: "+error.message,
-        true
-      );
-
+    if(error){
+      lista.innerHTML='<tr><td colspan="4">Erro ao consultar códigos.</td></tr>';
+      mensagem("Erro Supabase: "+error.message,true);
       return;
     }
 
-    codigos = data || [];
-
+    codigos=data||[];
     mostrar();
 
-    mensagem(
-      "Lista atualizada em "+new Date().toLocaleTimeString("pt-PT")
-    );
+    mensagem("Lista atualizada em "+new Date().toLocaleTimeString("pt-PT"));
 
-  } catch(erro) {
-
-    mensagem(
-      "Erro ao carregar códigos: "+erro.message,
-      true
-    );
-
-  } finally {
-
-    atualizando = false;
-
+  }catch(erro){
+    mensagem("Erro ao carregar códigos: "+erro.message,true);
+  }finally{
+    atualizando=false;
   }
 }
 
+/* AVISOS E TABELA */
 
-/* MOSTRAR AVISOS E TABELA */
+function mostrar(){
 
-function mostrar() {
+  const pesquisa=document.getElementById("pesquisa").value.trim().toLowerCase();
 
-  const pesquisa =
-  document.getElementById("pesquisa")
-  .value.trim().toLowerCase();
+  const ativos=codigos.filter(c=>estado(c)==="Ativo");
+  const suspensos=codigos.filter(c=>estado(c)==="Suspenso");
+  const expirados=codigos.filter(c=>estado(c)==="Expirado");
+  const aExpirar=codigos.filter(c=>estaAExpirar(c));
 
-
-  /* CONTADORES */
-
-  const ativos =
-  codigos.filter(c=>estado(c)==="Ativo");
-
-  const suspensos =
-  codigos.filter(c=>estado(c)==="Suspenso");
-
-  const expirados =
-  codigos.filter(c=>estado(c)==="Expirado");
-
-  const aExpirar =
-  codigos.filter(c=>estaAExpirar(c));
-
-
-  document.getElementById("total").textContent =
-  codigos.length;
-
-  document.getElementById("ativos").textContent =
-  ativos.length;
-
-  document.getElementById("suspensos").textContent =
-  suspensos.length;
-
-  document.getElementById("expirados").textContent =
-  expirados.length;
-
-  document.getElementById("aExpirar").textContent =
-  aExpirar.length;
-
+  document.getElementById("total").textContent=codigos.length;
+  document.getElementById("ativos").textContent=ativos.length;
+  document.getElementById("suspensos").textContent=suspensos.length;
+  document.getElementById("expirados").textContent=expirados.length;
+  document.getElementById("aExpirar").textContent=aExpirar.length;
 
   /* AVISOS DE EXPIRAÇÃO */
 
-  const listaExpiracao =
-  document.getElementById("listaExpiracao");
-
+  const listaExpiracao=document.getElementById("listaExpiracao");
   listaExpiracao.replaceChildren();
 
-  aExpirar.sort((a,b)=>
-    a.validade.localeCompare(b.validade)
-  );
+  aExpirar.sort((a,b)=>a.validade.localeCompare(b.validade));
 
-  if(aExpirar.length===0) {
-
+  if(aExpirar.length===0){
     const li=document.createElement("li");
     li.textContent="Não existem pulseiras a expirar nos próximos 3 dias.";
     li.className="success-text";
-
     listaExpiracao.appendChild(li);
-
-  } else {
-
-    for(const c of aExpirar) {
-
+  }else{
+    for(const c of aExpirar){
       const li=document.createElement("li");
-
-      li.textContent =
-      c.codigo+" — termina em "+dataFormatada(c.validade);
-
+      li.textContent=c.codigo+" — termina em "+dataFormatada(c.validade);
       li.className="warning-text";
-
       listaExpiracao.appendChild(li);
-
     }
   }
-
 
   /* AVISOS DE EXPIRADOS */
 
-  const listaExpirados =
-  document.getElementById("listaExpirados");
-
+  const listaExpirados=document.getElementById("listaExpirados");
   listaExpirados.replaceChildren();
 
-  if(expirados.length===0) {
-
+  if(expirados.length===0){
     const li=document.createElement("li");
     li.textContent="Não existem pulseiras expiradas.";
     li.className="success-text";
-
     listaExpirados.appendChild(li);
+  }else{
+    expirados.sort((a,b)=>a.validade.localeCompare(b.validade));
 
-  } else {
-
-    expirados.sort((a,b)=>
-      a.validade.localeCompare(b.validade)
-    );
-
-    for(const c of expirados) {
-
+    for(const c of expirados){
       const li=document.createElement("li");
-
-      li.textContent =
-      c.codigo+" — expirou em "+dataFormatada(c.validade);
-
+      li.textContent=c.codigo+" — expirou em "+dataFormatada(c.validade);
       li.className="danger-text";
-
       listaExpirados.appendChild(li);
-
     }
   }
 
-
-  /* TABELA DE CONSULTA */
+  /* TABELA */
 
   lista.replaceChildren();
 
-  const encontrados = codigos.filter(c=>
+  const encontrados=codigos.filter(c=>
     String(c.codigo).toLowerCase().includes(pesquisa)
   );
 
-  if(!encontrados.length) {
-
+  if(!encontrados.length){
     const tr=document.createElement("tr");
     const td=document.createElement("td");
-
     td.colSpan=4;
     td.textContent="Nenhum código encontrado.";
-
     tr.appendChild(td);
     lista.appendChild(tr);
-
     return;
   }
 
-
-  for(const c of encontrados) {
+  for(const c of encontrados){
 
     const tr=document.createElement("tr");
 
@@ -635,120 +369,72 @@ function mostrar() {
     const acoes=document.createElement("td");
     acoes.className="actions";
 
-
-    /* COPIAR */
-
     const copiarBtn=document.createElement("button");
-
     copiarBtn.className="light";
     copiarBtn.textContent="Copiar";
     copiarBtn.onclick=()=>copiar(c.codigo);
-
     acoes.appendChild(copiarBtn);
 
-
-    /* SUSPENDER / REATIVAR */
-
     const suspenderBtn=document.createElement("button");
-
     suspenderBtn.className="light";
-
-    suspenderBtn.textContent =
-    c.status==="suspenso"?"Reativar":"Suspender";
-
-    suspenderBtn.disabled =
-    estado(c)==="Expirado";
-
+    suspenderBtn.textContent=c.status==="suspenso"?"Reativar":"Suspender";
+    suspenderBtn.disabled=estado(c)==="Expirado";
     suspenderBtn.onclick=()=>alterarEstado(c);
-
     acoes.appendChild(suspenderBtn);
 
-
-    /* RENOVAR */
-
     const renovarBtn=document.createElement("button");
-
     renovarBtn.className="green";
     renovarBtn.textContent="Renovar";
     renovarBtn.onclick=()=>renovar(c);
-
     acoes.appendChild(renovarBtn);
 
     tr.appendChild(acoes);
-
     lista.appendChild(tr);
-
   }
-
 }
 
+/* COPIAR */
 
-/* COPIAR CÓDIGO */
-
-async function copiar(codigo) {
-
-  try {
-
+async function copiar(codigo){
+  try{
     await navigator.clipboard.writeText(codigo);
-
     mensagem("Código "+codigo+" copiado.");
-
-  } catch {
-
-    mensagem(
-      "Não foi possível copiar. Código: "+codigo,
-      true
-    );
-
+  }catch{
+    mensagem("Não foi possível copiar. Código: "+codigo,true);
   }
 }
 
+/* SUSPENDER / REATIVAR */
 
-/* ALTERAR ESTADO */
+async function alterarEstado(c){
 
-async function alterarEstado(c) {
-
-  const novoStatus =
-  c.status==="suspenso"?"ativo":"suspenso";
+  const novoStatus=c.status==="suspenso"?"ativo":"suspenso";
 
   const {error}=await supabase
     .from("pulseiras")
     .update({status:novoStatus})
     .eq("id",c.id);
 
-  if(error) {
-
-    mensagem(
-      "Erro ao alterar estado: "+error.message,
-      true
-    );
-
+  if(error){
+    mensagem("Erro ao alterar estado: "+error.message,true);
     return;
   }
 
   mensagem("Estado atualizado.");
-
   await carregarCodigos();
-
 }
 
+/* RENOVAR */
 
-/* RENOVAR PULSEIRA */
+async function renovar(c){
 
-async function renovar(c) {
+  const dias=Number(document.getElementById("duracao").value);
+  const hoje=hojeISO();
 
-  const dias =
-  Number(document.getElementById("duracao").value);
+  const validadeAtual=
+    c.validade&&c.validade>hoje?c.validade:hoje;
 
-  const hoje = hojeISO();
-
-  const validadeAtual =
-  c.validade && c.validade > hoje
-  ? c.validade
-  : hoje;
-
-  const novaValidade =
-  adicionarDiasISO(validadeAtual,dias);
+  const novaValidade=adicionarDiasISO(validadeAtual,dias);
 
   const {error}=await supabase
     .from("pulseiras")
@@ -758,13 +444,8 @@ async function renovar(c) {
     })
     .eq("id",c.id);
 
-  if(error) {
-
-    mensagem(
-      "Erro ao renovar: "+error.message,
-      true
-    );
-
+  if(error){
+    mensagem("Erro ao renovar: "+error.message,true);
     return;
   }
 
@@ -774,31 +455,23 @@ async function renovar(c) {
   );
 
   await carregarCodigos();
-
 }
-
 
 /* GERAR NOVO CÓDIGO */
 
-async function gerar() {
+async function gerar(){
 
-  const botao =
-  document.getElementById("generateButton");
-
+  const botao=document.getElementById("generateButton");
   botao.disabled=true;
-
   mensagem("A gerar código...");
 
-  const dias =
-  Number(document.getElementById("duracao").value);
+  const dias=Number(document.getElementById("duracao").value);
 
-  try {
+  try{
 
-    for(let tentativa=0;tentativa<5;tentativa++) {
+    for(let tentativa=0;tentativa<5;tentativa++){
 
-      const validade =
-      adicionarDiasISO(hojeISO(),dias);
-
+      const validade=adicionarDiasISO(hojeISO(),dias);
       const codigo=criarCodigo();
 
       const {error}=await supabase
@@ -809,80 +482,51 @@ async function gerar() {
           status:"ativo"
         });
 
-      if(!error) {
-
+      if(!error){
         mensagem("Código criado e guardado: "+codigo);
-
         await carregarCodigos();
-
         await copiar(codigo);
-
         return;
       }
 
-      if(error.code!=="23505") {
-
-        mensagem(
-          "Erro ao guardar: "+error.message,
-          true
-        );
-
+      if(error.code!=="23505"){
+        mensagem("Erro ao guardar: "+error.message,true);
         return;
       }
-
     }
 
-    mensagem(
-      "Não foi possível gerar um código único. Tenta novamente.",
-      true
-    );
+    mensagem("Não foi possível gerar um código único. Tenta novamente.",true);
 
-  } catch(erro) {
-
-    mensagem(
-      "Erro ao gerar código: "+erro.message,
-      true
-    );
-
-  } finally {
-
+  }catch(erro){
+    mensagem("Erro ao gerar código: "+erro.message,true);
+  }finally{
     botao.disabled=false;
-
   }
-
 }
-
 
 /* MOSTRAR APLICAÇÃO */
 
-async function mostrarAplicacao(session) {
+async function mostrarAplicacao(session){
 
   const autenticado=Boolean(session);
 
   loginPanel.classList.toggle("hidden",autenticado);
-
   appPanel.classList.toggle("hidden",!autenticado);
 
-  if(autenticado) {
+  if(autenticado){
 
-    document.getElementById("signedInAs").textContent =
-    "Sessão iniciada: "+
-    (session.user.email||"administrador");
+    document.getElementById("signedInAs").textContent=
+      "Sessão iniciada: "+(session.user.email||"administrador");
 
     loginError.textContent="";
-
     await carregarCodigos();
 
-  } else {
+  }else{
 
     codigos=[];
-
     loginForm.reset();
-
   }
-
 }
-
 
 /* LOGIN */
 
@@ -890,123 +534,89 @@ loginForm.addEventListener("submit",async(event)=>{
 
   event.preventDefault();
 
-  const button =
-  document.getElementById("loginButton");
-
+  const button=document.getElementById("loginButton");
   button.disabled=true;
-
   loginError.textContent="";
 
-  const email =
-  document.getElementById("email").value.trim();
+  const email=document.getElementById("email").value.trim();
+  const password=document.getElementById("password").value;
 
-  const password =
-  document.getElementById("password").value;
+  try{
 
-  const {data,error}=await supabase.auth.signInWithPassword({
-    email,
-    password
-  });
+    const {data,error}=await supabase.auth.signInWithPassword({
+      email,
+      password
+    });
 
-  button.disabled=false;
+    if(error){
+      loginError.textContent="Não foi possível entrar: "+error.message;
+      return;
+    }
 
-  if(error) {
+    await mostrarAplicacao(data.session);
 
-    loginError.textContent =
-    "Não foi possível entrar: "+error.message;
-
-    return;
+  }catch(erro){
+    loginError.textContent="Erro de ligação: "+erro.message;
+  }finally{
+    button.disabled=false;
   }
-
-  await mostrarAplicacao(data.session);
-
 });
-
 
 /* TERMINAR SESSÃO */
 
-document
-.getElementById("logoutButton")
-.addEventListener("click",async()=>{
+document.getElementById("logoutButton").addEventListener("click",async()=>{
 
   const {error}=await supabase.auth.signOut();
 
-  if(error) {
-
-    mensagem(
-      "Erro ao terminar sessão: "+error.message,
-      true
-    );
-
+  if(error){
+    mensagem("Erro ao terminar sessão: "+error.message,true);
     return;
   }
 
   await mostrarAplicacao(null);
-
 });
-
 
 /* EVENTOS */
 
-document
-.getElementById("generateButton")
-.addEventListener("click",gerar);
-
-document
-.getElementById("pesquisa")
-.addEventListener("input",mostrar);
-
+document.getElementById("generateButton").addEventListener("click",gerar);
+document.getElementById("pesquisa").addEventListener("input",mostrar);
 
 /* SESSÃO INICIAL */
 
-const {data:sessionData,error:sessionError} =
-await supabase.auth.getSession();
+const {data:sessionData,error:sessionError}=await supabase.auth.getSession();
 
-if(sessionError) {
-
-  loginError.textContent =
-  "Erro de sessão: "+sessionError.message;
-
+if(sessionError){
+  loginError.textContent="Erro de sessão: "+sessionError.message;
 }
 
-await mostrarAplicacao(
-  sessionData?.session||null
-);
+await mostrarAplicacao(sessionData?.session||null);
 
-
-/* ATUALIZAÇÃO AUTOMÁTICA
-   Reconsulta os códigos a cada 5 minutos
-   enquanto o administrador estiver autenticado.
-*/
+/* ATUALIZAÇÃO AUTOMÁTICA */
 
 setInterval(async()=>{
 
-  const {data} = await supabase.auth.getSession();
+  const {data}=await supabase.auth.getSession();
 
-  if(data?.session && !document.hidden) {
+  if(data?.session&&!document.hidden){
     await carregarCodigos();
   }
 
 },300000);
 
-
 /* ATUALIZAR AO VOLTAR AO PAINEL */
 
 document.addEventListener("visibilitychange",async()=>{
 
-  if(!document.hidden) {
+  if(!document.hidden){
 
-    const {data} = await supabase.auth.getSession();
+    const {data}=await supabase.auth.getSession();
 
-    if(data?.session) {
+    if(data?.session){
       await carregarCodigos();
     }
-
   }
-
 });
 
 </script>
-
 </body>
 </html>
