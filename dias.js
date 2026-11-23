@@ -1,4 +1,3 @@
-
 "use strict";
 
 /*
@@ -147,19 +146,6 @@
     ]
   };
 
-  const temas = [
-    "Fé e confiança",
-    "Esperança",
-    "Amor ao próximo",
-    "Perdão",
-    "Humildade",
-    "Gratidão",
-    "Oração",
-    "Fidelidade",
-    "Serviço",
-    "Paz"
-  ];
-
   const reflexoes = [
     "Hoje, procura reconhecer a presença de Deus nas pequenas coisas. A fé também se manifesta nas nossas atitudes diárias.",
     "Deus convida-te a confiar nele. Mesmo quando não conheces o caminho completo, podes dar o próximo passo com fé.",
@@ -189,6 +175,31 @@
     "Viver este dia com fé, responsabilidade e alegria."
   ];
 
+  const frases = [
+    "A fé ilumina o caminho mesmo quando ainda não vemos o destino.",
+    "Quem caminha com Deus nunca caminha sem esperança.",
+    "Deixa que o amor de Cristo fale através das tuas atitudes.",
+    "A oração transforma o coração e fortalece a caminhada.",
+    "Com Deus, cada novo dia é uma oportunidade de recomeçar.",
+    "A verdadeira grandeza está em servir com humildade.",
+    "A Palavra de Deus é luz para os nossos passos.",
+    "Confia em Deus e faz da bondade o teu testemunho.",
+    "Um coração cheio de fé encontra motivos para agradecer.",
+    "Vive o Evangelho com palavras, gestos e atitudes."
+  ];
+
+  function escaparHTML(valor) {
+    return String(valor).replace(/[&<>"']/g, function (caractere) {
+      return {
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      }[caractere];
+    });
+  }
+
   function dataAngola() {
     const partes = new Intl.DateTimeFormat("en-CA", {
       timeZone: FUSO,
@@ -197,17 +208,37 @@
       day: "2-digit"
     }).formatToParts(new Date());
 
-    const p = {};
-    partes.forEach(x => p[x.type] = x.value);
+    const resultado = {};
+    partes.forEach(function (parte) {
+      if (parte.type !== "literal") {
+        resultado[parte.type] = parte.value;
+      }
+    });
 
-    return `${p.year}-${p.month}-${p.day}`;
+    return `${resultado.year}-${resultado.month}-${resultado.day}`;
+  }
+
+  function dataLegivel(dataISO) {
+    const partes = dataISO.split("-").map(Number);
+
+    return new Intl.DateTimeFormat("pt-PT", {
+      timeZone: FUSO,
+      day: "numeric",
+      month: "long",
+      year: "numeric"
+    }).format(new Date(Date.UTC(
+      partes[0],
+      partes[1] - 1,
+      partes[2],
+      12
+    )));
   }
 
   function calcularDia() {
     const hoje = dataAngola();
-    const inicio = new Date(DATA_INICIO + "T00:00:00Z");
-    const atual = new Date(hoje + "T00:00:00Z");
-    const fim = new Date(DATA_FIM + "T00:00:00Z");
+    const inicio = Date.parse(DATA_INICIO + "T00:00:00Z");
+    const atual = Date.parse(hoje + "T00:00:00Z");
+    const fim = Date.parse(DATA_FIM + "T00:00:00Z");
 
     if (atual < inicio) return 0;
     if (atual > fim) return 119;
@@ -226,13 +257,13 @@
 
     return {
       numero: indice + 1,
+      livro: livro,
       leitura: leitura[0],
-      tema: leitura[1],
-      mensagem: `A Palavra de Deus de hoje, em ${leitura[0]}, recorda-nos que ${leitura[1].toLowerCase()} Procura levar esta mensagem para a tua vida e testemunhar a tua fé através das tuas atitudes.`,
+      resumo: leitura[1],
       reflexao: reflexoes[indice % reflexoes.length],
       oracao: oracoes[indice % oracoes.length],
       proposito: propositos[indice % propositos.length],
-      frase: temas[indice % temas.length] + ": caminha com Deus e deixa a tua fé transformar o teu dia."
+      frase: frases[indice % frases.length]
     };
   }
 
@@ -248,8 +279,6 @@
         color: #ffffff !important;
         padding: 0 !important;
         border: 0 !important;
-        border-radius: 0 !important;
-        box-shadow: none !important;
         width: 100%;
       }
 
@@ -324,46 +353,17 @@
         overflow-wrap: anywhere;
       }
 
+      #conteudo .daily-section p + p {
+        margin-top: 10px;
+      }
+
       #conteudo .daily-quote {
-        margin-top: 22px;
-        padding: 25px;
-        text-align: center;
-        background: linear-gradient(145deg, #263d5b, #192b49);
-        border: 1px solid #c9a96e;
-        border-radius: 18px;
-        box-shadow: 0 7px 0 #0b1528, 0 13px 25px #0004;
-      }
-
-      #conteudo .daily-quote strong {
-        color: #c9a96e;
-        letter-spacing: 1px;
-      }
-
-      #conteudo .daily-quote p {
-        color: #ffffff !important;
-        line-height: 1.8;
-        margin: 12px 0 0;
-      }
-
-      #conteudo .daily-welcome {
-        padding: 25px;
-        background: linear-gradient(145deg, #243957, #192b49);
-        border: 1px solid #c9a96e88;
-        border-radius: 17px;
-        box-shadow: 0 7px 0 #0b1528, 0 13px 25px #0004;
-      }
-
-      #conteudo .daily-welcome h3 {
-        color: #c9a96e !important;
-        font-family: Georgia, serif;
-        font-size: 22px;
-        margin: 0 0 12px;
-      }
-
-      #conteudo .daily-welcome p {
-        color: #ffffff !important;
-        line-height: 1.85;
         margin: 0;
+        color: #ffffff;
+        font-family: Georgia, serif;
+        font-size: 18px;
+        line-height: 1.8;
+        text-align: center;
       }
 
       @media (min-width: 700px) {
@@ -372,7 +372,8 @@
         }
 
         #conteudo .daily-section:nth-child(3),
-        #conteudo .daily-section:nth-child(4) {
+        #conteudo .daily-section:nth-child(4),
+        #conteudo .daily-section:nth-child(5) {
           grid-column: 1 / -1;
         }
       }
@@ -400,54 +401,60 @@
     document.head.appendChild(estilo);
   }
 
-    function mostrarPalavraDoDia() {
-    aplicarEstilos();
-
+  function mostrarPalavraDoDia() {
     const destino = document.getElementById("conteudo");
 
     if (!destino) {
-      console.error('Não foi encontrado o elemento "conteudo".');
+      console.error('Uma Palavra de Deus por Dia: elemento "conteudo" não encontrado.');
       return;
     }
 
+    aplicarEstilos();
+
     const indice = calcularDia();
     const item = obterPrograma(indice);
+    const dataPrograma = new Date(
+      Date.parse(DATA_INICIO + "T00:00:00Z") +
+      indice * 86400000
+    ).toISOString().slice(0, 10);
 
     destino.innerHTML = `
-      <section class="daily-card">
+      <section class="daily-card" aria-label="Palavra de Deus do dia">
 
         <header class="daily-header">
           <h2>Uma Palavra de Deus por Dia</h2>
-          <p class="daily-date">${dataAngola()}</p>
-          <p class="daily-number">DIA ${item.numero} DE 120</p>
+          <p class="daily-date">${escaparHTML(dataLegivel(dataPrograma))}</p>
+          <p class="daily-number">DIA ${String(item.numero).padStart(3, "0")} DE 120</p>
         </header>
 
         <div class="daily-grid">
 
           <article class="daily-section">
             <h3>1. Leitura</h3>
-            <p><strong>${item.leitura}</strong></p>
-            <p>${item.mensagem}</p>
+            <p><strong>${escaparHTML(item.leitura)}</strong></p>
+            <p>${escaparHTML(item.resumo)}</p>
           </article>
 
           <article class="daily-section">
             <h3>2. Reflexão</h3>
-            <p>${item.reflexao}</p>
+            <p>${escaparHTML(item.reflexao)}</p>
           </article>
 
           <article class="daily-section">
             <h3>3. Oração</h3>
-            <p>${item.oracao}</p>
+            <p>${escaparHTML(item.oracao)}</p>
           </article>
 
           <article class="daily-section">
             <h3>4. Frase inspiradora</h3>
-            <p>${item.frase}</p>
+            <blockquote class="daily-quote">
+              “${escaparHTML(item.frase)}”
+            </blockquote>
           </article>
 
           <article class="daily-section">
             <h3>5. Propósito do dia</h3>
-            <p>${item.proposito}</p>
+            <p>${escaparHTML(item.proposito)}</p>
           </article>
 
         </div>
@@ -456,7 +463,23 @@
   }
 
   window.mostrarPalavraDoDia = mostrarPalavraDoDia;
-window.mostrarPalavraDoDia = mostrarPalavraDoDia;
+
+  window.umaPalavraPorDia = Object.freeze({
+    inicio: DATA_INICIO,
+    fim: DATA_FIM,
+    total: 120,
+    fuso: FUSO
+  });
+
+  function iniciar() {
+    mostrarPalavraDoDia();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", iniciar);
+  } else {
+    iniciar();
+  }
 
 })();
-                   
+                                   
