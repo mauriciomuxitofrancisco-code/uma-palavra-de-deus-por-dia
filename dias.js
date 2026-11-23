@@ -131,13 +131,13 @@
   ];
 
   const oracoes = [
-    "Senhor, guia os meus passos e ajuda-me a confiar em ti em todos os momentos. Amém.",
-    "Pai, aumenta a minha fé e ensina-me a permanecer firme diante das dificuldades. Amém.",
-    "Meu Deus, aproxima o meu coração de ti e ensina-me a procurar a tua presença todos os dias. Amém.",
-    "Senhor, dá-me sabedoria para tomar boas decisões e coragem para praticar a tua vontade. Amém.",
-    "Pai celestial, obrigado pelo teu amor. Ajuda-me a viver com gratidão, esperança e bondade. Amém.",
-    "Senhor, renova as minhas forças e não permitas que eu perca a esperança. Amém.",
-    "Deus amado, cuida da minha vida e ajuda-me a ser instrumento de paz e amor. Amém."
+    "Senhor, guia os meus passos e ajuda-me a confiar em ti em todos os momentos.",
+    "Pai, aumenta a minha fé e ensina-me a permanecer firme diante das dificuldades.",
+    "Meu Deus, aproxima o meu coração de ti e ensina-me a procurar a tua presença todos os dias.",
+    "Senhor, dá-me sabedoria para tomar boas decisões e coragem para praticar a tua vontade.",
+    "Pai celestial, obrigado pelo teu amor. Ajuda-me a viver com gratidão, esperança e bondade.",
+    "Senhor, renova as minhas forças e não permitas que eu perca a esperança.",
+    "Deus amado, cuida da minha vida e ajuda-me a ser instrumento de paz e amor."
   ];
 
   const frases = [
@@ -150,6 +150,52 @@
     "Entrega a Deus o que pesa no teu coração."
   ];
 
+  // Variações para os sete ciclos de temas ao longo do ano.
+  const variacoes = [
+    {
+      reflexao: "Hoje, procura reconhecer a presença de Deus nas situações simples da tua vida. A fé também cresce nas pequenas escolhas.",
+      proposito: "Durante o dia, procura colocar este ensinamento em prática nas tuas atitudes.",
+      oracao: "Ajuda-me a viver esta verdade com sinceridade e dedicação.",
+      frase: "Caminha hoje com fé e confiança no Senhor."
+    },
+    {
+      reflexao: "Não te limites a conhecer esta mensagem. Permite que ela transforme a maneira como pensas, falas e ages.",
+      proposito: "Partilha uma palavra de encorajamento com alguém que precise de esperança.",
+      oracao: "Ensina-me a demonstrar através das minhas atitudes aquilo em que acredito.",
+      frase: "A Palavra de Deus pode transformar o teu coração."
+    },
+    {
+      reflexao: "Mesmo que a resposta não chegue imediatamente, continua a confiar. Deus conhece o tempo e as necessidades da tua vida.",
+      proposito: "Reserva um momento de silêncio para refletir sobre o que Deus te ensina hoje.",
+      oracao: "Dá-me paciência para esperar e sabedoria para continuar a fazer o bem.",
+      frase: "Não desistas de confiar em Deus."
+    },
+    {
+      reflexao: "A caminhada espiritual é construída diariamente. Cada escolha feita com amor e fé pode aproximar-te mais de Deus.",
+      proposito: "Escolhe uma atitude concreta que demonstre a tua fé durante este dia.",
+      oracao: "Fortalece a minha caminhada e ajuda-me a permanecer perto de ti.",
+      frase: "Cada dia é uma oportunidade para crescer com Deus."
+    },
+    {
+      reflexao: "As circunstâncias podem mudar, mas a fidelidade de Deus permanece. Mantém o teu coração firme nas suas promessas.",
+      proposito: "Escreve uma promessa bíblica que te dê coragem e medita nela.",
+      oracao: "Obrigado porque posso encontrar segurança na tua fidelidade.",
+      frase: "As promessas de Deus continuam firmes."
+    },
+    {
+      reflexao: "Deus também trabalha no teu interior. Permite que a sua Palavra te ensine a responder com amor, humildade e verdade.",
+      proposito: "Antes de reagires a uma dificuldade, faz uma pausa e procura agir com sabedoria.",
+      oracao: "Transforma o meu coração e ajuda-me a refletir o teu amor.",
+      frase: "Deixa Deus orientar as tuas escolhas."
+    },
+    {
+      reflexao: "Não caminhes apenas com as tuas próprias forças. Procura a direção do Senhor e mantém viva a esperança.",
+      proposito: "Termina o dia agradecendo a Deus pela sua presença e pelo que aprendeste.",
+      oracao: "Conduz os meus passos e ajuda-me a permanecer fiel até ao fim.",
+      frase: "Com Deus, há sempre razão para ter esperança."
+    }
+  ];
+
   function dataAngola() {
     const partes = new Intl.DateTimeFormat("en-GB", {
       timeZone: FUSO,
@@ -158,7 +204,8 @@
       day: "2-digit"
     }).formatToParts(new Date());
 
-    const valor = tipo => partes.find(p => p.type === tipo).value;
+    const valor = tipo =>
+      partes.find(p => p.type === tipo).value;
 
     return `${valor("year")}-${valor("month")}-${valor("day")}`;
   }
@@ -172,23 +219,33 @@
 
   function criarConteudo(numero) {
     const indice = numero - 1;
-    const semana = Math.floor(indice / 7);
-    const foco = indice % 7;
-    const base = temas[semana % temas.length];
 
-    let tema = base[0];
+    const ciclo = Math.floor(indice / temas.length);
+    const posicao = indice % temas.length;
+    const foco = (indice + ciclo * 2) % 7;
 
-    if (numero === 27) {
-      tema = "A força de Deus";
-    }
+    const base = temas[posicao];
+    const variacao = variacoes[ciclo];
 
     return {
-      tema,
+      tema: base[0],
       versiculo: base[1],
-      reflexao: reflexoes[semana % reflexoes.length],
-      proposito: propositos[foco],
-      oracao: oracoes[foco],
-      frase: frases[foco]
+
+      reflexao:
+        reflexoes[posicao] + " " +
+        variacao.reflexao,
+
+      proposito:
+        propositos[foco] + " " +
+        variacao.proposito,
+
+      oracao:
+        oracoes[foco] + " " +
+        variacao.oracao + " Amém.",
+
+      frase:
+        frases[foco] + " " +
+        variacao.frase
     };
   }
 
@@ -204,6 +261,7 @@
 
   function mostrarPalavraDoDia() {
     const area = document.getElementById("conteudo");
+
     if (!area) return;
 
     area.innerHTML = "";
@@ -235,17 +293,27 @@
 
     const palavra = criarConteudo(numero);
 
-    adicionar(area, "Data", `Dia ${numero} de 365 — ${hoje}`);
+    adicionar(
+      area,
+      "Data",
+      `Dia ${numero} de 365 — ${hoje}`
+    );
+
     adicionar(area, "Tema de hoje", palavra.tema);
     adicionar(area, "Passagem bíblica", palavra.versiculo);
     adicionar(area, "Reflexão", palavra.reflexao);
     adicionar(area, "Propósito do dia", palavra.proposito);
     adicionar(area, "Oração", palavra.oracao);
     adicionar(area, "Frase especial", palavra.frase);
-    adicionar(area, "Uma bênção para ti", "Que a Palavra de Deus ilumine o teu dia!");
+
+    adicionar(
+      area,
+      "Uma bênção para ti",
+      "Que a Palavra de Deus ilumine o teu dia!"
+    );
   }
 
   window.mostrarPalavraDoDia = mostrarPalavraDoDia;
 
 })();
-      
+        
