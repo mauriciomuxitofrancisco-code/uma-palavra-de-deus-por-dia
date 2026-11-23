@@ -6,1049 +6,503 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#008CBA">
 <title>Painel Administrativo · Uma Palavra de Deus por Dia</title>
-
 <style>
 *{box-sizing:border-box}
-
-body{
-  margin:0;
-  background:#f3f5f9;
-  color:#1b2940;
-  font-family:Arial,sans-serif;
-}
-
-header{
-  background:#008CBA;
-  color:white;
-  padding:25px 18px;
-}
-
+body{margin:0;background:#f3f5f9;color:#1b2940;font-family:Arial,sans-serif}
+header{background:#008CBA;color:white;padding:25px 18px}
 header h2{margin:0;font-size:21px}
 header p{color:#e0f5fc;font-size:13px}
-
-main{
-  padding:18px;
-  max-width:950px;
-  margin:auto;
-}
-
-.panel,.card{
-  background:white;
-  padding:17px;
-  border-radius:12px;
-  margin-bottom:16px;
-  box-shadow:0 2px 8px #00000008;
-}
-
-.notice{
-  background:#e8f3ff;
-  padding:14px;
-  border-radius:10px;
-  font-size:12px;
-  color:#244d75;
-  margin-bottom:18px;
-}
-
-.cards{
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:10px;
-}
-
+main{padding:18px;max-width:950px;margin:auto}
+.panel,.card{background:white;padding:17px;border-radius:12px;margin-bottom:16px;box-shadow:0 2px 8px #00000008}
+.notice{background:#e8f3ff;padding:14px;border-radius:10px;font-size:12px;color:#244d75;margin-bottom:18px}
+.cards{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
 .card span{font-size:12px;color:#68758a}
 .card strong{display:block;font-size:25px;margin-top:8px}
-
 h3{font-size:16px;margin-top:0}
-
-label{
-  display:block;
-  font-size:12px;
-  margin:12px 0 6px;
-}
-
-input,select{
-  width:100%;
-  padding:12px;
-  border:1px solid #dce1e9;
-  border-radius:8px;
-  background:white;
-  font-size:15px;
-}
-
-button{
-  padding:11px 14px;
-  border:0;
-  border-radius:8px;
-  background:#142541;
-  color:white;
-  font-weight:bold;
-  cursor:pointer;
-  margin:5px 3px 5px 0;
-}
-
+label{display:block;font-size:12px;margin:12px 0 6px}
+input,select{width:100%;padding:12px;border:1px solid #dce1e9;border-radius:8px;background:white;font-size:15px}
+button{padding:11px 14px;border:0;border-radius:8px;background:#142541;color:white;font-weight:bold;cursor:pointer;margin:5px 3px 5px 0}
 button.light{background:#e9edf4;color:#263750}
 button.green{background:#187b55}
 button:disabled{opacity:.5;cursor:not-allowed}
-
-table{
-  width:100%;
-  border-collapse:collapse;
-  min-width:600px;
-}
-
-th,td{
-  text-align:left;
-  padding:12px 8px;
-  border-bottom:1px solid #e9edf2;
-  font-size:12px;
-}
-
+table{width:100%;border-collapse:collapse;min-width:600px}
+th,td{text-align:left;padding:12px 8px;border-bottom:1px solid #e9edf2;font-size:12px}
 th{color:#66738a}
 .tablewrap{overflow-x:auto}
 .status{font-weight:bold}
-.actions button{margin:3px 2px}
-
-footer{
-  text-align:center;
-  color:#8791a1;
-  font-size:11px;
-  padding:20px;
-}
-
-.hidden{display:none!important}
-
-.error{
-  color:#a32635;
-  font-size:13px;
-  white-space:pre-wrap;
-}
-
+.error{color:#a32635;font-size:13px;white-space:pre-wrap}
 .muted{color:#68758a;font-size:12px}
-
-.warning-panel{
-  border-left:5px solid #e5a000;
-  background:#fffaf0;
-}
-
-.expired-panel{
-  border-left:5px solid #c43d48;
-  background:#fff6f6;
-}
-
-.alert-list{
-  margin:8px 0 0;
-  padding-left:20px;
-  font-size:13px;
-  line-height:1.9;
-  overflow-wrap:anywhere;
-}
-
+.warning-panel{border-left:5px solid #e5a000;background:#fffaf0}
+.expired-panel{border-left:5px solid #c43d48;background:#fff6f6}
+.alert-list{margin:8px 0 0;padding-left:20px;font-size:13px;line-height:1.9;overflow-wrap:anywhere}
 .success-text{color:#187b55}
 .warning-text{color:#a36b00}
 .danger-text{color:#b52e3a}
-
-@media(max-width:750px){
-  .cards{grid-template-columns:repeat(2,1fr)}
-}
-
-@media(max-width:380px){
-  .cards{grid-template-columns:1fr 1fr}
-}
+footer{text-align:center;color:#8791a1;font-size:11px;padding:20px}
+.hidden{display:none!important}
+@media(max-width:750px){.cards{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
-
 <body>
 
 <header>
-  <h2>✦ Uma Palavra de Deus por Dia</h2>
-  <p>Painel de Administração · Códigos das Pulseiras</p>
+<h2>✦ Uma Palavra de Deus por Dia</h2>
+<p>Painel de Administração · Códigos das Pulseiras</p>
 </header>
 
 <main>
-
 <section id="loginPanel" class="panel">
-  <h3>Entrada do administrador</h3>
-
-  <p class="muted">
-    Inicia sessão com a conta administrativa já criada no Supabase.
-  </p>
-
-  <form id="loginForm">
-
-    <label for="email">Email</label>
-    <input
-      id="email"
-      type="email"
-      autocomplete="username"
-      required
-    >
-
-    <label for="password">Palavra-passe</label>
-    <input
-      id="password"
-      type="password"
-      autocomplete="current-password"
-      required
-    >
-
-    <button id="loginButton" type="submit">
-      Entrar
-    </button>
-
-  </form>
-
-  <p id="loginError" class="error" aria-live="polite"></p>
+<h3>Entrada do administrador</h3>
+<p class="muted">Inicia sessão com a conta administrativa já criada no Supabase.</p>
+<form id="loginForm">
+<label for="email">Email</label>
+<input id="email" type="email" autocomplete="username" required>
+<label for="password">Palavra-passe</label>
+<input id="password" type="password" autocomplete="current-password" required>
+<button id="loginButton" type="submit">Entrar</button>
+</form>
+<p id="loginError" class="error" aria-live="polite"></p>
 </section>
-
 
 <section id="appPanel" class="hidden">
+<div class="notice">
+<strong>Ligação à base de dados.</strong><br>
+Os códigos são lidos e guardados na tabela public.pulseiras.
+</div>
 
-  <div class="notice">
-    <strong>Ligação à base de dados.</strong><br>
-    Os códigos são lidos e guardados na tabela public.pulseiras.
-    Os avisos são calculados através da data de validade.
-  </div>
+<div class="panel">
+<span id="signedInAs" class="muted"></span><br>
+<button id="logoutButton" class="light" type="button">Terminar sessão</button>
+</div>
 
-  <div class="panel">
-    <span id="signedInAs" class="muted"></span>
-    <br>
-    <button id="logoutButton" class="light" type="button">
-      Terminar sessão
-    </button>
-  </div>
+<div class="cards">
+<div class="card"><span>Total de códigos</span><strong id="total">0</strong></div>
+<div class="card"><span>Códigos ativos</span><strong id="ativos">0</strong></div>
+<div class="card"><span>Suspensos</span><strong id="suspensos">0</strong></div>
+<div class="card"><span>Expirados</span><strong id="expirados">0</strong></div>
+<div class="card"><span>A expirar em 3 dias</span><strong id="aExpirar">0</strong></div>
+</div>
 
-  <div class="cards">
+<div class="panel warning-panel">
+<h3>⚠ Pulseiras a expirar</h3>
+<p class="muted">Códigos cuja validade termina nos próximos 3 dias.</p>
+<ul id="listaExpiracao" class="alert-list"><li>A carregar...</li></ul>
+</div>
 
-    <div class="card">
-      <span>Total de códigos</span>
-      <strong id="total">0</strong>
-    </div>
+<div class="panel expired-panel">
+<h3>⚠ Pulseiras expiradas</h3>
+<p class="muted">Estes códigos precisam de renovação para voltar a funcionar.</p>
+<ul id="listaExpirados" class="alert-list"><li>A carregar...</li></ul>
+</div>
 
-    <div class="card">
-      <span>Códigos ativos</span>
-      <strong id="ativos">0</strong>
-    </div>
+<div class="panel">
+<h3>Gerar novo código</h3>
+<label for="duracao">Duração do código</label>
+<select id="duracao">
+<option value="30">30 dias</option>
+<option value="90">90 dias</option>
+<option value="180">180 dias</option>
+<option value="365">365 dias</option>
+</select>
+<button id="generateButton" type="button">+ Gerar código</button>
+<p id="actionMessage" class="muted" aria-live="polite"></p>
+</div>
 
-    <div class="card">
-      <span>Suspensos</span>
-      <strong id="suspensos">0</strong>
-    </div>
-
-    <div class="card">
-      <span>Expirados</span>
-      <strong id="expirados">0</strong>
-    </div>
-
-    <div class="card">
-      <span>A expirar em 3 dias</span>
-      <strong id="aExpirar">0</strong>
-    </div>
-
-  </div>
-
-  <div class="panel warning-panel">
-    <h3>⚠ Pulseiras a expirar</h3>
-    <p class="muted">
-      Códigos cuja validade termina nos próximos 3 dias.
-    </p>
-    <ul id="listaExpiracao" class="alert-list">
-      <li>A carregar...</li>
-    </ul>
-  </div>
-
-  <div class="panel expired-panel">
-    <h3>⚠ Pulseiras expiradas</h3>
-    <p class="muted">
-      Estes códigos precisam de renovação para voltar a funcionar.
-    </p>
-    <ul id="listaExpirados" class="alert-list">
-      <li>A carregar...</li>
-    </ul>
-  </div>
-
-  <div class="panel">
-    <h3>Gerar novo código</h3>
-
-    <label for="duracao">Duração do código</label>
-
-    <select id="duracao">
-      <option value="30">30 dias</option>
-      <option value="90">90 dias</option>
-      <option value="180">180 dias</option>
-      <option value="365">365 dias</option>
-    </select>
-
-    <button id="generateButton" type="button">
-      + Gerar código
-    </button>
-
-    <p id="actionMessage" class="muted" aria-live="polite"></p>
-  </div>
-
-  <div class="panel">
-    <h3>Consultar códigos</h3>
-
-    <input
-      id="pesquisa"
-      placeholder="Pesquisar código..."
-      autocomplete="off"
-    >
-
-    <div class="tablewrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Código</th>
-            <th>Validade</th>
-            <th>Estado</th>
-            <th>Ações</th>
-          </tr>
-        </thead>
-
-        <tbody id="lista">
-          <tr>
-            <td colspan="4">A carregar...</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
+<div class="panel">
+<h3>Consultar códigos</h3>
+<input id="pesquisa" placeholder="Pesquisar código..." autocomplete="off">
+<div class="tablewrap">
+<table>
+<thead><tr><th>Código</th><th>Validade</th><th>Estado</th><th>Ações</th></tr></thead>
+<tbody id="lista"><tr><td colspan="4">A carregar...</td></tr></tbody>
+</table>
+</div>
+</div>
 </section>
-
 </main>
 
-<footer>
-  Uma Palavra de Deus por Dia · Painel de Administração
-</footer>
+<footer>Uma Palavra de Deus por Dia · Painel de Administração</footer>
 
-
-<!-- BIBLIOTECA SUPABASE -->
-
-<script
-  src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
-  onerror="window.supabaseLibraryError=true">
-</script>
-
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+onerror="window.supabaseLibraryError=true"></script>
 
 <script>
+"use strict";
 
-/* =================================
-   CONFIGURAÇÃO SUPABASE
-================================= */
+/* CONFIGURAÇÃO */
+const SUPABASE_URL="https://okcmbnucjzkeiduivsny.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY="sb_publishable_7F_7S5UWTRO-l2tDBPLeQ__J28PZ6v";
 
-const SUPABASE_URL =
-  "https://okcmbnucjzkeiduivsny.supabase.co";
+/* ELEMENTOS */
+const loginPanel=document.getElementById("loginPanel");
+const appPanel=document.getElementById("appPanel");
+const loginForm=document.getElementById("loginForm");
+const loginError=document.getElementById("loginError");
+const actionMessage=document.getElementById("actionMessage");
+const lista=document.getElementById("lista");
 
-const SUPABASE_PUBLISHABLE_KEY =
-  "sb_publishable_7F_7S5UWTRO-l2tDBPLeQ__J28PZ6v";
+/* IMPORTANTE: usar supabaseClient, não supabase */
+let supabaseClient=null;
+let codigos=[];
+let atualizando=false;
+let temporizador=null;
 
-
-/* =================================
-   ELEMENTOS
-================================= */
-
-const loginPanel = document.getElementById("loginPanel");
-const appPanel = document.getElementById("appPanel");
-const loginForm = document.getElementById("loginForm");
-const loginError = document.getElementById("loginError");
-const actionMessage = document.getElementById("actionMessage");
-const lista = document.getElementById("lista");
-
-let supabase = null;
-let codigos = [];
-let atualizando = false;
-let temporizador = null;
-
-
-/* =================================
-   MENSAGENS
-================================= */
-
-function mensagem(texto, erro=false){
-
-  actionMessage.textContent = texto;
-  actionMessage.className = erro ? "error" : "muted";
-
+function mensagem(texto,erro=false){
+  actionMessage.textContent=texto;
+  actionMessage.className=erro?"error":"muted";
 }
-
-
-/* =================================
-   DATAS
-================================= */
 
 function hojeISO(){
-
-  const agora = new Date();
-
-  const ano = agora.getFullYear();
-  const mes = String(agora.getMonth()+1).padStart(2,"0");
-  const dia = String(agora.getDate()).padStart(2,"0");
-
-  return `${ano}-${mes}-${dia}`;
-
+  const d=new Date();
+  return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
 }
-
 
 function adicionarDiasISO(data,dias){
-
-  const partes = data.split("-").map(Number);
-
-  const d = new Date(
-    partes[0],
-    partes[1]-1,
-    partes[2]
-  );
-
+  const p=data.split("-").map(Number);
+  const d=new Date(p[0],p[1]-1,p[2]);
   d.setDate(d.getDate()+dias);
-
-  return [
-    d.getFullYear(),
-    String(d.getMonth()+1).padStart(2,"0"),
-    String(d.getDate()).padStart(2,"0")
-  ].join("-");
-
+  return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
 }
-
 
 function dataFormatada(valor){
-
-  if(!valor) return "Sem data";
-
-  const partes = String(valor).slice(0,10).split("-");
-
-  if(partes.length !== 3) return "Data inválida";
-
-  return `${partes[2]}/${partes[1]}/${partes[0]}`;
-
+  if(!valor)return "Sem data";
+  const p=String(valor).slice(0,10).split("-");
+  if(p.length!==3)return "Data inválida";
+  return p[2]+"/"+p[1]+"/"+p[0];
 }
-
-
-/* =================================
-   ESTADO DA PULSEIRA
-================================= */
 
 function estado(c){
-
-  if(c.status === "suspenso"){
-    return "Suspenso";
-  }
-
-  if(!c.validade || c.validade < hojeISO()){
-    return "Expirado";
-  }
-
+  if(c.status==="suspenso")return "Suspenso";
+  if(!c.validade||c.validade<hojeISO())return "Expirado";
   return "Ativo";
-
 }
-
 
 function estaAExpirar(c){
-
-  if(estado(c) !== "Ativo") return false;
-
-  const hoje = hojeISO();
-  const limite = adicionarDiasISO(hoje,3);
-
-  return c.validade >= hoje && c.validade <= limite;
-
+  if(estado(c)!=="Ativo")return false;
+  return c.validade>=hojeISO()&&c.validade<=adicionarDiasISO(hojeISO(),3);
 }
-
-
-/* =================================
-   CRIAR CÓDIGO
-================================= */
 
 function criarCodigo(){
-
-  const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
-  const bytes = new Uint8Array(8);
-
+  const chars="ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+  const bytes=new Uint8Array(8);
   crypto.getRandomValues(bytes);
-
-  let codigo = "UPDD-";
-
-  for(const byte of bytes){
-    codigo += chars[byte % chars.length];
-  }
-
+  let codigo="UPDD-";
+  for(const b of bytes)codigo+=chars[b%chars.length];
   return codigo;
-
 }
 
-
-/* =================================
-   CARREGAR CÓDIGOS
-================================= */
-
 async function carregarCodigos(){
-
-  if(atualizando || !supabase) return;
-
-  atualizando = true;
-
-  lista.innerHTML =
-    '<tr><td colspan="4">A carregar...</td></tr>';
+  if(atualizando||!supabaseClient)return;
+  atualizando=true;
+  lista.innerHTML='<tr><td colspan="4">A carregar...</td></tr>';
 
   try{
-
-    const {data,error} = await supabase
+    const {data,error}=await supabaseClient
       .from("pulseiras")
       .select("id,codigo,validade,status,criado_em")
       .order("criado_em",{ascending:false});
 
     if(error){
-
-      lista.innerHTML =
-        '<tr><td colspan="4">Erro ao consultar códigos.</td></tr>';
-
+      lista.innerHTML='<tr><td colspan="4">Erro ao consultar códigos.</td></tr>';
       mensagem("Erro Supabase: "+error.message,true);
       return;
-
     }
 
-    codigos = data || [];
-
+    codigos=data||[];
     mostrar();
-
-    mensagem(
-      "Lista atualizada em "+
-      new Date().toLocaleTimeString("pt-PT")
-    );
-
-  }catch(erro){
-
-    mensagem("Erro ao carregar códigos: "+erro.message,true);
-
+    mensagem("Lista atualizada em "+new Date().toLocaleTimeString("pt-PT"));
+  }catch(e){
+    mensagem("Erro ao carregar códigos: "+e.message,true);
   }finally{
-
-    atualizando = false;
-
+    atualizando=false;
   }
-
 }
 
-
-/* =================================
-   MOSTRAR AVISOS E TABELA
-================================= */
-
 function mostrar(){
+  const pesquisa=document.getElementById("pesquisa").value.trim().toLowerCase();
+  const ativos=codigos.filter(c=>estado(c)==="Ativo");
+  const suspensos=codigos.filter(c=>estado(c)==="Suspenso");
+  const expirados=codigos.filter(c=>estado(c)==="Expirado");
+  const aExpirar=codigos.filter(estaAExpirar);
 
-  const pesquisa = document
-    .getElementById("pesquisa")
-    .value
-    .trim()
-    .toLowerCase();
+  document.getElementById("total").textContent=codigos.length;
+  document.getElementById("ativos").textContent=ativos.length;
+  document.getElementById("suspensos").textContent=suspensos.length;
+  document.getElementById("expirados").textContent=expirados.length;
+  document.getElementById("aExpirar").textContent=aExpirar.length;
 
-  const ativos = codigos.filter(c => estado(c) === "Ativo");
-  const suspensos = codigos.filter(c => estado(c) === "Suspenso");
-  const expirados = codigos.filter(c => estado(c) === "Expirado");
-  const aExpirar = codigos.filter(c => estaAExpirar(c));
+  const ul=document.getElementById("listaExpiracao");
+  ul.replaceChildren();
+  aExpirar.sort((a,b)=>a.validade.localeCompare(b.validade));
 
-  document.getElementById("total").textContent = codigos.length;
-  document.getElementById("ativos").textContent = ativos.length;
-  document.getElementById("suspensos").textContent = suspensos.length;
-  document.getElementById("expirados").textContent = expirados.length;
-  document.getElementById("aExpirar").textContent = aExpirar.length;
-
-
-  /* AVISOS DE EXPIRAÇÃO */
-
-  const listaExpiracao = document.getElementById("listaExpiracao");
-
-  listaExpiracao.replaceChildren();
-
-  aExpirar.sort((a,b) => a.validade.localeCompare(b.validade));
-
-  if(aExpirar.length === 0){
-
-    const li = document.createElement("li");
-    li.textContent = "Não existem pulseiras a expirar nos próximos 3 dias.";
-    li.className = "success-text";
-    listaExpiracao.appendChild(li);
-
+  if(!aExpirar.length){
+    const li=document.createElement("li");
+    li.textContent="Não existem pulseiras a expirar nos próximos 3 dias.";
+    li.className="success-text";
+    ul.appendChild(li);
   }else{
-
     for(const c of aExpirar){
-
-      const li = document.createElement("li");
-
-      li.textContent =
-        c.codigo+" — termina em "+dataFormatada(c.validade);
-
-      li.className = "warning-text";
-      listaExpiracao.appendChild(li);
-
+      const li=document.createElement("li");
+      li.textContent=c.codigo+" — termina em "+dataFormatada(c.validade);
+      li.className="warning-text";
+      ul.appendChild(li);
     }
-
   }
 
+  const ul2=document.getElementById("listaExpirados");
+  ul2.replaceChildren();
 
-  /* AVISOS DE EXPIRADOS */
-
-  const listaExpirados = document.getElementById("listaExpirados");
-
-  listaExpirados.replaceChildren();
-
-  if(expirados.length === 0){
-
-    const li = document.createElement("li");
-    li.textContent = "Não existem pulseiras expiradas.";
-    li.className = "success-text";
-    listaExpirados.appendChild(li);
-
+  if(!expirados.length){
+    const li=document.createElement("li");
+    li.textContent="Não existem pulseiras expiradas.";
+    li.className="success-text";
+    ul2.appendChild(li);
   }else{
-
-    expirados.sort((a,b) => a.validade.localeCompare(b.validade));
-
+    expirados.sort((a,b)=>(a.validade||"").localeCompare(b.validade||""));
     for(const c of expirados){
-
-      const li = document.createElement("li");
-
-      li.textContent =
-        c.codigo+" — expirou em "+dataFormatada(c.validade);
-
-      li.className = "danger-text";
-      listaExpirados.appendChild(li);
-
+      const li=document.createElement("li");
+      li.textContent=c.codigo+" — expirou em "+dataFormatada(c.validade);
+      li.className="danger-text";
+      ul2.appendChild(li);
     }
-
   }
-
-
-  /* TABELA */
 
   lista.replaceChildren();
-
-  const encontrados = codigos.filter(c =>
-    String(c.codigo).toLowerCase().includes(pesquisa)
-  );
+  const encontrados=codigos.filter(c=>String(c.codigo).toLowerCase().includes(pesquisa));
 
   if(!encontrados.length){
-
-    const tr = document.createElement("tr");
-    const td = document.createElement("td");
-
-    td.colSpan = 4;
-    td.textContent = "Nenhum código encontrado.";
-
+    const tr=document.createElement("tr");
+    const td=document.createElement("td");
+    td.colSpan=4;
+    td.textContent="Nenhum código encontrado.";
     tr.appendChild(td);
     lista.appendChild(tr);
-
     return;
-
   }
 
-
   for(const c of encontrados){
+    const tr=document.createElement("tr");
 
-    const tr = document.createElement("tr");
+    const tdCodigo=document.createElement("td");
+    tdCodigo.textContent=c.codigo;
+    tr.appendChild(tdCodigo);
 
-    const codigoTd = document.createElement("td");
-    codigoTd.textContent = c.codigo;
-    tr.appendChild(codigoTd);
+    const tdValidade=document.createElement("td");
+    tdValidade.textContent=dataFormatada(c.validade);
+    tr.appendChild(tdValidade);
 
-    const validadeTd = document.createElement("td");
-    validadeTd.textContent = dataFormatada(c.validade);
-    tr.appendChild(validadeTd);
+    const tdEstado=document.createElement("td");
+    tdEstado.textContent=estado(c);
+    tdEstado.className="status";
+    tr.appendChild(tdEstado);
 
-    const estadoTd = document.createElement("td");
-    estadoTd.textContent = estado(c);
-    estadoTd.className = "status";
-    tr.appendChild(estadoTd);
+    const acoes=document.createElement("td");
 
-    const acoes = document.createElement("td");
-    acoes.className = "actions";
-
-
-    /* COPIAR */
-
-    const copiarBtn = document.createElement("button");
-    copiarBtn.className = "light";
-    copiarBtn.textContent = "Copiar";
-    copiarBtn.onclick = () => copiar(c.codigo);
+    const copiarBtn=document.createElement("button");
+    copiarBtn.className="light";
+    copiarBtn.textContent="Copiar";
+    copiarBtn.onclick=()=>copiar(c.codigo);
     acoes.appendChild(copiarBtn);
 
+    const estadoBtn=document.createElement("button");
+    estadoBtn.className="light";
+    estadoBtn.textContent=c.status==="suspenso"?"Reativar":"Suspender";
+    estadoBtn.disabled=estado(c)==="Expirado";
+    estadoBtn.onclick=()=>alterarEstado(c);
+    acoes.appendChild(estadoBtn);
 
-    /* SUSPENDER OU REATIVAR */
-
-    const suspenderBtn = document.createElement("button");
-    suspenderBtn.className = "light";
-
-    suspenderBtn.textContent =
-      c.status === "suspenso" ? "Reativar" : "Suspender";
-
-    suspenderBtn.disabled = estado(c) === "Expirado";
-    suspenderBtn.onclick = () => alterarEstado(c);
-
-    acoes.appendChild(suspenderBtn);
-
-
-    /* RENOVAR */
-
-    const renovarBtn = document.createElement("button");
-    renovarBtn.className = "green";
-    renovarBtn.textContent = "Renovar";
-    renovarBtn.onclick = () => renovar(c);
-
+    const renovarBtn=document.createElement("button");
+    renovarBtn.className="green";
+    renovarBtn.textContent="Renovar";
+    renovarBtn.onclick=()=>renovar(c);
     acoes.appendChild(renovarBtn);
 
     tr.appendChild(acoes);
     lista.appendChild(tr);
-
   }
-
 }
-
-
-/* =================================
-   COPIAR CÓDIGO
-================================= */
 
 async function copiar(codigo){
-
   try{
-
     await navigator.clipboard.writeText(codigo);
     mensagem("Código "+codigo+" copiado.");
-
-  }catch{
-
+  }catch(e){
     mensagem("Não foi possível copiar. Código: "+codigo,true);
-
   }
-
 }
 
-
-/* =================================
-   SUSPENDER / REATIVAR
-================================= */
-
 async function alterarEstado(c){
-
-  const novoStatus =
-    c.status === "suspenso" ? "ativo" : "suspenso";
-
+  const novoStatus=c.status==="suspenso"?"ativo":"suspenso";
   try{
-
-    const {error} = await supabase
-      .from("pulseiras")
-      .update({status:novoStatus})
-      .eq("id",c.id);
-
+    const {error}=await supabaseClient.from("pulseiras")
+      .update({status:novoStatus}).eq("id",c.id);
     if(error){
       mensagem("Erro ao alterar estado: "+error.message,true);
       return;
     }
-
     mensagem("Estado atualizado.");
     await carregarCodigos();
-
-  }catch(erro){
-
-    mensagem("Erro: "+erro.message,true);
-
+  }catch(e){
+    mensagem("Erro: "+e.message,true);
   }
-
 }
 
-
-/* =================================
-   RENOVAR PULSEIRA
-================================= */
-
 async function renovar(c){
-
-  const dias = Number(document.getElementById("duracao").value);
-  const hoje = hojeISO();
-
-  const validadeAtual =
-    c.validade && c.validade > hoje ? c.validade : hoje;
-
-  const novaValidade = adicionarDiasISO(validadeAtual,dias);
+  const dias=Number(document.getElementById("duracao").value);
+  const hoje=hojeISO();
+  const base=c.validade&&c.validade>hoje?c.validade:hoje;
+  const novaValidade=adicionarDiasISO(base,dias);
 
   try{
-
-    const {error} = await supabase
-      .from("pulseiras")
-      .update({
-        validade:novaValidade,
-        status:"ativo"
-      })
-      .eq("id",c.id);
-
+    const {error}=await supabaseClient.from("pulseiras")
+      .update({validade:novaValidade,status:"ativo"}).eq("id",c.id);
     if(error){
       mensagem("Erro ao renovar: "+error.message,true);
       return;
     }
-
-    mensagem(
-      "Código renovado por "+dias+
-      " dias. Nova validade: "+dataFormatada(novaValidade)
-    );
-
+    mensagem("Código renovado por "+dias+" dias. Nova validade: "+dataFormatada(novaValidade));
     await carregarCodigos();
-
-  }catch(erro){
-
-    mensagem("Erro: "+erro.message,true);
-
+  }catch(e){
+    mensagem("Erro: "+e.message,true);
   }
-
 }
-
-
-/* =================================
-   GERAR NOVO CÓDIGO
-================================= */
 
 async function gerar(){
-
-  const botao = document.getElementById("generateButton");
-
-  botao.disabled = true;
+  const botao=document.getElementById("generateButton");
+  botao.disabled=true;
   mensagem("A gerar código...");
-
-  const dias = Number(document.getElementById("duracao").value);
+  const dias=Number(document.getElementById("duracao").value);
 
   try{
+    for(let i=0;i<5;i++){
+      const validade=adicionarDiasISO(hojeISO(),dias);
+      const codigo=criarCodigo();
 
-    for(let tentativa=0;tentativa<5;tentativa++){
-
-      const validade = adicionarDiasISO(hojeISO(),dias);
-      const codigo = criarCodigo();
-
-      const {error} = await supabase
-        .from("pulseiras")
-        .insert({
-          codigo:codigo,
-          validade:validade,
-          status:"ativo"
-        });
+      const {error}=await supabaseClient.from("pulseiras")
+        .insert({codigo,validade,status:"ativo"});
 
       if(!error){
-
         mensagem("Código criado e guardado: "+codigo);
-
         await carregarCodigos();
         await copiar(codigo);
-
         return;
-
       }
 
-      if(error.code !== "23505"){
-
+      if(error.code!=="23505"){
         mensagem("Erro ao guardar: "+error.message,true);
         return;
-
       }
-
     }
-
-    mensagem(
-      "Não foi possível gerar um código único. Tenta novamente.",
-      true
-    );
-
-  }catch(erro){
-
-    mensagem("Erro ao gerar código: "+erro.message,true);
-
+    mensagem("Não foi possível gerar um código único. Tenta novamente.",true);
+  }catch(e){
+    mensagem("Erro ao gerar código: "+e.message,true);
   }finally{
-
-    botao.disabled = false;
-
+    botao.disabled=false;
   }
-
 }
 
-
-/* =================================
-   MOSTRAR APLICAÇÃO
-================================= */
-
 async function mostrarAplicacao(session){
-
-  const autenticado = Boolean(session);
-
+  const autenticado=Boolean(session);
   loginPanel.classList.toggle("hidden",autenticado);
   appPanel.classList.toggle("hidden",!autenticado);
 
   if(autenticado){
-
-    document.getElementById("signedInAs").textContent =
-      "Sessão iniciada: "+
-      (session.user.email || "administrador");
-
-    loginError.textContent = "";
-
+    document.getElementById("signedInAs").textContent=
+      "Sessão iniciada: "+(session.user.email||"administrador");
+    loginError.textContent="";
     await carregarCodigos();
 
-    if(temporizador){
-      clearInterval(temporizador);
-    }
-
-    temporizador = setInterval(() => {
-
-      if(!appPanel.classList.contains("hidden")){
-        carregarCodigos();
-      }
-
+    if(temporizador)clearInterval(temporizador);
+    temporizador=setInterval(()=>{
+      if(!appPanel.classList.contains("hidden"))carregarCodigos();
     },300000);
-
   }else{
-
     if(temporizador){
       clearInterval(temporizador);
-      temporizador = null;
+      temporizador=null;
     }
-
-    codigos = [];
+    codigos=[];
     loginForm.reset();
-
   }
-
 }
 
-
-/* =================================
-   LOGIN
-================================= */
-
+/* ENTRADA */
 loginForm.addEventListener("submit",async(event)=>{
-
   event.preventDefault();
+  const button=document.getElementById("loginButton");
+  button.disabled=true;
+  loginError.textContent="";
 
-  const button = document.getElementById("loginButton");
-
-  button.disabled = true;
-  loginError.textContent = "";
-
-  if(!supabase){
-
-    loginError.textContent =
-      "A biblioteca do Supabase não carregou. Verifica a ligação à internet e tenta novamente.";
-
-    button.disabled = false;
+  if(!supabaseClient){
+    loginError.textContent="A ligação ao Supabase não está disponível. Atualiza a página.";
+    button.disabled=false;
     return;
-
   }
 
-  const email = document.getElementById("email").value.trim();
-  const password = document.getElementById("password").value;
+  const email=document.getElementById("email").value.trim();
+  const password=document.getElementById("password").value;
 
   try{
-
-    const {data,error} = await supabase.auth.signInWithPassword({
-      email,
-      password
-    });
-
+    const {data,error}=await supabaseClient.auth.signInWithPassword({email,password});
     if(error){
-
-      loginError.textContent =
-        "Não foi possível entrar: "+error.message;
-
+      loginError.textContent="Não foi possível entrar: "+error.message;
       return;
-
     }
-
     await mostrarAplicacao(data.session);
-
-  }catch(erro){
-
-    loginError.textContent =
-      "Erro de ligação: "+erro.message;
-
+  }catch(e){
+    loginError.textContent="Erro de ligação: "+e.message;
   }finally{
-
-    button.disabled = false;
-
+    button.disabled=false;
   }
-
 });
 
-
-/* =================================
-   TERMINAR SESSÃO
-================================= */
-
+/* SAIR */
 document.getElementById("logoutButton").addEventListener("click",async()=>{
-
   try{
-
-    const {error} = await supabase.auth.signOut();
-
+    const {error}=await supabaseClient.auth.signOut();
     if(error){
-
       mensagem("Erro ao terminar sessão: "+error.message,true);
       return;
-
     }
-
     await mostrarAplicacao(null);
-
-  }catch(erro){
-
-    mensagem("Erro: "+erro.message,true);
-
+  }catch(e){
+    mensagem("Erro: "+e.message,true);
   }
-
 });
 
+/* OUTROS EVENTOS */
+document.getElementById("generateButton").addEventListener("click",gerar);
+document.getElementById("pesquisa").addEventListener("input",mostrar);
 
-/* =================================
-   EVENTOS
-================================= */
-
-document.getElementById("generateButton")
-  .addEventListener("click",gerar);
-
-document.getElementById("pesquisa")
-  .addEventListener("input",mostrar);
-
-
-/* =================================
-   INICIAR PAINEL
-================================= */
-
+/* INICIALIZAÇÃO */
 async function iniciarPainel(){
-
-  if(window.supabaseLibraryError ||
-     !window.supabase ||
-     typeof window.supabase.createClient !== "function"){
-
-    loginError.textContent =
-      "Não foi possível carregar a ligação ao Supabase. Verifica a internet e atualiza a página.";
-
+  if(window.supabaseLibraryError||
+     !window.supabase||
+     typeof window.supabase.createClient!=="function"){
+    loginError.textContent="Não foi possível carregar a biblioteca Supabase. Verifica a internet e atualiza a página.";
     return;
-
   }
 
   try{
-
-    supabase = window.supabase.createClient(
+    supabaseClient=window.supabase.createClient(
       SUPABASE_URL,
       SUPABASE_PUBLISHABLE_KEY
     );
 
-    const {data,error} = await supabase.auth.getSession();
+    const {data,error}=await supabaseClient.auth.getSession();
 
     if(error){
-
-      loginError.textContent =
-        "Erro ao verificar sessão: "+error.message;
-
+      loginError.textContent="Erro ao verificar sessão: "+error.message;
       return;
-
     }
 
-    await mostrarAplicacao(data.session || null);
+    await mostrarAplicacao(data.session||null);
+  }catch(e){
+    loginError.textContent="Erro ao iniciar painel: "+e.message;
+  }
+}
 
-  }catch(erro){
-
-    loginError.textContent =
-      "Erro ao inic
+iniciarPainel();
+</script>
+</body>
+</html>
