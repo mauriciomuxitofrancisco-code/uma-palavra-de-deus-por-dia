@@ -5,6 +5,14 @@
   Programa: 24/11/2026 a 23/03/2027
   Total: 120 dias
   Fuso horário: Africa/Luanda
+
+  Cada registo contém:
+  1. Referência bíblica
+  2. Paráfrase da passagem
+  3. Reflexão
+  4. Oração
+  5. Frase inspiradora
+  6. Propósito do dia
 */
 
 (function () {
@@ -12,474 +20,293 @@
   const DATA_FIM = "2027-03-23";
   const FUSO = "Africa/Luanda";
 
-  const conteudos = {
-    "Génesis": [
-      ["Génesis 1", "Deus é o princípio de tudo."],
-      ["Génesis 2", "Deus conhece as nossas necessidades."],
-      ["Génesis 3", "Escolher o caminho do bem."],
-      ["Génesis 4", "O amor ao próximo."],
-      ["Génesis 5", "Uma vida que deixa marcas."],
-      ["Génesis 6", "A fidelidade em tempos difíceis."],
-      ["Génesis 7", "Confiar na protecção de Deus."],
-      ["Génesis 8", "Deus renova a esperança."],
-      ["Génesis 9", "A promessa de Deus permanece."],
-      ["Génesis 10", "Cada pessoa tem o seu lugar."],
-      ["Génesis 11", "A humildade diante de Deus."],
-      ["Génesis 12", "A coragem de seguir Deus."],
-      ["Génesis 13", "Escolher a paz."],
-      ["Génesis 14", "A generosidade verdadeira."],
-      ["Génesis 15", "A fé nas promessas."],
-      ["Génesis 16", "Deus vê as nossas dificuldades."],
-      ["Génesis 17", "Uma aliança de fidelidade."],
-      ["Génesis 18", "A hospitalidade e a fé."],
-      ["Génesis 19", "A importância de escolher o bem."],
-      ["Génesis 20", "A verdade nas nossas atitudes."],
-      ["Génesis 21", "Deus cumpre as suas promessas."],
-      ["Génesis 22", "A confiança em Deus."],
-      ["Génesis 23", "Respeitar e honrar o próximo."],
-      ["Génesis 24", "Deus orienta os nossos caminhos."],
-      ["Génesis 25", "As escolhas têm consequências."],
-      ["Génesis 26", "A perseverança na fé."],
-      ["Génesis 27", "A honestidade é essencial."],
-      ["Génesis 28", "Deus caminha connosco."],
-      ["Génesis 29", "A paciência e o amor."],
-      ["Génesis 30", "A gratidão pelas bênçãos."]
+  /*
+    FORMATO:
+    [referência, leitura, reflexão, oração, frase, propósito]
+  */
+
+  const devocionais = [
+
+    // ==========================================
+    // GÉNESIS — DIAS 1 A 30
+    // ==========================================
+
+    [
+      "Génesis 1:1-5",
+      "No princípio, Deus criou o céu e a terra. A terra ainda não tinha forma, e as trevas cobriam o abismo. Deus ordenou que houvesse luz, e a luz surgiu. Deus viu que a luz era boa e separou-a das trevas.",
+      "Deus é o princípio de todas as coisas. Assim como trouxe luz à criação, também pode iluminar os nossos caminhos. Quando não soubermos por onde seguir, devemos procurar a orientação do Senhor.",
+      "Senhor, sê o princípio de todos os meus planos. Ilumina os meus pensamentos e guia os meus passos. Que a Tua luz esteja presente em tudo o que eu fizer. Ámen.",
+      "Com Deus no princípio, a nossa caminhada encontra luz.",
+      "Começar o dia com uma oração e entregar os meus planos a Deus."
     ],
 
-    "Salmos": [
-      ["Salmo 1", "Felizes os que seguem o caminho de Deus."],
-      ["Salmo 2", "Deus é o nosso refúgio."],
-      ["Salmo 3", "A confiança vence o medo."],
-      ["Salmo 4", "Encontrar paz em Deus."],
-      ["Salmo 5", "Entregar o dia ao Senhor."],
-      ["Salmo 6", "Deus escuta a nossa oração."],
-      ["Salmo 7", "A justiça pertence a Deus."],
-      ["Salmo 8", "A grandeza da criação."],
-      ["Salmo 9", "Louvar a bondade de Deus."],
-      ["Salmo 10", "Deus não abandona os necessitados."],
-      ["Salmo 11", "Deus é a nossa segurança."],
-      ["Salmo 12", "A importância da verdade."],
-      ["Salmo 13", "Esperar mesmo nos dias difíceis."],
-      ["Salmo 14", "Procurar viver com sabedoria."],
-      ["Salmo 15", "Viver com integridade."],
-      ["Salmo 16", "Deus é a nossa herança."],
-      ["Salmo 17", "Pedir orientação ao Senhor."],
-      ["Salmo 18", "Deus fortalece os seus filhos."],
-      ["Salmo 19", "A criação anuncia a glória de Deus."],
-      ["Salmo 20", "Confiar no Senhor."],
-      ["Salmo 21", "A alegria de caminhar com Deus."],
-      ["Salmo 22", "Deus está presente no sofrimento."],
-      ["Salmo 23", "O Senhor é o nosso pastor."],
-      ["Salmo 24", "Abrir o coração a Deus."],
-      ["Salmo 25", "Ensina-me os teus caminhos."],
-      ["Salmo 26", "Caminhar na sinceridade."],
-      ["Salmo 27", "O Senhor é a minha luz."],
-      ["Salmo 28", "Deus é a nossa força."],
-      ["Salmo 29", "Reconhecer a voz de Deus."],
-      ["Salmo 30", "A alegria renasce com Deus."]
+    [
+      "Génesis 2:7-9",
+      "Deus formou o ser humano do pó da terra e deu-lhe o sopro da vida. Preparou também um jardim com árvores agradáveis e boas para alimento.",
+      "A nossa vida é um dom de Deus. Não estamos aqui por acaso. Cada dia é uma oportunidade para cuidar da vida, agradecer e reconhecer a bondade do Criador.",
+      "Pai, obrigado pelo dom da vida. Ensina-me a valorizar aquilo que recebi e a cuidar com responsabilidade de tudo o que colocaste nas minhas mãos. Ámen.",
+      "A vida é um presente de Deus que merece ser vivido com gratidão.",
+      "Agradecer pela vida e cuidar melhor daquilo que Deus me confiou."
     ],
 
-    "Mateus": [
-      ["Mateus 1", "Deus realiza as suas promessas."],
-      ["Mateus 2", "Procurar Jesus com fé."],
-      ["Mateus 3", "Preparar o coração para Deus."],
-      ["Mateus 4", "Resistir às tentações."],
-      ["Mateus 5", "Ser luz no mundo."],
-      ["Mateus 6", "Confiar na providência divina."],
-      ["Mateus 7", "Construir a vida sobre a Palavra."],
-      ["Mateus 8", "A fé abre caminhos."],
-      ["Mateus 9", "Jesus chama-nos à misericórdia."],
-      ["Mateus 10", "Coragem para anunciar o Evangelho."],
-      ["Mateus 11", "Encontrar descanso em Jesus."],
-      ["Mateus 12", "A misericórdia vale mais que a aparência."],
-      ["Mateus 13", "A Palavra cresce no coração."],
-      ["Mateus 14", "Não ter medo de confiar em Jesus."],
-      ["Mateus 15", "A pureza começa no coração."],
-      ["Mateus 16", "Reconhecer quem é Jesus."],
-      ["Mateus 17", "Escutar a voz de Cristo."],
-      ["Mateus 18", "Perdoar de coração."],
-      ["Mateus 19", "O valor do amor e da família."],
-      ["Mateus 20", "Servir com humildade."],
-      ["Mateus 21", "Receber Jesus com alegria."],
-      ["Mateus 22", "Amar a Deus e ao próximo."],
-      ["Mateus 23", "Viver a fé com sinceridade."],
-      ["Mateus 24", "Permanecer vigilante."],
-      ["Mateus 25", "Fazer o bem com responsabilidade."],
-      ["Mateus 26", "A fidelidade de Jesus."],
-      ["Mateus 27", "O amor de Cristo até ao fim."],
-      ["Mateus 28", "A missão de anunciar Jesus."],
-      ["Mateus 5:1-12", "As bem-aventuranças na nossa vida."],
-      ["Mateus 6:25-34", "Não viver dominado pelas preocupações."]
+    [
+      "Génesis 3:1-13",
+      "A humanidade desobedeceu à orientação de Deus. Depois da escolha errada, Adão e Eva sentiram vergonha e tentaram esconder-se. Deus chamou-os e perguntou-lhes o que tinha acontecido.",
+      "As nossas escolhas têm consequências. Quando erramos, não devemos fugir da verdade nem procurar desculpas. Deus convida-nos a reconhecer as nossas falhas e a procurar um caminho de conversão.",
+      "Senhor, dá-me coragem para reconhecer os meus erros. Ajuda-me a escolher o bem e a procurar sempre a Tua misericórdia. Ámen.",
+      "Reconhecer o erro é o primeiro passo para recomeçar.",
+      "Ser sincero comigo mesmo e corrigir uma atitude que precisa de mudança."
     ],
 
-    "João": [
-      ["João 1", "Jesus é a luz do mundo."],
-      ["João 2", "Fazer tudo o que Jesus nos pede."],
-      ["João 3", "Nascer para uma vida nova."],
-      ["João 4", "A água viva que Jesus oferece."],
-      ["João 5", "Levantar-se e caminhar com fé."],
-      ["João 6", "Jesus é o pão da vida."],
-      ["João 7", "Procurar a verdade."],
-      ["João 8", "A verdade liberta."],
-      ["João 9", "Abrir os olhos à fé."],
-      ["João 10", "Escutar a voz do Bom Pastor."],
-      ["João 11", "Jesus é a ressurreição e a vida."],
-      ["João 12", "Servir com humildade."],
-      ["João 13", "Amar como Jesus nos amou."],
-      ["João 14", "Jesus é o caminho, a verdade e a vida."],
-      ["João 15", "Permanecer unidos a Cristo."],
-      ["João 16", "A esperança no Espírito Santo."],
-      ["João 17", "A importância da unidade."],
-      ["João 18", "A coragem de permanecer fiel."],
-      ["João 19", "O amor de Jesus na cruz."],
-      ["João 20", "A alegria da ressurreição."],
-      ["João 21", "Recomeçar com Jesus."],
-      ["João 1:1-18", "A Palavra fez-se carne."],
-      ["João 3:16-21", "Deus ama o mundo."],
-      ["João 6:35-40", "Encontrar em Cristo o alimento da vida."],
-      ["João 8:1-11", "Não julgar, mas aprender a amar."],
-      ["João 10:1-18", "Jesus cuida de cada um de nós."],
-      ["João 13:1-17", "O serviço é uma expressão do amor."],
-      ["João 14:1-14", "Confiar em Jesus nos momentos difíceis."],
-      ["João 15:1-17", "Dar frutos através do amor."],
-      ["João 20:19-31", "Acreditar mesmo quando não compreendemos tudo."]
-    ]
-  };
+    [
+      "Génesis 4:1-10",
+      "Caim ficou dominado pela inveja contra o seu irmão Abel. Deus chamou a sua atenção, mas Caim não escutou. A história mostra como a falta de amor pode destruir a fraternidade.",
+      "A inveja afasta-nos da alegria e prejudica as nossas relações. Deus chama-nos a respeitar a vida e a felicidade dos outros, sem transformar a comparação numa rivalidade.",
+      "Senhor, retira do meu coração a inveja e o ressentimento. Ensina-me a alegrar-me com o bem dos outros e a tratar todos como irmãos. Ámen.",
+      "Onde existe amor verdadeiro, não há espaço para a inveja.",
+      "Evitar comparações e demonstrar alegria pelo sucesso de alguém."
+    ],
 
-  const reflexoes = [
-    "Hoje, procura reconhecer a presença de Deus nas pequenas coisas. A fé também se manifesta nas nossas atitudes diárias.",
-    "Deus convida-te a confiar nele. Mesmo quando não conheces o caminho completo, podes dar o próximo passo com fé.",
-    "O amor cristão começa nas pequenas atitudes: escutar, respeitar, ajudar e acolher quem está ao nosso lado.",
-    "A Palavra de Deus convida-nos a olhar para a nossa vida e a escolher aquilo que nos aproxima de Cristo.",
-    "Não deixes que as dificuldades apaguem a tua esperança. Continua a caminhar com confiança e humildade."
-  ];
+    [
+      "Génesis 5:21-24",
+      "Enoque viveu em comunhão com Deus. A sua caminhada foi marcada por uma relação de proximidade com o Senhor, mostrando que a fé deve acompanhar toda a nossa vida.",
+      "A fé não deve aparecer apenas nos momentos difíceis. Deus deseja caminhar connosco diariamente, nas decisões, no trabalho, nos estudos e nas relações.",
+      "Senhor, ensina-me a caminhar Contigo todos os dias. Que a minha fé não seja apenas palavras, mas uma relação verdadeira contigo. Ámen.",
+      "Uma vida próxima de Deus deixa marcas de bondade.",
+      "Reservar um momento do dia para estar em silêncio e conversar com Deus."
+    ],
 
-  const oracoes = [
-    "Senhor, aumenta a minha fé e ensina-me a confiar em Ti em todos os momentos. Guia os meus passos. Ámen.",
-    "Pai Santo, obrigado por este novo dia. Dá-me sabedoria para escolher o bem e força para praticar o amor. Ámen.",
-    "Jesus, fica comigo durante este dia. Que as minhas palavras e atitudes transmitam a tua paz. Ámen.",
-    "Senhor, transforma o meu coração. Ensina-me a perdoar, servir e amar como Tu nos ensinaste. Ámen.",
-    "Espírito Santo, ilumina as minhas decisões e ajuda-me a viver segundo a Palavra de Deus. Ámen."
-  ];
+    [
+      "Génesis 6:5-9",
+      "Num tempo em que a maldade se espalhava, Noé procurava viver com justiça e permanecia fiel a Deus. A sua atitude mostrou que era possível escolher o bem mesmo num ambiente difícil.",
+      "Não devemos permitir que o comportamento dos outros determine os nossos valores. A fidelidade a Deus exige firmeza, mesmo quando o caminho certo parece ser o mais difícil.",
+      "Pai, fortalece a minha consciência para escolher o bem. Ajuda-me a permanecer fiel aos Teus ensinamentos em todas as circunstâncias. Ámen.",
+      "A fidelidade a Deus não depende da atitude dos outros.",
+      "Manter uma atitude correta mesmo quando ninguém estiver a observar."
+    ],
 
-  const propositos = [
-    "Fazer hoje uma boa acção sem esperar recompensa.",
-    "Reservar alguns minutos para conversar com Deus.",
-    "Tratar todas as pessoas com respeito e bondade.",
-    "Perdoar uma ofensa e evitar guardar ressentimentos.",
-    "Agradecer a Deus por três bênçãos da minha vida.",
-    "Ajudar alguém que esteja a passar por uma dificuldade.",
-    "Ler atentamente a passagem bíblica indicada.",
-    "Evitar palavras que magoem outras pessoas.",
-    "Partilhar uma mensagem de esperança com alguém.",
-    "Viver este dia com fé, responsabilidade e alegria."
-  ];
+    [
+      "Génesis 7:1-5",
+      "Deus orientou Noé a entrar na arca com a sua família. Noé cumpriu as instruções recebidas e confiou na proteção do Senhor.",
+      "Confiar em Deus também significa escutar e agir. A fé não é apenas esperar que tudo aconteça; é obedecer ao bem que Deus nos ensina.",
+      "Senhor, ajuda-me a confiar na Tua orientação. Dá-me sabedoria para escutar a Tua Palavra e coragem para colocá-la em prática. Ámen.",
+      "A confiança em Deus transforma a obediência em caminho de esperança.",
+      "Cumprir com responsabilidade uma tarefa que tenho adiado."
+    ],
 
-  const frases = [
-    "A fé ilumina o caminho mesmo quando ainda não vemos o destino.",
-    "Quem caminha com Deus nunca caminha sem esperança.",
-    "Deixa que o amor de Cristo fale através das tuas atitudes.",
-    "A oração transforma o coração e fortalece a caminhada.",
-    "Com Deus, cada novo dia é uma oportunidade de recomeçar.",
-    "A verdadeira grandeza está em servir com humildade.",
-    "A Palavra de Deus é luz para os nossos passos.",
-    "Confia em Deus e faz da bondade o teu testemunho.",
-    "Um coração cheio de fé encontra motivos para agradecer.",
-    "Vive o Evangelho com palavras, gestos e atitudes."
-  ];
+    [
+      "Génesis 8:1-12",
+      "Depois do dilúvio, Deus lembrou-se de Noé e fez baixar as águas. Noé esperou pacientemente até encontrar sinais de que a terra estava novamente preparada para a vida.",
+      "Há momentos em que precisamos de esperar. Nem todas as respostas chegam imediatamente, mas a espera pode ensinar-nos paciência, confiança e esperança.",
+      "Senhor, dá-me paciência nos momentos de espera. Ajuda-me a não perder a esperança e a reconhecer os sinais da Tua presença. Ámen.",
+      "Depois da espera, Deus pode fazer nascer um novo começo.",
+      "Não desistir de uma situação importante e enfrentá-la com paciência."
+    ],
 
-  function escaparHTML(valor) {
-    return String(valor).replace(/[&<>"']/g, function (caractere) {
-      return {
-        "&": "&amp;",
-        "<": "&lt;",
-        ">": "&gt;",
-        '"': "&quot;",
-        "'": "&#39;"
-      }[caractere];
-    });
-  }
+    [
+      "Génesis 9:8-17",
+      "Deus estabeleceu uma aliança com Noé e com todos os seres vivos. O arco-íris tornou-se sinal dessa promessa de cuidado e fidelidade.",
+      "Deus é fiel às suas promessas. Esta aliança recorda-nos também a responsabilidade de respeitar a vida e cuidar da criação.",
+      "Deus fiel, obrigado pela Tua bondade. Ensina-me a respeitar a natureza, a vida e as pessoas que colocas no meu caminho. Ámen.",
+      "A fidelidade de Deus é sinal de esperança para a humanidade.",
+      "Praticar um gesto de cuidado com a natureza ou com alguém."
+    ],
 
-  function dataAngola() {
-    const partes = new Intl.DateTimeFormat("en-CA", {
-      timeZone: FUSO,
-      year: "numeric",
-      month: "2-digit",
-      day: "2-digit"
-    }).formatToParts(new Date());
+    [
+      "Génesis 10:1-5",
+      "Os descendentes de Noé formaram diferentes povos e famílias. A passagem apresenta a diversidade das gerações que se espalharam pela terra.",
+      "A humanidade é formada por povos e culturas diferentes. Essa diversidade deve ensinar-nos respeito, fraternidade e reconhecimento da dignidade de cada pessoa.",
+      "Senhor, ajuda-me a respeitar as diferenças e a acolher cada pessoa com dignidade. Que eu seja instrumento de união. Ámen.",
+      "A diversidade humana é um convite à fraternidade.",
+      "Tratar com respeito alguém que pensa ou vive de maneira diferente."
+    ],
 
-    const resultado = {};
-    partes.forEach(function (parte) {
-      if (parte.type !== "literal") {
-        resultado[parte.type] = parte.value;
-      }
-    });
+    [
+      "Génesis 11:1-9",
+      "Os homens quiseram construir uma cidade e uma torre para alcançar grande fama. A sua ambição tornou-se motivo de divisão, e Deus confundiu as suas línguas.",
+      "A ambição sem humildade pode afastar-nos de Deus e dos outros. Os nossos projetos devem procurar o bem comum, e não apenas o reconhecimento pessoal.",
+      "Senhor, livra-me do orgulho e ensina-me a trabalhar com humildade. Que os meus projetos sejam orientados pelo amor e pela justiça. Ámen.",
+      "A verdadeira grandeza não está no orgulho, mas na humildade.",
+      "Realizar uma tarefa em equipa, valorizando a contribuição dos outros."
+    ],
 
-    return `${resultado.year}-${resultado.month}-${resultado.day}`;
-  }
+    [
+      "Génesis 12:1-9",
+      "Deus chamou Abraão para deixar a sua terra e partir para um lugar que lhe seria indicado. Abraão confiou na promessa e começou a sua caminhada.",
+      "Nem sempre conhecemos todos os passos do futuro. A fé ensina-nos a confiar em Deus e a avançar com coragem quando Ele nos chama a mudar.",
+      "Senhor, dá-me coragem para seguir os caminhos que me aproximam de Ti. Que eu não tenha medo de começar de novo. Ámen.",
+      "A fé começa quando confiamos em Deus e damos o primeiro passo.",
+      "Dar um passo concreto numa mudança positiva que tenho adiado."
+    ],
 
-  function dataLegivel(dataISO) {
-    const partes = dataISO.split("-").map(Number);
+    [
+      "Génesis 13:5-12",
+      "Abraão e Lot enfrentaram dificuldades por causa dos seus rebanhos e decidiram separar os seus caminhos. Abraão procurou resolver a situação sem alimentar conflitos.",
+      "A paz exige maturidade e capacidade de diálogo. Nem sempre precisamos de vencer uma discussão; muitas vezes, a melhor escolha é preservar a fraternidade.",
+      "Senhor, ensina-me a procurar a paz. Dá-me humildade para dialogar e sabedoria para resolver conflitos sem ferir ninguém. Ámen.",
+      "A paz vale mais do que a necessidade de ter sempre razão.",
+      "Resolver uma divergência com diálogo e respeito."
+    ],
 
-    return new Intl.DateTimeFormat("pt-PT", {
-      timeZone: FUSO,
-      day: "numeric",
-      month: "long",
-      year: "numeric"
-    }).format(new Date(Date.UTC(
-      partes[0],
-      partes[1] - 1,
-      partes[2],
-      12
-    )));
-  }
+    [
+      "Génesis 14:17-24",
+      "Depois de uma vitória, Abraão recebeu a bênção de Melquisedec e recusou enriquecer de maneira que comprometesse a sua integridade.",
+      "Nem tudo o que podemos receber nos convém. A honestidade deve orientar as nossas decisões, mesmo quando existe uma vantagem aparentemente fácil.",
+      "Senhor, guarda o meu coração da ganância. Ajuda-me a agir com honestidade e a valorizar aquilo que é justo. Ámen.",
+      "A integridade vale mais do que qualquer vantagem.",
+      "Ser honesto numa situação em que seria fácil escolher o caminho mais conveniente."
+    ],
 
-  function calcularDia() {
-    const hoje = dataAngola();
-    const inicio = Date.parse(DATA_INICIO + "T00:00:00Z");
-    const atual = Date.parse(hoje + "T00:00:00Z");
-    const fim = Date.parse(DATA_FIM + "T00:00:00Z");
+    [
+      "Génesis 15:1-6",
+      "Deus prometeu a Abraão uma grande descendência. Apesar da idade e das dificuldades, Abraão acreditou na promessa do Senhor.",
+      "A fé não significa compreender tudo. Significa confiar em Deus mesmo quando a realidade parece contrária à esperança.",
+      "Pai, aumenta a minha fé. Quando surgirem dúvidas, ajuda-me a recordar que posso confiar na Tua fidelidade. Ámen.",
+      "A esperança permanece viva quando o coração confia em Deus.",
+      "Entregar a Deus uma preocupação que tenho guardado no coração."
+    ],
 
-    if (atual < inicio) return 0;
-    if (atual > fim) return 119;
+    [
+      "Génesis 16:7-13",
+      "Agar encontrou-se com o mensageiro do Senhor no deserto. Deus ouviu a sua aflição e mostrou-lhe que não estava esquecida.",
+      "Deus conhece as nossas dificuldades, inclusive aquelas que os outros não conseguem perceber. Nenhuma pessoa é invisível aos olhos do Senhor.",
+      "Senhor, obrigado porque conheces a minha vida. Dá-me sensibilidade para perceber também o sofrimento de quem está ao meu lado. Ámen.",
+      "Mesmo no deserto, Deus vê e acompanha os seus filhos.",
+      "Dar atenção a alguém que esteja a sentir-se sozinho ou esquecido."
+    ],
 
-    return Math.floor((atual - inicio) / 86400000);
-  }
+    [
+      "Génesis 17:1-8",
+      "Deus renovou a sua aliança com Abraão e prometeu-lhe uma descendência numerosa. Chamou-o a caminhar na sua presença com fidelidade.",
+      "A relação com Deus pede compromisso. Não basta procurar o Senhor quando precisamos de alguma coisa; é necessário viver com fidelidade.",
+      "Senhor, renova a minha fé e ajuda-me a viver na Tua presença. Que as minhas escolhas revelem o compromisso que tenho Contigo. Ámen.",
+      "A aliança com Deus convida-nos a uma vida de fidelidade.",
+      "Cumprir um compromisso assumido com responsabilidade."
+    ],
 
-  function obterPrograma(numero) {
-    const indice = Math.min(Math.max(numero, 0), 119);
-    const grupo = Math.floor(indice / 30);
-    const diaLivro = indice % 30;
+    [
+      "Génesis 18:1-8",
+      "Abraão recebeu visitantes e ofereceu-lhes acolhimento e alimento. A sua hospitalidade mostrou generosidade e atenção ao próximo.",
+      "A bondade manifesta-se em gestos simples. Acolher, escutar e partilhar são formas concretas de viver o amor de Deus.",
+      "Pai, abre o meu coração para acolher quem precisa. Ensina-me a servir com alegria e sem esperar recompensa. Ámen.",
+      "A hospitalidade transforma um encontro num gesto de amor.",
+      "Receber alguém com atenção ou ajudar uma pessoa que precise."
+    ],
 
-    const nomes = ["Génesis", "Salmos", "Mateus", "João"];
-    const livro = nomes[grupo];
-    const leitura = conteudos[livro][diaLivro];
+    [
+      "Génesis 19:15-17",
+      "Os mensageiros de Deus orientaram Lot e a sua família a abandonar a cidade. A passagem mostra a importância de escutar o aviso e afastar-se do mal.",
+      "Existem situações das quais precisamos de nos afastar para proteger os nossos valores. A prudência também faz parte da vida de fé.",
+      "Senhor, dá-me discernimento para reconhecer aquilo que me afasta do bem. Ajuda-me a escolher caminhos que preservem a minha dignidade. Ámen.",
+      "A sabedoria também consiste em saber quando devemos afastar-nos.",
+      "Evitar hoje uma situação ou hábito que prejudique o meu crescimento."
+    ],
 
-    return {
-      numero: indice + 1,
-      livro: livro,
-      leitura: leitura[0],
-      resumo: leitura[1],
-      reflexao: reflexoes[indice % reflexoes.length],
-      oracao: oracoes[indice % oracoes.length],
-      proposito: propositos[indice % propositos.length],
-      frase: frases[indice % frases.length]
-    };
-  }
+    [
+      "Génesis 20:1-7",
+      "Abraão enfrentou uma situação difícil e Deus interveio para impedir que o mal acontecesse. A passagem recorda a importância da verdade e da proteção divina.",
+      "As nossas atitudes devem ser guiadas pela sinceridade. A confiança em Deus não dispensa a responsabilidade de falar e agir com verdade.",
+      "Senhor, ajuda-me a ser verdadeiro nas minhas palavras e atitudes. Dá-me coragem para assumir as minhas responsabilidades. Ámen.",
+      "A verdade constrói a confiança que a mentira destrói.",
+      "Falar com sinceridade numa situação em que normalmente esconderia a verdade."
+    ],
 
-  function aplicarEstilos() {
-    if (document.getElementById("estilo-palavra")) return;
+    [
+      "Génesis 21:1-7",
+      "Deus cumpriu a promessa feita a Abraão e Sara, e nasceu Isaac. A alegria da família mostrou que a promessa do Senhor não tinha sido esquecida.",
+      "A espera não significa abandono. Deus ensina-nos a confiar no seu tempo e a reconhecer com gratidão as bênçãos que chegam.",
+      "Pai, obrigado pelas promessas e pelos dons que colocas na minha vida. Ensina-me a esperar com fé e a agradecer sem deixar que a ansiedade me domine. Ámen.",
+      "Deus não esquece as suas promessas.",
+      "Agradecer por uma bênção que chegou depois de um período de espera."
+    ],
 
-    const estilo = document.createElement("style");
-    estilo.id = "estilo-palavra";
+    [
+      "Génesis 22:1-14",
+      "Abraão foi colocado diante de uma prova de fé, mas Deus providenciou o necessário e impediu que Isaac fosse sacrificado. A passagem destaca a confiança de Abraão e a providência divina.",
+      "A confiança em Deus deve orientar as nossas escolhas. O Senhor não deseja a destruição da vida, mas ensina-nos a colocar a fé acima dos nossos medos.",
+      "Senhor, fortalece a minha confiança em Ti. Ajuda-me a colocar nas Tuas mãos aquilo que mais me preocupa. Ámen.",
+      "A confiança em Deus permite-nos caminhar mesmo sem conhecer o final.",
+      "Entregar a Deus uma preocupação e agir com serenidade."
+    ],
 
-    estilo.textContent = `
-      #conteudo {
-        background: transparent !important;
-        color: #ffffff !important;
-        padding: 0 !important;
-        border: 0 !important;
-        width: 100%;
-      }
+    [
+      "Génesis 23:1-6",
+      "Abraão viveu o luto pela morte de Sara e procurou um lugar digno para sepultá-la. Os habitantes reconheceram o seu respeito e a sua dignidade.",
+      "O respeito pela memória e pela dignidade das pessoas é uma expressão de amor. Devemos tratar cada pessoa com consideração em todas as fases da vida.",
+      "Senhor, ensina-me a valorizar as pessoas enquanto caminham comigo. Dá-me sensibilidade para respeitar a dor dos outros. Ámen.",
+      "O respeito é uma forma de reconhecer a dignidade de cada pessoa.",
+      "Demonstrar consideração por alguém através de uma atitude concreta."
+    ],
 
-      #conteudo .daily-card {
-        width: 100%;
-        max-width: 1100px;
-        margin: 0 auto;
-        padding: 28px;
-        color: #ffffff;
-        background: linear-gradient(145deg, #192b49, #101c35);
-        border: 1px solid #c9a96e88;
-        border-radius: 22px;
-        box-shadow: 0 20px 55px #0005;
-      }
+    [
+      "Génesis 24:10-21",
+      "O servo de Abraão pediu orientação a Deus para encontrar uma esposa para Isaac. Rebeca apareceu e demonstrou generosidade ao oferecer água.",
+      "A oração pode acompanhar as nossas decisões. Mas também precisamos de observar as atitudes e reconhecer a bondade que encontramos nas pessoas.",
+      "Senhor, orienta as minhas decisões. Dá-me sabedoria para reconhecer o bem e humildade para aceitar a Tua orientação. Ámen.",
+      "Deus também nos orienta através dos gestos de bondade.",
+      "Antes de tomar uma decisão importante, parar e pedir orientação a Deus."
+    ],
 
-      #conteudo .daily-header {
-        text-align: center;
-        padding: 18px 10px 28px;
-        margin-bottom: 25px;
-        border-bottom: 1px solid #c9a96e77;
-      }
+    [
+      "Génesis 25:27-34",
+      "Esaú trocou o seu direito de primogenitura por uma refeição. A sua escolha mostrou como uma necessidade imediata pode levar alguém a desprezar algo de grande valor.",
+      "Nem sempre devemos trocar valores importantes por uma satisfação passageira. É necessário pensar nas consequências das nossas escolhas.",
+      "Pai, dá-me domínio próprio e sabedoria. Ajuda-me a não trocar aquilo que é importante por vantagens momentâneas. Ámen.",
+      "Uma decisão impulsiva pode comprometer algo de grande valor.",
+      "Pensar nas consequências antes de tomar uma decisão."
+    ],
 
-      #conteudo .daily-header h2 {
-        color: #ffffff !important;
-        font-family: Georgia, serif;
-        font-size: clamp(25px, 5vw, 36px);
-        font-weight: 500;
-        line-height: 1.3;
-        margin: 0 0 15px;
-      }
+    [
+      "Génesis 26:12-25",
+      "Isaac enfrentou conflitos por causa dos poços, mas continuou a procurar soluções. Deus confirmou a sua presença e renovou a promessa.",
+      "A perseverança não significa alimentar conflitos. Podemos continuar a trabalhar pelo que é justo sem abandonar a paz e a confiança em Deus.",
+      "Senhor, dá-me paciência diante das dificuldades. Ensina-me a perseverar sem perder a bondade. Ámen.",
+      "Perseverar com paz é uma forma de demonstrar maturidade.",
+      "Continuar uma tarefa difícil sem responder com agressividade."
+    ],
 
-      #conteudo .daily-date {
-        color: #aeb9c9 !important;
-        margin: 8px 0;
-      }
+    [
+      "Génesis 27:18-29",
+      "Jacó enganou o seu pai para receber a bênção destinada a Esaú. A passagem mostra como a mentira e o engano podem afetar profundamente uma família.",
+      "O desejo de conseguir alguma coisa nunca justifica a desonestidade. A verdade deve estar presente nas relações familiares e em todas as nossas escolhas.",
+      "Senhor, purifica as minhas intenções. Ajuda-me a não recorrer ao engano para alcançar os meus objetivos. Ámen.",
+      "O que é conquistado pela mentira não constrói uma vida verdadeira.",
+      "Escolher a honestidade, mesmo quando ela exige mais esforço."
+    ],
 
-      #conteudo .daily-number {
-        color: #c9a96e !important;
-        font-weight: bold;
-        letter-spacing: 2px;
-        margin: 12px 0 0;
-      }
+    [
+      "Génesis 28:10-17",
+      "Durante a viagem, Jacó sonhou com uma escada que ligava a terra ao céu. Deus confirmou que estaria com ele e que não o abandonaria.",
+      "Mesmo quando nos sentimos longe de casa ou inseguros, Deus permanece presente. A sua companhia dá-nos coragem para continuar.",
+      "Senhor, acompanha-me nos caminhos que preciso de percorrer. Quando sentir medo, recorda-me que não estou sozinho. Ámen.",
+      "Deus está presente até nos caminhos que parecem desconhecidos.",
+      "Enfrentar uma responsabilidade com confiança e sem fugir dela."
+    ],
 
-      #conteudo .daily-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 18px;
-      }
+    [
+      "Génesis 29:15-20",
+      "Jacó trabalhou durante anos para poder casar com Raquel. O seu amor levou-o a enfrentar o trabalho e a espera com perseverança.",
+      "As coisas verdadeiramente importantes exigem compromisso e paciência. O amor não é apenas sentimento; também se demonstra através da dedicação.",
+      "Pai, ensina-me a amar com respeito e responsabilidade. Dá-me paciência para construir relações verdadeiras. Ámen.",
+      "O amor verdadeiro também se revela na dedicação.",
+      "Demonstrar carinho e respeito por alguém através de uma atitude concreta."
+    ],
 
-      #conteudo .daily-section {
-        min-width: 0;
-        padding: 23px;
-        background: linear-gradient(145deg, #243957, #192b49);
-        border: 1px solid #c9a96e88;
-        border-radius: 17px;
-        box-shadow: 0 7px 0 #0b1528, 0 13px 25px #0004;
-      }
+    [
+      "Génesis 30:22-24",
+      "Deus lembrou-se de Raquel e ela deu à luz José. Depois de um longo período de espera, a sua vida foi marcada pela alegria.",
+      "A gratidão ajuda-nos a reconhecer as bênçãos que recebemos. Não devemos permitir que a espera nos faça esquecer tudo aquilo que Deus já realizou.",
+      "Senhor, obrigado por não me abandonares. Ensina-me a reconhecer as Tuas bênçãos e a agradecer em todas as circunstâncias. Ámen.",
+      "Um coração agradecido encontra razões para louvar a Deus.",
+      "Escrever ou recordar três motivos de gratidão."
+    ],
 
-      #conteudo .daily-section h3 {
-        color: #c9a96e !important;
-        font-family: Georgia, serif;
-        font-size: 21px;
-        line-height: 1.35;
-        margin: 0 0 13px;
-      }
+    // ==========================================
+    // SALMOS — DIAS 31 A 60
+    // ==========================================
 
-      #conteudo .daily-section p {
-        color: #ffffff !important;
-        font-size: 16px;
-        line-height: 1.85;
-        margin: 0;
-        overflow-wrap: anywhere;
-      }
-
-      #conteudo .daily-section p + p {
-        margin-top: 10px;
-      }
-
-      #conteudo .daily-quote {
-        margin: 0;
-        color: #ffffff;
-        font-family: Georgia, serif;
-        font-size: 18px;
-        line-height: 1.8;
-        text-align: center;
-      }
-
-      @media (min-width: 700px) {
-        #conteudo .daily-grid {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-
-        #conteudo .daily-section:nth-child(3),
-        #conteudo .daily-section:nth-child(4),
-        #conteudo .daily-section:nth-child(5) {
-          grid-column: 1 / -1;
-        }
-      }
-
-      @media (max-width: 600px) {
-        #conteudo .daily-card {
-          padding: 17px;
-          border-radius: 18px;
-        }
-
-        #conteudo .daily-section {
-          padding: 20px;
-        }
-
-        #conteudo .daily-section h3 {
-          font-size: 20px;
-        }
-
-        #conteudo .daily-section p {
-          font-size: 15px;
-        }
-      }
-    `;
-
-    document.head.appendChild(estilo);
-  }
-
-  function mostrarPalavraDoDia() {
-    const destino = document.getElementById("conteudo");
-
-    if (!destino) {
-      console.error('Uma Palavra de Deus por Dia: elemento "conteudo" não encontrado.');
-      return;
-    }
-
-    aplicarEstilos();
-
-    const indice = calcularDia();
-    const item = obterPrograma(indice);
-    const dataPrograma = new Date(
-      Date.parse(DATA_INICIO + "T00:00:00Z") +
-      indice * 86400000
-    ).toISOString().slice(0, 10);
-
-    destino.innerHTML = `
-      <section class="daily-card" aria-label="Palavra de Deus do dia">
-
-        <header class="daily-header">
-          <h2>Uma Palavra de Deus por Dia</h2>
-          <p class="daily-date">${escaparHTML(dataLegivel(dataPrograma))}</p>
-          <p class="daily-number">DIA ${String(item.numero).padStart(3, "0")} DE 120</p>
-        </header>
-
-        <div class="daily-grid">
-
-          <article class="daily-section">
-            <h3>1. Leitura</h3>
-            <p><strong>${escaparHTML(item.leitura)}</strong></p>
-            <p>${escaparHTML(item.resumo)}</p>
-          </article>
-
-          <article class="daily-section">
-            <h3>2. Reflexão</h3>
-            <p>${escaparHTML(item.reflexao)}</p>
-          </article>
-
-          <article class="daily-section">
-            <h3>3. Oração</h3>
-            <p>${escaparHTML(item.oracao)}</p>
-          </article>
-
-          <article class="daily-section">
-            <h3>4. Frase inspiradora</h3>
-            <blockquote class="daily-quote">
-              “${escaparHTML(item.frase)}”
-            </blockquote>
-          </article>
-
-          <article class="daily-section">
-            <h3>5. Propósito do dia</h3>
-            <p>${escaparHTML(item.proposito)}</p>
-          </article>
-
-        </div>
-      </section>
-    `;
-  }
-
-  window.mostrarPalavraDoDia = mostrarPalavraDoDia;
-
-  window.umaPalavraPorDia = Object.freeze({
-    inicio: DATA_INICIO,
-    fim: DATA_FIM,
-    total: 120,
-    fuso: FUSO
-  });
-
-  function iniciar() {
-    mostrarPalavraDoDia();
-  }
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", iniciar);
-  } else {
-    iniciar();
-  }
-
-})();
-                                   
+    [
+      "Salmo 1:1-3",
+      "Feliz é aquele que não segue os caminhos do mal, mas encontra alegria na lei do Senhor. É comparado a uma árvore plantada junto às águas, que dá fruto no tempo certo.",
+      "As pessoas e os hábitos que escolhemos influenciam a nossa caminhada. A Palavra de Deus alimenta a nossa fé e ajuda-nos a produzir bons frutos.",
+      "Senhor, coloca em mim o gosto pela Tua Palavra. Que as minhas escolhas produzam fr
