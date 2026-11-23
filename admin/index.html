@@ -32,6 +32,14 @@ main{
   margin:auto;
 }
 
+.panel,.card{
+  background:white;
+  padding:17px;
+  border-radius:12px;
+  margin-bottom:16px;
+  box-shadow:0 2px 8px #00000008;
+}
+
 .notice{
   background:#e8f3ff;
   padding:14px;
@@ -45,14 +53,6 @@ main{
   display:grid;
   grid-template-columns:repeat(5,1fr);
   gap:10px;
-}
-
-.card,.panel{
-  background:white;
-  padding:17px;
-  border-radius:12px;
-  margin-bottom:16px;
-  box-shadow:0 2px 8px #00000008;
 }
 
 .card span{font-size:12px;color:#68758a}
@@ -72,6 +72,7 @@ input,select{
   border:1px solid #dce1e9;
   border-radius:8px;
   background:white;
+  font-size:15px;
 }
 
 button{
@@ -196,7 +197,7 @@ footer{
 
   </form>
 
-  <p id="loginError" class="error"></p>
+  <p id="loginError" class="error" aria-live="polite"></p>
 </section>
 
 
@@ -215,7 +216,6 @@ footer{
       Terminar sessão
     </button>
   </div>
-
 
   <div class="cards">
 
@@ -246,32 +246,25 @@ footer{
 
   </div>
 
-
   <div class="panel warning-panel">
     <h3>⚠ Pulseiras a expirar</h3>
-
     <p class="muted">
       Códigos cuja validade termina nos próximos 3 dias.
     </p>
-
     <ul id="listaExpiracao" class="alert-list">
       <li>A carregar...</li>
     </ul>
   </div>
 
-
   <div class="panel expired-panel">
     <h3>⚠ Pulseiras expiradas</h3>
-
     <p class="muted">
       Estes códigos precisam de renovação para voltar a funcionar.
     </p>
-
     <ul id="listaExpirados" class="alert-list">
       <li>A carregar...</li>
     </ul>
   </div>
-
 
   <div class="panel">
     <h3>Gerar novo código</h3>
@@ -292,7 +285,6 @@ footer{
     <p id="actionMessage" class="muted" aria-live="polite"></p>
   </div>
 
-
   <div class="panel">
     <h3>Consultar códigos</h3>
 
@@ -303,7 +295,6 @@ footer{
     >
 
     <div class="tablewrap">
-
       <table>
         <thead>
           <tr>
@@ -320,7 +311,6 @@ footer{
           </tr>
         </tbody>
       </table>
-
     </div>
   </div>
 
@@ -333,59 +323,42 @@ footer{
 </footer>
 
 
-<script type="module">
+<!-- BIBLIOTECA SUPABASE -->
 
-import {
-  createClient
-} from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
+<script
+  src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+  onerror="window.supabaseLibraryError=true">
+</script>
 
+
+<script>
 
 /* =================================
-   CONFIGURAÇÃO DO SUPABASE
+   CONFIGURAÇÃO SUPABASE
 ================================= */
 
 const SUPABASE_URL =
   "https://okcmbnucjzkeiduivsny.supabase.co";
 
-/*
-  MESMA CHAVE DO SITE PRINCIPAL.
-  Não alterar os caracteres.
-*/
-
 const SUPABASE_PUBLISHABLE_KEY =
   "sb_publishable_7F_7S5UWTRO-l2tDBPLeQ__J28PZ6v";
-
-
-const supabase = createClient(
-  SUPABASE_URL,
-  SUPABASE_PUBLISHABLE_KEY
-);
 
 
 /* =================================
    ELEMENTOS
 ================================= */
 
-const loginPanel =
-  document.getElementById("loginPanel");
+const loginPanel = document.getElementById("loginPanel");
+const appPanel = document.getElementById("appPanel");
+const loginForm = document.getElementById("loginForm");
+const loginError = document.getElementById("loginError");
+const actionMessage = document.getElementById("actionMessage");
+const lista = document.getElementById("lista");
 
-const appPanel =
-  document.getElementById("appPanel");
-
-const loginForm =
-  document.getElementById("loginForm");
-
-const loginError =
-  document.getElementById("loginError");
-
-const actionMessage =
-  document.getElementById("actionMessage");
-
-const lista =
-  document.getElementById("lista");
-
+let supabase = null;
 let codigos = [];
 let atualizando = false;
+let temporizador = null;
 
 
 /* =================================
@@ -395,9 +368,7 @@ let atualizando = false;
 function mensagem(texto, erro=false){
 
   actionMessage.textContent = texto;
-
-  actionMessage.className =
-    erro ? "error" : "muted";
+  actionMessage.className = erro ? "error" : "muted";
 
 }
 
@@ -411,14 +382,8 @@ function hojeISO(){
   const agora = new Date();
 
   const ano = agora.getFullYear();
-
-  const mes = String(
-    agora.getMonth()+1
-  ).padStart(2,"0");
-
-  const dia = String(
-    agora.getDate()
-  ).padStart(2,"0");
+  const mes = String(agora.getMonth()+1).padStart(2,"0");
+  const dia = String(agora.getDate()).padStart(2,"0");
 
   return `${ano}-${mes}-${dia}`;
 
@@ -448,17 +413,11 @@ function adicionarDiasISO(data,dias){
 
 function dataFormatada(valor){
 
-  if(!valor){
-    return "Sem data";
-  }
+  if(!valor) return "Sem data";
 
-  const partes = String(valor)
-    .slice(0,10)
-    .split("-");
+  const partes = String(valor).slice(0,10).split("-");
 
-  if(partes.length !== 3){
-    return "Data inválida";
-  }
+  if(partes.length !== 3) return "Data inválida";
 
   return `${partes[2]}/${partes[1]}/${partes[0]}`;
 
@@ -484,24 +443,14 @@ function estado(c){
 }
 
 
-/* =================================
-   VERIFICAR EXPIRAÇÃO
-================================= */
-
 function estaAExpirar(c){
 
-  if(estado(c) !== "Ativo"){
-    return false;
-  }
+  if(estado(c) !== "Ativo") return false;
 
   const hoje = hojeISO();
-
   const limite = adicionarDiasISO(hoje,3);
 
-  return (
-    c.validade >= hoje &&
-    c.validade <= limite
-  );
+  return c.validade >= hoje && c.validade <= limite;
 
 }
 
@@ -512,9 +461,7 @@ function estaAExpirar(c){
 
 function criarCodigo(){
 
-  const chars =
-    "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
-
+  const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
   const bytes = new Uint8Array(8);
 
   crypto.getRandomValues(bytes);
@@ -522,11 +469,7 @@ function criarCodigo(){
   let codigo = "UPDD-";
 
   for(const byte of bytes){
-
-    codigo += chars[
-      byte % chars.length
-    ];
-
+    codigo += chars[byte % chars.length];
   }
 
   return codigo;
@@ -540,9 +483,7 @@ function criarCodigo(){
 
 async function carregarCodigos(){
 
-  if(atualizando){
-    return;
-  }
+  if(atualizando || !supabase) return;
 
   atualizando = true;
 
@@ -561,11 +502,7 @@ async function carregarCodigos(){
       lista.innerHTML =
         '<tr><td colspan="4">Erro ao consultar códigos.</td></tr>';
 
-      mensagem(
-        "Erro Supabase: "+error.message,
-        true
-      );
-
+      mensagem("Erro Supabase: "+error.message,true);
       return;
 
     }
@@ -581,10 +518,7 @@ async function carregarCodigos(){
 
   }catch(erro){
 
-    mensagem(
-      "Erro ao carregar códigos: "+erro.message,
-      true
-    );
+    mensagem("Erro ao carregar códigos: "+erro.message,true);
 
   }finally{
 
@@ -607,62 +541,31 @@ function mostrar(){
     .trim()
     .toLowerCase();
 
+  const ativos = codigos.filter(c => estado(c) === "Ativo");
+  const suspensos = codigos.filter(c => estado(c) === "Suspenso");
+  const expirados = codigos.filter(c => estado(c) === "Expirado");
+  const aExpirar = codigos.filter(c => estaAExpirar(c));
 
-  /* CONTADORES */
-
-  const ativos = codigos.filter(
-    c => estado(c) === "Ativo"
-  );
-
-  const suspensos = codigos.filter(
-    c => estado(c) === "Suspenso"
-  );
-
-  const expirados = codigos.filter(
-    c => estado(c) === "Expirado"
-  );
-
-  const aExpirar = codigos.filter(
-    c => estaAExpirar(c)
-  );
-
-
-  document.getElementById("total").textContent =
-    codigos.length;
-
-  document.getElementById("ativos").textContent =
-    ativos.length;
-
-  document.getElementById("suspensos").textContent =
-    suspensos.length;
-
-  document.getElementById("expirados").textContent =
-    expirados.length;
-
-  document.getElementById("aExpirar").textContent =
-    aExpirar.length;
+  document.getElementById("total").textContent = codigos.length;
+  document.getElementById("ativos").textContent = ativos.length;
+  document.getElementById("suspensos").textContent = suspensos.length;
+  document.getElementById("expirados").textContent = expirados.length;
+  document.getElementById("aExpirar").textContent = aExpirar.length;
 
 
   /* AVISOS DE EXPIRAÇÃO */
 
-  const listaExpiracao =
-    document.getElementById("listaExpiracao");
+  const listaExpiracao = document.getElementById("listaExpiracao");
 
   listaExpiracao.replaceChildren();
 
-  aExpirar.sort((a,b) =>
-    a.validade.localeCompare(b.validade)
-  );
+  aExpirar.sort((a,b) => a.validade.localeCompare(b.validade));
 
   if(aExpirar.length === 0){
 
     const li = document.createElement("li");
-
-    li.textContent =
-      "Não existem pulseiras a expirar nos próximos 3 dias.";
-
+    li.textContent = "Não existem pulseiras a expirar nos próximos 3 dias.";
     li.className = "success-text";
-
     listaExpiracao.appendChild(li);
 
   }else{
@@ -672,12 +575,9 @@ function mostrar(){
       const li = document.createElement("li");
 
       li.textContent =
-        c.codigo+
-        " — termina em "+
-        dataFormatada(c.validade);
+        c.codigo+" — termina em "+dataFormatada(c.validade);
 
       li.className = "warning-text";
-
       listaExpiracao.appendChild(li);
 
     }
@@ -687,39 +587,29 @@ function mostrar(){
 
   /* AVISOS DE EXPIRADOS */
 
-  const listaExpirados =
-    document.getElementById("listaExpirados");
+  const listaExpirados = document.getElementById("listaExpirados");
 
   listaExpirados.replaceChildren();
 
   if(expirados.length === 0){
 
     const li = document.createElement("li");
-
-    li.textContent =
-      "Não existem pulseiras expiradas.";
-
+    li.textContent = "Não existem pulseiras expiradas.";
     li.className = "success-text";
-
     listaExpirados.appendChild(li);
 
   }else{
 
-    expirados.sort((a,b) =>
-      a.validade.localeCompare(b.validade)
-    );
+    expirados.sort((a,b) => a.validade.localeCompare(b.validade));
 
     for(const c of expirados){
 
       const li = document.createElement("li");
 
       li.textContent =
-        c.codigo+
-        " — expirou em "+
-        dataFormatada(c.validade);
+        c.codigo+" — expirou em "+dataFormatada(c.validade);
 
       li.className = "danger-text";
-
       listaExpirados.appendChild(li);
 
     }
@@ -732,24 +622,18 @@ function mostrar(){
   lista.replaceChildren();
 
   const encontrados = codigos.filter(c =>
-    String(c.codigo)
-      .toLowerCase()
-      .includes(pesquisa)
+    String(c.codigo).toLowerCase().includes(pesquisa)
   );
 
   if(!encontrados.length){
 
     const tr = document.createElement("tr");
-
     const td = document.createElement("td");
 
     td.colSpan = 4;
-
-    td.textContent =
-      "Nenhum código encontrado.";
+    td.textContent = "Nenhum código encontrado.";
 
     tr.appendChild(td);
-
     lista.appendChild(tr);
 
     return;
@@ -761,73 +645,42 @@ function mostrar(){
 
     const tr = document.createElement("tr");
 
-
-    /* CÓDIGO */
-
     const codigoTd = document.createElement("td");
-
     codigoTd.textContent = c.codigo;
-
     tr.appendChild(codigoTd);
 
-
-    /* VALIDADE */
-
     const validadeTd = document.createElement("td");
-
-    validadeTd.textContent =
-      dataFormatada(c.validade);
-
+    validadeTd.textContent = dataFormatada(c.validade);
     tr.appendChild(validadeTd);
 
-
-    /* ESTADO */
-
     const estadoTd = document.createElement("td");
-
     estadoTd.textContent = estado(c);
-
     estadoTd.className = "status";
-
     tr.appendChild(estadoTd);
 
-
-    /* AÇÕES */
-
     const acoes = document.createElement("td");
-
     acoes.className = "actions";
 
 
     /* COPIAR */
 
     const copiarBtn = document.createElement("button");
-
     copiarBtn.className = "light";
-
     copiarBtn.textContent = "Copiar";
-
     copiarBtn.onclick = () => copiar(c.codigo);
-
     acoes.appendChild(copiarBtn);
 
 
     /* SUSPENDER OU REATIVAR */
 
     const suspenderBtn = document.createElement("button");
-
     suspenderBtn.className = "light";
 
     suspenderBtn.textContent =
-      c.status === "suspenso"
-        ? "Reativar"
-        : "Suspender";
+      c.status === "suspenso" ? "Reativar" : "Suspender";
 
-    suspenderBtn.disabled =
-      estado(c) === "Expirado";
-
-    suspenderBtn.onclick =
-      () => alterarEstado(c);
+    suspenderBtn.disabled = estado(c) === "Expirado";
+    suspenderBtn.onclick = () => alterarEstado(c);
 
     acoes.appendChild(suspenderBtn);
 
@@ -835,18 +688,13 @@ function mostrar(){
     /* RENOVAR */
 
     const renovarBtn = document.createElement("button");
-
     renovarBtn.className = "green";
-
     renovarBtn.textContent = "Renovar";
-
     renovarBtn.onclick = () => renovar(c);
 
     acoes.appendChild(renovarBtn);
 
-
     tr.appendChild(acoes);
-
     lista.appendChild(tr);
 
   }
@@ -863,17 +711,11 @@ async function copiar(codigo){
   try{
 
     await navigator.clipboard.writeText(codigo);
-
-    mensagem(
-      "Código "+codigo+" copiado."
-    );
+    mensagem("Código "+codigo+" copiado.");
 
   }catch{
 
-    mensagem(
-      "Não foi possível copiar. Código: "+codigo,
-      true
-    );
+    mensagem("Não foi possível copiar. Código: "+codigo,true);
 
   }
 
@@ -887,31 +729,28 @@ async function copiar(codigo){
 async function alterarEstado(c){
 
   const novoStatus =
-    c.status === "suspenso"
-      ? "ativo"
-      : "suspenso";
+    c.status === "suspenso" ? "ativo" : "suspenso";
 
-  const {error} = await supabase
-    .from("pulseiras")
-    .update({
-      status:novoStatus
-    })
-    .eq("id",c.id);
+  try{
 
-  if(error){
+    const {error} = await supabase
+      .from("pulseiras")
+      .update({status:novoStatus})
+      .eq("id",c.id);
 
-    mensagem(
-      "Erro ao alterar estado: "+error.message,
-      true
-    );
+    if(error){
+      mensagem("Erro ao alterar estado: "+error.message,true);
+      return;
+    }
 
-    return;
+    mensagem("Estado atualizado.");
+    await carregarCodigos();
+
+  }catch(erro){
+
+    mensagem("Erro: "+erro.message,true);
 
   }
-
-  mensagem("Estado atualizado.");
-
-  await carregarCodigos();
 
 }
 
@@ -922,46 +761,41 @@ async function alterarEstado(c){
 
 async function renovar(c){
 
-  const dias = Number(
-    document.getElementById("duracao").value
-  );
-
+  const dias = Number(document.getElementById("duracao").value);
   const hoje = hojeISO();
 
   const validadeAtual =
-    c.validade && c.validade > hoje
-      ? c.validade
-      : hoje;
+    c.validade && c.validade > hoje ? c.validade : hoje;
 
-  const novaValidade =
-    adicionarDiasISO(validadeAtual,dias);
+  const novaValidade = adicionarDiasISO(validadeAtual,dias);
 
-  const {error} = await supabase
-    .from("pulseiras")
-    .update({
-      validade:novaValidade,
-      status:"ativo"
-    })
-    .eq("id",c.id);
+  try{
 
-  if(error){
+    const {error} = await supabase
+      .from("pulseiras")
+      .update({
+        validade:novaValidade,
+        status:"ativo"
+      })
+      .eq("id",c.id);
+
+    if(error){
+      mensagem("Erro ao renovar: "+error.message,true);
+      return;
+    }
 
     mensagem(
-      "Erro ao renovar: "+error.message,
-      true
+      "Código renovado por "+dias+
+      " dias. Nova validade: "+dataFormatada(novaValidade)
     );
 
-    return;
+    await carregarCodigos();
+
+  }catch(erro){
+
+    mensagem("Erro: "+erro.message,true);
 
   }
-
-  mensagem(
-    "Código renovado por "+dias+
-    " dias. Nova validade: "+
-    dataFormatada(novaValidade)
-  );
-
-  await carregarCodigos();
 
 }
 
@@ -972,24 +806,18 @@ async function renovar(c){
 
 async function gerar(){
 
-  const botao =
-    document.getElementById("generateButton");
+  const botao = document.getElementById("generateButton");
 
   botao.disabled = true;
-
   mensagem("A gerar código...");
 
-  const dias = Number(
-    document.getElementById("duracao").value
-  );
+  const dias = Number(document.getElementById("duracao").value);
 
   try{
 
     for(let tentativa=0;tentativa<5;tentativa++){
 
-      const validade =
-        adicionarDiasISO(hojeISO(),dias);
-
+      const validade = adicionarDiasISO(hojeISO(),dias);
       const codigo = criarCodigo();
 
       const {error} = await supabase
@@ -1002,12 +830,9 @@ async function gerar(){
 
       if(!error){
 
-        mensagem(
-          "Código criado e guardado: "+codigo
-        );
+        mensagem("Código criado e guardado: "+codigo);
 
         await carregarCodigos();
-
         await copiar(codigo);
 
         return;
@@ -1016,11 +841,7 @@ async function gerar(){
 
       if(error.code !== "23505"){
 
-        mensagem(
-          "Erro ao guardar: "+error.message,
-          true
-        );
-
+        mensagem("Erro ao guardar: "+error.message,true);
         return;
 
       }
@@ -1034,10 +855,7 @@ async function gerar(){
 
   }catch(erro){
 
-    mensagem(
-      "Erro ao gerar código: "+erro.message,
-      true
-    );
+    mensagem("Erro ao gerar código: "+erro.message,true);
 
   }finally{
 
@@ -1056,15 +874,8 @@ async function mostrarAplicacao(session){
 
   const autenticado = Boolean(session);
 
-  loginPanel.classList.toggle(
-    "hidden",
-    autenticado
-  );
-
-  appPanel.classList.toggle(
-    "hidden",
-    !autenticado
-  );
+  loginPanel.classList.toggle("hidden",autenticado);
+  appPanel.classList.toggle("hidden",!autenticado);
 
   if(autenticado){
 
@@ -1076,10 +887,26 @@ async function mostrarAplicacao(session){
 
     await carregarCodigos();
 
+    if(temporizador){
+      clearInterval(temporizador);
+    }
+
+    temporizador = setInterval(() => {
+
+      if(!appPanel.classList.contains("hidden")){
+        carregarCodigos();
+      }
+
+    },300000);
+
   }else{
 
-    codigos = [];
+    if(temporizador){
+      clearInterval(temporizador);
+      temporizador = null;
+    }
 
+    codigos = [];
     loginForm.reset();
 
   }
@@ -1088,134 +915,140 @@ async function mostrarAplicacao(session){
 
 
 /* =================================
-   LOGIN DO ADMINISTRADOR
+   LOGIN
 ================================= */
 
-loginForm.addEventListener(
-  "submit",
-  async(event)=>{
+loginForm.addEventListener("submit",async(event)=>{
 
-    event.preventDefault();
+  event.preventDefault();
 
-    const button =
-      document.getElementById("loginButton");
+  const button = document.getElementById("loginButton");
 
-    button.disabled = true;
+  button.disabled = true;
+  loginError.textContent = "";
 
-    loginError.textContent = "";
+  if(!supabase){
 
-    const email =
-      document.getElementById("email").value.trim();
+    loginError.textContent =
+      "A biblioteca do Supabase não carregou. Verifica a ligação à internet e tenta novamente.";
 
-    const password =
-      document.getElementById("password").value;
+    button.disabled = false;
+    return;
 
-    try{
+  }
 
-      const {data,error} =
-        await supabase.auth.signInWithPassword({
-          email,
-          password
-        });
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value;
 
-      if(error){
+  try{
 
-        loginError.textContent =
-          "Não foi possível entrar: "+error.message;
+    const {data,error} = await supabase.auth.signInWithPassword({
+      email,
+      password
+    });
 
-        return;
-
-      }
-
-      await mostrarAplicacao(data.session);
-
-    }catch(erro){
+    if(error){
 
       loginError.textContent =
-        "Erro de ligação: "+erro.message;
+        "Não foi possível entrar: "+error.message;
 
-    }finally{
-
-      button.disabled = false;
+      return;
 
     }
 
+    await mostrarAplicacao(data.session);
+
+  }catch(erro){
+
+    loginError.textContent =
+      "Erro de ligação: "+erro.message;
+
+  }finally{
+
+    button.disabled = false;
+
   }
-);
+
+});
 
 
 /* =================================
    TERMINAR SESSÃO
 ================================= */
 
-document
-  .getElementById("logoutButton")
-  .addEventListener("click",async()=>{
+document.getElementById("logoutButton").addEventListener("click",async()=>{
 
-    const {error} =
-      await supabase.auth.signOut();
+  try{
+
+    const {error} = await supabase.auth.signOut();
 
     if(error){
 
-      mensagem(
-        "Erro ao terminar sessão: "+error.message,
-        true
-      );
-
+      mensagem("Erro ao terminar sessão: "+error.message,true);
       return;
 
     }
 
     await mostrarAplicacao(null);
 
-  });
+  }catch(erro){
+
+    mensagem("Erro: "+erro.message,true);
+
+  }
+
+});
 
 
 /* =================================
    EVENTOS
 ================================= */
 
-document
-  .getElementById("generateButton")
+document.getElementById("generateButton")
   .addEventListener("click",gerar);
 
-document
-  .getElementById("pesquisa")
+document.getElementById("pesquisa")
   .addEventListener("input",mostrar);
 
 
 /* =================================
-   SESSÃO INICIAL
+   INICIAR PAINEL
 ================================= */
 
-try{
+async function iniciarPainel(){
 
-  const {
-    data:sessionData,
-    error:sessionError
-  } = await supabase.auth.getSession();
-
-  if(sessionError){
+  if(window.supabaseLibraryError ||
+     !window.supabase ||
+     typeof window.supabase.createClient !== "function"){
 
     loginError.textContent =
-      "Erro de sessão: "+sessionError.message;
+      "Não foi possível carregar a ligação ao Supabase. Verifica a internet e atualiza a página.";
+
+    return;
 
   }
 
-  await mostrarAplicacao(
-    sessionData?.session || null
-  );
+  try{
 
-}catch(erro){
+    supabase = window.supabase.createClient(
+      SUPABASE_URL,
+      SUPABASE_PUBLISHABLE_KEY
+    );
 
-  loginError.textContent =
-    "Erro ao iniciar o painel: "+erro.message;
+    const {data,error} = await supabase.auth.getSession();
 
-}
+    if(error){
 
+      loginError.textContent =
+        "Erro ao verificar sessão: "+error.message;
 
-/* =================================
-   ATUALIZAÇÃO AUTOMÁTICA
-================================= */
+      return;
 
-setI
+    }
+
+    await mostrarAplicacao(data.session || null);
+
+  }catch(erro){
+
+    loginError.textContent =
+      "Erro ao inic
