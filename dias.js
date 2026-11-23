@@ -400,56 +400,62 @@
     document.head.appendChild(estilo);
   }
 
-  function mostrarPalavraDoDia() {
-  const destino = document.getElementById("conteudo");
+    function mostrarPalavraDoDia() {
+    aplicarEstilos();
 
-  if (!destino) {
-    console.error('Não foi encontrado o elemento "conteudo".');
-    return;
+    const destino = document.getElementById("conteudo");
+
+    if (!destino) {
+      console.error('Não foi encontrado o elemento "conteudo".');
+      return;
+    }
+
+    const indice = calcularDia();
+    const item = obterPrograma(indice);
+
+    destino.innerHTML = `
+      <section class="daily-card">
+
+        <header class="daily-header">
+          <h2>Uma Palavra de Deus por Dia</h2>
+          <p class="daily-date">${dataAngola()}</p>
+          <p class="daily-number">DIA ${item.numero} DE 120</p>
+        </header>
+
+        <div class="daily-grid">
+
+          <article class="daily-section">
+            <h3>1. Leitura</h3>
+            <p><strong>${item.leitura}</strong></p>
+            <p>${item.mensagem}</p>
+          </article>
+
+          <article class="daily-section">
+            <h3>2. Reflexão</h3>
+            <p>${item.reflexao}</p>
+          </article>
+
+          <article class="daily-section">
+            <h3>3. Oração</h3>
+            <p>${item.oracao}</p>
+          </article>
+
+          <article class="daily-section">
+            <h3>4. Frase inspiradora</h3>
+            <p>${item.frase}</p>
+          </article>
+
+          <article class="daily-section">
+            <h3>5. Propósito do dia</h3>
+            <p>${item.proposito}</p>
+          </article>
+
+        </div>
+      </section>
+    `;
   }
 
-  const hoje = dataLocalAngola();
-  const indice = indiceDoDia(hoje);
-  const item = dias[indice];
-
-  destino.innerHTML = `
-    <section class="palavra-do-dia">
-
-      <article class="secao-leitura">
-        <h2>1. Leitura</h2>
-        <h3>${escaparHTML(item.livro)}</h3>
-        <p class="referencia-biblica">
-          ${escaparHTML(item.leitura)}
-        </p>
-        <p>${escaparHTML(item.mensagem)}</p>
-      </article>
-
-      <article class="secao-reflexao">
-        <h2>2. Reflexão</h2>
-        <p>${escaparHTML(item.reflexao)}</p>
-      </article>
-
-      <article class="secao-oracao">
-        <h2>3. Oração</h2>
-        <p>${escaparHTML(item.oracao)}</p>
-      </article>
-
-      <article class="secao-frase">
-        <h2>4. Frase inspiradora</h2>
-        <blockquote>
-          “${escaparHTML(item.frase)}”
-        </blockquote>
-      </article>
-
-      <article class="secao-proposito">
-        <h2>5. Propósito do dia</h2>
-        <p>${escaparHTML(item.proposito)}</p>
-      </article>
-
-    </section>
-  `;
-}
-
+  window.mostrarPalavraDoDia = mostrarPalavraDoDia;
 window.mostrarPalavraDoDia = mostrarPalavraDoDia;
 
 })();
