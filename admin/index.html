@@ -131,7 +131,7 @@ onerror="window.supabaseLibraryError=true"></script>
 
 /* CONFIGURAÇÃO */
 const SUPABASE_URL="https://okcmbnucjzkeiduivsny.supabase.co";
-const SUPABASE_PUBLISHABLE_KEY="sb_publishable_7F_7S5UWTRO-l2tDBPLeQ__J28PZ6v";
+const SUPABASE_PUBLISHABLE_KEY="sb_publishable_7F_7S5UWTRO-l2tDB-PLeQ__J28PZ6v";
 
 /* ELEMENTOS */
 const loginPanel=document.getElementById("loginPanel");
@@ -141,7 +141,6 @@ const loginError=document.getElementById("loginError");
 const actionMessage=document.getElementById("actionMessage");
 const lista=document.getElementById("lista");
 
-/* IMPORTANTE: usar supabaseClient, não supabase */
 let supabaseClient=null;
 let codigos=[];
 let atualizando=false;
@@ -426,7 +425,6 @@ async function mostrarAplicacao(session){
   }
 }
 
-/* ENTRADA */
 loginForm.addEventListener("submit",async(event)=>{
   event.preventDefault();
   const button=document.getElementById("loginButton");
@@ -456,7 +454,6 @@ loginForm.addEventListener("submit",async(event)=>{
   }
 });
 
-/* SAIR */
 document.getElementById("logoutButton").addEventListener("click",async()=>{
   try{
     const {error}=await supabaseClient.auth.signOut();
@@ -470,11 +467,9 @@ document.getElementById("logoutButton").addEventListener("click",async()=>{
   }
 });
 
-/* OUTROS EVENTOS */
 document.getElementById("generateButton").addEventListener("click",gerar);
 document.getElementById("pesquisa").addEventListener("input",mostrar);
 
-/* INICIALIZAÇÃO */
 async function iniciarPainel(){
   if(window.supabaseLibraryError||
      !window.supabase||
