@@ -401,112 +401,56 @@
   }
 
   function mostrarPalavraDoDia() {
-    const area = document.getElementById("conteudo");
-    if (!area) return;
+  const destino = document.getElementById("conteudo");
 
-    aplicarEstilos();
-
-    const hoje = dataAngola();
-    const dataFormatada = hoje.split("-").reverse().join("/");
-
-    if (hoje < DATA_INICIO) {
-      area.innerHTML = `
-        <div class="daily-card">
-          <div class="daily-header">
-            <h2>Uma Palavra de Deus por Dia</h2>
-            <p class="daily-date">Data: ${dataFormatada}</p>
-            <p class="daily-number">A NOSSA JORNADA COMEÇA AMANHÃ</p>
-          </div>
-
-          <div class="daily-welcome">
-            <h3>Prepara o teu coração</h3>
-            <p>
-              Amanhã começa um momento especial de encontro com a
-              Palavra de Deus. Reserva um tempo para a oração,
-              a reflexão e o crescimento na fé.
-            </p>
-          </div>
-        </div>
-      `;
-      return;
-    }
-
-    const numero = calcularDia();
-    const dia = obterPrograma(numero);
-    const numeroFormatado = String(dia.numero).padStart(3, "0");
-
-    area.innerHTML = `
-      <div class="daily-card">
-
-        <div class="daily-header">
-          <h2>Uma Palavra de Deus por Dia</h2>
-          <p class="daily-date">Data: ${dataFormatada}</p>
-          <p class="daily-number">
-            DIA ${numeroFormatado} / 120
-          </p>
-        </div>
-
-        <div class="daily-grid">
-
-          <div class="daily-section">
-            <h3>Leitura bíblica</h3>
-            <p><strong>${dia.leitura}</strong></p>
-          </div>
-
-          <div class="daily-section">
-            <h3>Tema do dia</h3>
-            <p>${dia.tema}</p>
-          </div>
-
-          <div class="daily-section">
-            <h3>Mensagem</h3>
-            <p>${dia.mensagem}</p>
-          </div>
-
-          <div class="daily-section">
-            <h3>Reflexão</h3>
-            <p>${dia.reflexao}</p>
-          </div>
-
-          <div class="daily-section">
-            <h3>Oração</h3>
-            <p>${dia.oracao}</p>
-          </div>
-
-          <div class="daily-section">
-            <h3>Propósito do dia</h3>
-            <p>${dia.proposito}</p>
-          </div>
-
-        </div>
-
-        <div class="daily-quote">
-          <strong>FRASE INSPIRADORA</strong>
-          <p>${dia.frase}</p>
-        </div>
-
-      </div>
-    `;
+  if (!destino) {
+    console.error('Não foi encontrado o elemento "conteudo".');
+    return;
   }
 
-  window.mostrarPalavraDoDia = mostrarPalavraDoDia;
+  const hoje = dataLocalAngola();
+  const indice = indiceDoDia(hoje);
+  const item = dias[indice];
 
-  // Actualização automática à meia-noite de Angola.
-  let ultimaData = dataAngola();
+  destino.innerHTML = `
+    <section class="palavra-do-dia">
 
-  setInterval(function () {
-    const novaData = dataAngola();
+      <article class="secao-leitura">
+        <h2>1. Leitura</h2>
+        <h3>${escaparHTML(item.livro)}</h3>
+        <p class="referencia-biblica">
+          ${escaparHTML(item.leitura)}
+        </p>
+        <p>${escaparHTML(item.mensagem)}</p>
+      </article>
 
-    if (novaData !== ultimaData) {
-      ultimaData = novaData;
+      <article class="secao-reflexao">
+        <h2>2. Reflexão</h2>
+        <p>${escaparHTML(item.reflexao)}</p>
+      </article>
 
-      const area = document.getElementById("conteudo");
+      <article class="secao-oracao">
+        <h2>3. Oração</h2>
+        <p>${escaparHTML(item.oracao)}</p>
+      </article>
 
-      if (area && area.offsetParent !== null) {
-        mostrarPalavraDoDia();
-      }
-    }
-  }, 30000);
+      <article class="secao-frase">
+        <h2>4. Frase inspiradora</h2>
+        <blockquote>
+          “${escaparHTML(item.frase)}”
+        </blockquote>
+      </article>
+
+      <article class="secao-proposito">
+        <h2>5. Propósito do dia</h2>
+        <p>${escaparHTML(item.proposito)}</p>
+      </article>
+
+    </section>
+  `;
+}
+
+window.mostrarPalavraDoDia = mostrarPalavraDoDia;
 
 })();
                    
