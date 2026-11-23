@@ -388,3 +388,111 @@
 
     [
       "Salmo 10:14-18",
+      "O salmista afirma que Deus vê o sofrimento e a injustiça. O Senhor não ignora os necessitados e permanece atento aos que procuram ajuda.",
+      "A fé deve tornar-nos atentos ao sofrimento dos outros. Não basta rezar por justiça; precisamos também de praticar a solidariedade.",
+      "Senhor, não permitas que eu seja indiferente à dor dos outros. Dá-me um coração atento e disposto a ajudar. Ámen.",
+      "Quem confia em Deus aprende a não ignorar o próximo.",
+      "Ajudar alguém que esteja a enfrentar uma necessidade."
+    ],
+
+    [
+      "Salmo 11:1-7",
+      "O salmista declara que encontra refúgio no Senhor, mesmo quando a situação parece ameaçadora. Deus permanece justo e atento à humanidade.",
+      "A segurança verdadeira não está apenas nas circunstâncias favoráveis. A confiança em Deus ajuda-nos a permanecer firmes quando surgem incertezas.",
+      "Senhor, sê o meu refúgio. Fortalece a minha fé e ajuda-me a permanecer firme diante das dificuldades. Ámen.",
+      "A confiança em Deus é abrigo para o coração.",
+      "Evitar alimentar o medo e procurar uma solução com serenidade."
+    ],
+
+    [
+      "Salmo 12:2-7",
+      "O salmista lamenta as palavras falsas e pede que Deus proteja os que sofrem com a mentira. A Palavra do Senhor é apresentada como pura e fiel.",
+      "As palavras podem construir ou destruir. O cristão é chamado a falar com verdade, evitando a falsidade e a manipulação.",
+      "Senhor, purifica as minhas palavras. Ajuda-me a falar com honestidade e a usar a minha voz para construir a paz. Ámen.",
+      "Uma palavra verdadeira pode construir confiança.",
+      "Evitar mentiras, boatos e comentários que prejudiquem alguém."
+    ],
+
+    [
+      "Salmo 13:1-6",
+      "O salmista pergunta até quando terá de esperar, mas termina renovando a confiança no amor de Deus e decide cantar ao Senhor.",
+      "É possível sentir cansaço e ainda assim manter a fé. A esperança não exige que escondamos as dificuldades, mas que continuemos a procurar Deus.",
+      "Pai, quando a espera parecer longa, sustenta a minha esperança. Ajuda-me a confiar no Teu amor. Ámen.",
+      "A esperança pode continuar mesmo quando as respostas demoram.",
+      "Não desistir de uma atitude boa só porque ainda não vejo resultados."
+    ],
+
+    [
+      "Salmo 14:1-3",
+      "O salmista denuncia a falta de sabedoria e a corrupção humana. A passagem convida a reconhecer a necessidade de procurar uma vida orientada por Deus.",
+      "A sabedoria não se mede apenas pelo conhecimento. Também se revela na maneira como tratamos as pessoas e nas escolhas que fazemos.",
+      "Senhor, dá-me sabedoria para distinguir o bem do mal. Que as minhas atitudes revelem respeito e responsabilidade. Ámen.",
+      "A verdadeira sabedoria aparece nas nossas atitudes.",
+      "Escolher uma atitude justa numa situação do quotidiano."
+    ],
+
+    [
+      "Salmo 15:1-5",
+      "O salmo descreve a pessoa que vive com integridade, pratica a justiça, fala a verdade e não prejudica o próximo.",
+      "A proximidade de Deus deve transformar a nossa maneira de viver. A fé verdadeira aparece na honestidade, no respeito e na coerência.",
+      "Senhor, ajuda-me a viver com integridade. Que eu seja verdadeiro nas palavras e justo nas atitudes. Ámen.",
+      "A fé torna-se visível quando a vida é coerente.",
+      "Cumprir uma promessa e tratar todos com justiça."
+    ],
+
+    [
+      "Salmo 16:5-11",
+      "O salmista reconhece o Senhor como a sua herança e fonte de alegria. Em Deus encontra orientação, segurança e esperança.",
+      "Muitas coisas podem mudar, mas a relação com Deus permanece como fonte de sentido. A verdadeira alegria não depende apenas dos bens materiais.",
+      "Senhor, sê a minha maior riqueza. Orienta os meus passos e ensina-me a encontrar alegria na Tua presença. Ámen.",
+      "Quem encontra em Deus o seu tesouro descobre uma alegria profunda.",
+      "Valorizar mais a presença de Deus do que as coisas materiais."
+    ],
+
+    [
+      "Salmo 17:6-9",
+      "O salmista pede que Deus escute a sua oração e o proteja. Ele procura abrigo na bondade do Senhor.",
+      "Pedir ajuda não é sinal de fraqueza. Reconhecer que precisamos de Deus é um gesto de humildade e confiança.",
+      "Pai, escuta a minha oração. Protege-me e ajuda-me a escolher caminhos que respeitem a Tua vontade. Ámen.",
+      "A humildade de pedir ajuda abre espaço para a confiança.",
+      "Pedir orientação a Deus antes de enfrentar uma situação difícil."
+    ],
+
+    [
+      "Salmo 18:1-6",
+      "O salmista declara o seu amor a Deus e apresenta o Senhor como rocha, fortaleza e libertador. Na dificuldade, invoca o nome do Senhor.",
+      "A força não significa nunca enfrentar problemas. Significa encontrar apoio para continuar e não permitir que a dificuldade destrua a nossa esperança.",
+      "Senhor, sê a minha força e o meu apoio. Ajuda-me a permanecer firme e a agir com coragem. Ámen.",
+      "Deus é a rocha que sustenta a nossa caminhada.",
+      "Enfrentar uma responsabilidade com coragem e confiança."
+    ],
+
+    [
+      "Salmo 19:1-8",
+      "Os céus anunciam a glória de Deus, e a lei do Senhor ilumina o caminho humano. A criação e a Palavra revelam a grandeza do Criador.",
+      "Podemos aprender com a beleza da criação e com os ensinamentos da Bíblia. Deus oferece sinais da sua presença e orientação para a nossa vida.",
+      "Criador, abre os meus olhos para reconhecer a Tua grandeza. Que a Tua Palavra ilumine as minhas decisões. Ámen.",
+      "A criação anuncia a grandeza de Deus e a Palavra orienta os nossos passos.",
+      "Ler um pequeno trecho da Bíblia e meditar no seu ensinamento."
+    ],
+
+    [
+      "Salmo 20:1-7",
+      "O salmista pede que Deus escute as orações do seu povo e lhe conceda auxílio. A confiança no Senhor é colocada acima da força humana.",
+      "Os nossos recursos e capacidades têm limites. Reconhecer isso ajuda-nos a confiar mais em Deus e a agir com humildade.",
+      "Senhor, acompanha os meus projetos e dá-me sabedoria para trabalhar com responsabilidade. Que a minha confiança esteja em Ti. Ámen.",
+      "A força humana tem limites, mas Deus permanece fiel.",
+      "Colocar um projeto nas mãos de Deus e trabalhar por ele com dedicação."
+    ],
+
+    [
+      "Salmo 21:1-7",
+      "O salmista celebra a alegria do rei e reconhece que as bênçãos recebidas vêm de Deus. A confiança no Senhor sustenta a sua esperança.",
+      "A alegria cresce quando reconhecemos que não somos responsáveis por tudo sozinhos. Devemos agradecer a Deus e usar as bênçãos com responsabilidade.",
+      "Pai, obrigado pelas alegrias que colocas no meu caminho. Ensina-me a partilhar as bênçãos e a permanecer fiel. Ámen.",
+      "A alegria torna-se maior quando é acompanhada pela gratidão.",
+      "Partilhar uma alegria ou uma boa notícia com alguém."
+    ],
+
+    [
+      "Salmo 22:1-5",
