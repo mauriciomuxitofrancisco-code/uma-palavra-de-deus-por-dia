@@ -1,140 +1,352 @@
-
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#008CBA">
-  <title>Uma Palavra de Deus por Dia</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101c35">
+<title>Uma Palavra de Deus por Dia</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<style>
+:root {
+  --navy: #101c35;
+  --navy2: #192b49;
+  --gold: #c9a96e;
+  --cream: #f8f6f0;
+  --white: #ffffff;
+  --muted: #aeb9c9;
+}
 
-    body {
-      margin: 0;
-      padding: 20px;
-      font-family: Arial, sans-serif;
-      background: #008CBA;
-      color: #123047;
-      text-align: center;
-      min-height: 100vh;
-    }
+* { box-sizing: border-box; }
 
-    .container {
-      max-width: 520px;
-      margin: 45px auto;
-      padding: 28px 22px;
-      background: white;
-      border-radius: 18px;
-      box-shadow: 0 5px 22px #003b5533;
-    }
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--navy);
+  color: var(--white);
+}
 
-    h1, h2, h3 {
-      color: #006F96;
-    }
+button, input { font: inherit; }
 
-    h1 {
-      font-size: 27px;
-      line-height: 1.3;
-    }
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 7%;
+  border-bottom: 1px solid #ffffff18;
+}
 
-    p {
-      line-height: 1.7;
-    }
+.brand {
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: var(--gold);
+  font-weight: 700;
+  text-transform: uppercase;
+}
 
-    input, button {
-      width: 100%;
-      padding: 15px;
-      margin-top: 13px;
-      border-radius: 9px;
-      font-size: 16px;
-    }
+.top-label {
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 1px;
+}
 
-    input {
-      border: 1px solid #b5dce8;
-      outline-color: #008CBA;
-    }
+.container {
+  width: min(1100px, 92%);
+  margin: 45px auto;
+}
 
-    button {
-      border: none;
-      background: #008CBA;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-    }
+.hero {
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: 35px;
+  align-items: center;
+}
 
-    button:hover {
-      background: #006F96;
-    }
+.hero-text { padding: 25px 0; }
 
-    button:disabled {
-      opacity: 0.6;
-      cursor: wait;
-    }
+.eyebrow {
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
 
-    #mensagem {
-      margin-top: 18px;
-      color: #a52a2a;
-      overflow-wrap: anywhere;
-    }
+h1 {
+  font-family: Georgia, serif;
+  font-size: clamp(36px, 6vw, 61px);
+  line-height: 1.12;
+  font-weight: 500;
+  margin: 22px 0;
+}
 
-    #conteudo {
-      display: none;
-      text-align: left;
-    }
+.hero-text p {
+  color: #c2ccda;
+  font-size: 17px;
+  line-height: 1.8;
+  max-width: 490px;
+}
 
-    #conteudo button {
-      margin-top: 25px;
-    }
+.gold-line {
+  width: 65px;
+  height: 3px;
+  background: var(--gold);
+  margin: 28px 0;
+}
 
-    .assinatura {
-      margin-top: 28px;
-      color: #547080;
-      font-size: 13px;
-    }
-  </style>
+.hero-image {
+  min-height: 420px;
+  border-radius: 22px;
+  overflow: hidden;
+  position: relative;
+  background:
+    linear-gradient(135deg, #263d5b, #101c35);
+  border: 1px solid #ffffff20;
+  box-shadow: 0 25px 65px #0005;
+  background-image:
+    linear-gradient(0deg, #101c3580, transparent 70%),
+    url("./jesus-fieis.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.hero-image::after {
+  content: "Fé • Esperança • Amor";
+  position: absolute;
+  bottom: 24px;
+  left: 25px;
+  color: #fff;
+  letter-spacing: 2px;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.access-card {
+  max-width: 530px;
+  margin: 55px auto 0;
+  padding: 30px;
+  background: #ffffff0b;
+  border: 1px solid #ffffff20;
+  border-radius: 18px;
+  box-shadow: 0 20px 55px #0002;
+  backdrop-filter: blur(15px);
+}
+
+.access-card h2 {
+  font-family: Georgia, serif;
+  font-weight: 500;
+  font-size: 27px;
+  margin: 0 0 10px;
+}
+
+.access-card p {
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 14px;
+}
+
+input {
+  width: 100%;
+  padding: 16px;
+  margin-top: 15px;
+  border: 1px solid #ffffff30;
+  border-radius: 10px;
+  background: #ffffff0d;
+  color: white;
+  outline: none;
+}
+
+input:focus { border-color: var(--gold); }
+
+input::placeholder { color: #aeb9c9; }
+
+button {
+  width: 100%;
+  padding: 16px;
+  margin-top: 13px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--gold);
+  color: #17243a;
+  font-weight: 700;
+  cursor: pointer;
+  transition: .2s;
+}
+
+button:hover {
+  background: #e0c28b;
+  transform: translateY(-1px);
+}
+
+button:disabled {
+  opacity: .6;
+  cursor: wait;
+  transform: none;
+}
+
+#mensagem {
+  color: #f2b5a9;
+  overflow-wrap: anywhere;
+}
+
+#conteudo {
+  display: none;
+  margin-top: 40px;
+  padding: 30px;
+  border-radius: 20px;
+  background: var(--cream);
+  color: #25334a;
+  text-align: left;
+  box-shadow: 0 20px 60px #0003;
+}
+
+#conteudo h1,
+#conteudo h2,
+#conteudo h3 {
+  color: var(--navy);
+  font-family: Georgia, serif;
+}
+
+#conteudo p { line-height: 1.8; }
+
+#conteudo button {
+  background: var(--navy);
+  color: white;
+}
+
+#conteudo button:hover { background: var(--navy2); }
+
+.footer {
+  text-align: center;
+  padding: 35px 15px;
+  margin-top: 60px;
+  border-top: 1px solid #ffffff18;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.footer .signature {
+  font-family: Georgia, serif;
+  color: var(--white);
+  font-size: 23px;
+  margin-bottom: 5px;
+}
+
+.footer a {
+  color: var(--gold);
+  text-decoration: none;
+  margin: 0 8px;
+}
+
+.footer a:hover { text-decoration: underline; }
+
+@media(max-width: 760px) {
+  .topbar { padding: 18px 5%; }
+
+  .container { margin: 25px auto; }
+
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .hero-text { padding: 15px 5px; }
+
+  .hero-image { min-height: 310px; }
+
+  .access-card {
+    margin-top: 30px;
+    padding: 23px;
+  }
+
+  #conteudo { padding: 22px; }
+}
+</style>
 </head>
 
 <body>
 
-<div class="container">
+<header class="topbar">
+  <div class="brand">Uma Palavra de Deus</div>
+  <div class="top-label">ESPAÇO DE FÉ</div>
+</header>
 
-  <div id="entrada">
-    <h1>Uma Palavra de Deus por Dia</h1>
+<main class="container">
 
-    <p>
-      Uma mensagem de fé, esperança e amor para cada dia.
-    </p>
+  <section id="entrada">
 
-    <p>
-      Introduz o código da tua pulseira para entrar.
-    </p>
+    <div class="hero">
 
-    <input
-      id="codigo"
-      type="text"
-      placeholder="Código da pulseira"
-      autocomplete="off"
-      autocapitalize="characters"
-      spellcheck="false"
-    >
+      <div class="hero-text">
+        <div class="eyebrow">Um momento com Deus</div>
 
-    <button id="botaoEntrar" type="button">
-      Entrar
-    </button>
+        <h1>Uma Palavra de Deus por Dia</h1>
 
-    <p id="mensagem" role="status" aria-live="polite"></p>
-  </div>
+        <div class="gold-line"></div>
+
+        <p>
+          Uma mensagem de fé, esperança e amor
+          para iluminar o teu caminho.
+        </p>
+
+        <p>
+          Reserva um momento para a Palavra,
+          fortalece a tua fé e deixa Deus falar ao teu coração.
+        </p>
+      </div>
+
+      <div class="hero-image" role="img"
+        aria-label="Imagem de Jesus rodeado pelos fiéis">
+      </div>
+
+    </div>
+
+    <div class="access-card">
+      <h2>Bem-vindo</h2>
+
+      <p>
+        O teu momento diário de encontro com a Palavra começa aqui.
+        Introduz o código da tua pulseira para aceder.
+      </p>
+
+      <input
+        id="codigo"
+        type="text"
+        placeholder="Código da pulseira"
+        autocomplete="off"
+        autocapitalize="characters"
+        spellcheck="false"
+      >
+
+      <button id="botaoEntrar" type="button">
+        Entrar na minha jornada
+      </button>
+
+      <p id="mensagem" role="status" aria-live="polite"></p>
+
+      <p class="signature">Maurício Francisco</p>
+    </div>
+
+  </section>
 
   <div id="conteudo"></div>
 
-  <p class="assinatura">
-    Uma Palavra de Deus por Dia
+</main>
+
+<footer class="footer">
+  <p class="signature">Maurício Francisco</p>
+  <p>Criador do projecto</p>
+
+  <p>
+    <a href="https://www.instagram.com/mauricio_franciscoo/"
+       target="_blank" rel="noopener noreferrer">
+       Instagram · @mauricio_franciscoo
+    </a>
   </p>
 
-</div>
+  <p>Um espaço de fé, reflexão e crescimento espiritual.</p>
+  <p>© 2026 · Todos os direitos reservados</p>
+</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="./dias.js"></script>
@@ -142,17 +354,13 @@
 <script>
 "use strict";
 
-/* CONFIGURAÇÃO DO SUPABASE */
-
 const SUPABASE_URL =
   "https://okcmbnucjzkeiduivsny.supabase.co";
 
 const SUPABASE_KEY =
-  "sb_publishable_7F_7S5UWTRO-l2tDB-PLeQ__J28PZ6v";
+  "sb_publishable_7F_7S5UWTRO-l2tDBP-LeQ__J28PZ6v";
 
 let db = null;
-
-/* INICIAR LIGAÇÃO */
 
 function iniciarSupabase() {
   if (!window.supabase ||
@@ -179,8 +387,6 @@ try {
   console.error("Erro ao iniciar Supabase:", erro);
 }
 
-/* VALIDAR PULSEIRA */
-
 async function validarCodigo(codigo) {
   if (!db) {
     throw new Error(
@@ -206,8 +412,6 @@ async function validarCodigo(codigo) {
   return data === true;
 }
 
-/* ENTRAR NO SITE */
-
 async function verificarCodigo() {
   const campo = document.getElementById("codigo");
   const mensagem = document.getElementById("mensagem");
@@ -216,9 +420,7 @@ async function verificarCodigo() {
   const codigo = campo.value.trim().toUpperCase();
 
   if (!codigo) {
-    mensagem.textContent =
-      "Introduz o código da pulseira.";
-
+    mensagem.textContent = "Introduz o código da pulseira.";
     campo.focus();
     return;
   }
@@ -231,11 +433,8 @@ async function verificarCodigo() {
 
     if (valido) {
       localStorage.setItem("codigo_pulseira", codigo);
-
       mensagem.textContent = "";
-
       mostrarConteudo();
-
     } else {
       mensagem.textContent =
         "Código inválido, suspenso ou com a validade terminada.";
@@ -253,13 +452,10 @@ async function verificarCodigo() {
   }
 }
 
-/* MOSTRAR PALAVRA DO DIA */
-
 function mostrarConteudo() {
   document.getElementById("entrada").style.display = "none";
 
   const area = document.getElementById("conteudo");
-
   area.style.display = "block";
 
   if (typeof window.mostrarPalavraDoDia === "function") {
@@ -281,21 +477,15 @@ function mostrarConteudo() {
   }
 }
 
-/* SAIR */
-
 function sair() {
   localStorage.removeItem("codigo_pulseira");
   location.reload();
 }
 
-/* VERIFICAR ACESSO GUARDADO */
-
 async function verificarAcessoGuardado() {
   const codigo = localStorage.getItem("codigo_pulseira");
 
-  if (!codigo) {
-    return;
-  }
+  if (!codigo) return;
 
   try {
     const valido = await validarCodigo(codigo);
@@ -307,14 +497,9 @@ async function verificarAcessoGuardado() {
     }
 
   } catch (erro) {
-    console.error(
-      "Erro ao verificar acesso guardado:",
-      erro
-    );
+    console.error("Erro ao verificar acesso guardado:", erro);
   }
 }
-
-/* EVENTOS */
 
 document
   .getElementById("botaoEntrar")
@@ -328,10 +513,7 @@ document
     }
   });
 
-/* INICIAR */
-
 verificarAcessoGuardado();
-
 </script>
 
 </body>
