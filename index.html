@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -157,7 +158,6 @@ input {
 }
 
 input:focus { border-color: var(--gold); }
-
 input::placeholder { color: #aeb9c9; }
 
 button {
@@ -242,7 +242,6 @@ button:disabled {
 
 @media(max-width: 760px) {
   .topbar { padding: 18px 5%; }
-
   .container { margin: 25px auto; }
 
   .hero {
@@ -251,7 +250,6 @@ button:disabled {
   }
 
   .hero-text { padding: 15px 5px; }
-
   .hero-image { min-height: 310px; }
 
   .access-card {
@@ -276,7 +274,6 @@ button:disabled {
   <section id="entrada">
 
     <div class="hero">
-
       <div class="hero-text">
         <div class="eyebrow">Um momento com Deus</div>
 
@@ -298,7 +295,6 @@ button:disabled {
       <div class="hero-image" role="img"
         aria-label="Imagem de Jesus rodeado pelos fiéis">
       </div>
-
     </div>
 
     <div class="access-card">
@@ -323,8 +319,6 @@ button:disabled {
       </button>
 
       <p id="mensagem" role="status" aria-live="polite"></p>
-
-      <p class="signature">Maurício Francisco</p>
     </div>
 
   </section>
@@ -358,7 +352,7 @@ const SUPABASE_URL =
   "https://okcmbnucjzkeiduivsny.supabase.co";
 
 const SUPABASE_KEY =
-  "sb_publishable_7F_7S5UWTRO-l2tDBP-LeQ__J28PZ6v";
+  "sb_publishable_7F_7S5UWTRO-l2tDB-PLeQ__J28PZ6v";
 
 let db = null;
 
@@ -370,8 +364,7 @@ function iniciarSupabase() {
     );
   }
 
-  if (!SUPABASE_KEY ||
-      SUPABASE_KEY.includes("COLOCA_A_TUA_CHAVE")) {
+  if (!SUPABASE_KEY) {
     throw new Error("A chave pública do Supabase não está configurada.");
   }
 
@@ -403,7 +396,6 @@ async function validarCodigo(codigo) {
 
   if (error) {
     console.error("Erro Supabase:", error);
-
     throw new Error(
       error.message || "O Supabase não conseguiu validar o código."
     );
@@ -442,7 +434,6 @@ async function verificarCodigo() {
 
   } catch (erro) {
     console.error("Falha na validação:", erro);
-
     mensagem.textContent =
       "Não foi possível verificar: " +
       (erro.message || "Erro de ligação ao Supabase.");
@@ -467,12 +458,10 @@ function mostrarConteudo() {
 
   if (!document.getElementById("botaoSair")) {
     const botaoSair = document.createElement("button");
-
     botaoSair.id = "botaoSair";
     botaoSair.type = "button";
     botaoSair.textContent = "Sair";
     botaoSair.onclick = sair;
-
     area.appendChild(botaoSair);
   }
 }
