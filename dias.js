@@ -309,4 +309,82 @@
       "Salmo 1:1-3",
       "Feliz é aquele que não segue os caminhos do mal, mas encontra alegria na lei do Senhor. É comparado a uma árvore plantada junto às águas, que dá fruto no tempo certo.",
       "As pessoas e os hábitos que escolhemos influenciam a nossa caminhada. A Palavra de Deus alimenta a nossa fé e ajuda-nos a produzir bons frutos.",
-      "Senhor, coloca em mim o gosto pela Tua Palavra. Que as minhas escolhas produzam fr
+      "Senhor, coloca em mim o gosto pela Tua Palavra. Que as minhas escolhas produzam frutos de bondade e justiça. Ámen.",
+      "Quem cria raízes na Palavra de Deus cresce com firmeza.",
+      "Ler uma passagem bíblica e procurar praticar o seu ensinamento."
+    ],
+
+    [
+      "Salmo 2:10-12",
+      "O salmo aconselha os governantes a agir com sabedoria e a reconhecer a autoridade de Deus. A verdadeira segurança encontra-se em confiar no Senhor.",
+      "A sabedoria começa quando reconhecemos que não somos donos de tudo. Deus convida-nos a viver com humildade e a procurar a sua orientação.",
+      "Senhor, ensina-me a reconhecer a Tua autoridade. Que eu não confie apenas nas minhas capacidades, mas procure sempre a Tua sabedoria. Ámen.",
+      "A verdadeira segurança nasce da confiança em Deus.",
+      "Pedir a Deus sabedoria antes de tomar uma decisão."
+    ],
+
+    [
+      "Salmo 3:3-6",
+      "O salmista reconhece Deus como escudo e proteção. Mesmo cercado por dificuldades, encontra no Senhor a confiança necessária para descansar.",
+      "A fé não elimina todos os problemas, mas ajuda-nos a enfrentá-los sem perder a esperança. Podemos procurar em Deus a força para continuar.",
+      "Senhor, sê a minha proteção nos momentos de dificuldade. Dá-me serenidade e confiança para enfrentar este dia. Ámen.",
+      "A presença de Deus dá coragem ao coração.",
+      "Enfrentar uma dificuldade com calma, oração e confiança."
+    ],
+
+    [
+      "Salmo 4:4-8",
+      "O salmista convida à reflexão e à confiança em Deus. Mesmo diante das incertezas, encontra paz suficiente para repousar.",
+      "A paz interior não depende apenas de termos tudo resolvido. Podemos entregar as nossas preocupações a Deus e aprender a descansar com confiança.",
+      "Pai, acalma o meu coração. Ajuda-me a entregar as preocupações nas Tuas mãos e a viver este dia com paz. Ámen.",
+      "A paz de Deus pode habitar num coração que confia.",
+      "Reservar alguns minutos de silêncio para rezar e tranquilizar o coração."
+    ],
+
+    [
+      "Salmo 5:1-3",
+      "O salmista apresenta a Deus as suas palavras e os seus pedidos logo pela manhã, esperando com confiança a orientação do Senhor.",
+      "Começar o dia com Deus ajuda-nos a colocar as nossas prioridades em ordem. A oração deve fazer parte da nossa rotina e não apenas dos momentos de emergência.",
+      "Senhor, recebe a minha oração nesta manhã. Orienta os meus pensamentos, palavras e decisões. Ámen.",
+      "Um dia entregue a Deus começa com um coração orientado.",
+      "Fazer uma oração antes de iniciar as atividades do dia."
+    ],
+
+    [
+      "Salmo 6:6-10",
+      "O salmista apresenta a Deus a sua tristeza e o seu cansaço. No meio da aflição, acredita que o Senhor escuta a sua súplica.",
+      "Podemos apresentar a Deus aquilo que nos pesa no coração. A oração é também um lugar de sinceridade, onde não precisamos de esconder os nossos sentimentos.",
+      "Senhor, escuta a minha oração e dá-me força para enfrentar os momentos difíceis. Que eu nunca perca a esperança na Tua bondade. Ámen.",
+      "Deus escuta até as orações que nascem do silêncio.",
+      "Falar com Deus sinceramente sobre aquilo que me preocupa."
+    ],
+
+    [
+      "Salmo 7:8-11",
+      "O salmista pede que Deus julgue com justiça e reconheça a verdade. Ele confia que o Senhor conhece o coração humano.",
+      "Nem sempre conseguimos resolver todas as injustiças. Mas podemos agir com retidão e deixar que Deus nos ensine a procurar a verdade sem vingança.",
+      "Deus justo, ajuda-me a agir corretamente. Livra-me do desejo de vingança e ensina-me a procurar a justiça com serenidade. Ámen.",
+      "A justiça começa também na sinceridade do nosso coração.",
+      "Evitar julgar alguém sem conhecer toda a situação."
+    ],
+
+    [
+      "Salmo 8:3-9",
+      "Ao contemplar o céu e as estrelas, o salmista admira a grandeza de Deus e reconhece a dignidade que Ele concedeu ao ser humano.",
+      "A criação recorda-nos que somos pequenos diante da grandeza de Deus, mas cada vida tem valor. Essa consciência deve despertar gratidão e responsabilidade.",
+      "Criador do céu e da terra, obrigado pela beleza da Tua obra. Ensina-me a respeitar a vida e a cuidar da criação. Ámen.",
+      "Somos pequenos diante do universo, mas preciosos aos olhos de Deus.",
+      "Cuidar de um espaço, de uma planta ou de algo criado por Deus."
+    ],
+
+    [
+      "Salmo 9:1-4",
+      "O salmista louva a Deus de todo o coração e recorda as suas maravilhas. A gratidão torna-se motivo de alegria e confiança.",
+      "Quando recordamos o que Deus já fez, encontramos razões para continuar a acreditar. O louvor muda a nossa maneira de olhar para a vida.",
+      "Senhor, quero louvar-Te por tudo o que tens feito. Abre os meus olhos para reconhecer as Tuas maravilhas. Ámen.",
+      "A gratidão transforma a memória em louvor.",
+      "Agradecer a Deus por uma bênção que normalmente considero pequena."
+    ],
+
+    [
+      "Salmo 10:14-18",
