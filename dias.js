@@ -1432,3 +1432,27 @@ function dataAngola() {
   // DISPONIBILIZAR FUNÇÕES AO SITE
   // ==========================================
  
+window.mostrarPalavraDoDia = mostrarPalavraDoDia;
+
+  window.umaPalavraPorDia = Object.freeze({
+    inicio: DATA_INICIO,
+    fim: DATA_FIM,
+    total: 120,
+    fuso: FUSO
+  });
+
+  // ==========================================
+  // INICIAR
+  // ==========================================
+
+  function iniciar() {
+    mostrarPalavraDoDia();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", iniciar);
+  } else {
+    iniciar();
+  }
+
+})();
