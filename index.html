@@ -5,316 +5,303 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#101d35">
-
   <title>Uma Palavra de Deus por Dia</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --navy: #101d35;
-      --navy-light: #1b2d4d;
-      --gold: #c5a66a;
-      --ivory: #f7f5ef;
-      --white: #ffffff;
-      --text: #263247;
-      --muted: #697386;
-      --border: #e8e3d8;
+      --navy:#101d35;
+      --navy2:#1b2d4d;
+      --gold:#c5a66a;
+      --ivory:#f7f5ef;
+      --white:#fff;
+      --text:#263247;
+      --muted:#697386;
+      --border:#e8e3d8;
     }
 
     * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
     }
 
     body {
-      background: var(--ivory);
-      color: var(--text);
-      font-family: 'Montserrat', sans-serif;
-      min-height: 100vh;
+      background:var(--ivory);
+      color:var(--text);
+      font-family:'Montserrat',sans-serif;
+      min-height:100vh;
     }
 
-    button, input {
-      font: inherit;
+    button,input {
+      font:inherit;
     }
 
     .topbar {
-      background: var(--navy);
-      color: white;
-      text-align: center;
-      padding: 15px 12px;
-      border-bottom: 2px solid var(--gold);
+      background:var(--navy);
+      color:white;
+      text-align:center;
+      padding:15px 12px;
+      border-bottom:2px solid var(--gold);
     }
 
     .topbar span {
-      color: var(--gold);
-      font-size: 11px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
+      color:var(--gold);
+      font-size:11px;
+      letter-spacing:3px;
+      text-transform:uppercase;
     }
 
     .hero {
-      background: var(--navy);
-      color: white;
-      padding: 35px 20px 45px;
-      text-align: center;
+      background:var(--navy);
+      color:white;
+      padding:35px 20px 45px;
+      text-align:center;
     }
 
     .hero-image {
-      width: 100%;
-      max-width: 760px;
-      height: 280px;
-      object-fit: cover;
-      object-position: center;
-      border-radius: 8px;
-      border: 1px solid rgba(197,166,106,.6);
-      display: block;
-      margin: 0 auto 30px;
+      width:100%;
+      max-width:760px;
+      height:280px;
+      object-fit:cover;
+      object-position:center;
+      border-radius:8px;
+      border:1px solid rgba(197,166,106,.6);
+      display:block;
+      margin:0 auto 30px;
     }
 
     .hero h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(36px, 7vw, 58px);
-      line-height: 1.05;
-      font-weight: 600;
-      color: var(--ivory);
-      margin-bottom: 15px;
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(36px,7vw,58px);
+      line-height:1.05;
+      color:var(--ivory);
+      margin-bottom:15px;
     }
 
     .hero h1 span {
-      color: var(--gold);
+      color:var(--gold);
     }
 
     .hero p {
-      max-width: 620px;
-      margin: auto;
-      color: #d5dbe5;
-      font-size: 14px;
-      line-height: 1.8;
+      max-width:620px;
+      margin:auto;
+      color:#d5dbe5;
+      font-size:14px;
+      line-height:1.8;
     }
 
     .gold-line {
-      width: 65px;
-      height: 2px;
-      background: var(--gold);
-      margin: 22px auto;
+      width:65px;
+      height:2px;
+      background:var(--gold);
+      margin:22px auto;
     }
 
     main {
-      width: 100%;
-      max-width: 760px;
-      padding: 0 18px;
-      margin: -20px auto 50px;
-      position: relative;
+      width:100%;
+      max-width:760px;
+      padding:0 18px;
+      margin:-20px auto 50px;
+      position:relative;
     }
 
     .panel {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 28px 22px;
-      box-shadow: 0 12px 35px rgba(16,29,53,.07);
-      margin-bottom: 22px;
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:12px;
+      padding:28px 22px;
+      box-shadow:0 12px 35px rgba(16,29,53,.07);
+      margin-bottom:22px;
     }
 
     .panel h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 30px;
-      color: var(--navy);
-      text-align: center;
-      margin-bottom: 10px;
+      font-family:'Cormorant Garamond',serif;
+      font-size:30px;
+      color:var(--navy);
+      text-align:center;
+      margin-bottom:10px;
     }
 
     .subtitle {
-      text-align: center;
-      font-size: 13px;
-      line-height: 1.7;
-      color: var(--muted);
-      margin-bottom: 22px;
+      text-align:center;
+      font-size:13px;
+      line-height:1.7;
+      color:var(--muted);
+      margin-bottom:22px;
     }
 
     .field-label {
-      display: block;
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 9px;
+      display:block;
+      font-size:12px;
+      font-weight:700;
+      color:var(--navy);
+      margin-bottom:9px;
     }
 
     input {
-      width: 100%;
-      border: 1px solid var(--border);
-      background: #fbfaf7;
-      border-radius: 7px;
-      padding: 15px;
-      font-size: 15px;
-      outline: none;
-      color: var(--navy);
-      text-align: center;
-      letter-spacing: 1px;
-      text-transform: uppercase;
+      width:100%;
+      border:1px solid var(--border);
+      background:#fbfaf7;
+      border-radius:7px;
+      padding:15px;
+      font-size:15px;
+      outline:none;
+      color:var(--navy);
+      text-align:center;
+      letter-spacing:1px;
+      text-transform:uppercase;
     }
 
     input:focus {
-      border-color: var(--gold);
-      box-shadow: 0 0 0 3px rgba(197,166,106,.12);
+      border-color:var(--gold);
+      box-shadow:0 0 0 3px rgba(197,166,106,.12);
     }
 
     .primary-btn {
-      width: 100%;
-      background: var(--navy);
-      color: white;
-      border: 1px solid var(--gold);
-      padding: 15px;
-      border-radius: 7px;
-      margin-top: 15px;
-      font-weight: 700;
-      font-size: 12px;
-      letter-spacing: 1.5px;
-      cursor: pointer;
-      transition: .2s;
-    }
-
-    .primary-btn:hover {
-      background: var(--navy-light);
+      width:100%;
+      background:var(--navy);
+      color:white;
+      border:1px solid var(--gold);
+      padding:15px;
+      border-radius:7px;
+      margin-top:15px;
+      font-weight:700;
+      font-size:12px;
+      letter-spacing:1.5px;
+      cursor:pointer;
     }
 
     .primary-btn:disabled {
-      opacity: .6;
-      cursor: wait;
+      opacity:.6;
+      cursor:wait;
     }
 
     .message {
-      margin-top: 15px;
-      text-align: center;
-      font-size: 13px;
-      line-height: 1.6;
-      color: #a33b36;
+      margin-top:15px;
+      text-align:center;
+      font-size:13px;
+      line-height:1.6;
+      color:#a33b36;
+      overflow-wrap:anywhere;
     }
 
     .success {
-      color: #28734c;
+      color:#28734c;
     }
 
     #areaDevocional {
-      display: none;
+      display:none;
     }
 
     .welcome {
-      text-align: center;
-      padding: 12px 0 22px;
+      text-align:center;
+      padding:12px 0 22px;
     }
 
     .welcome .date {
-      color: var(--gold);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 12px;
+      color:var(--gold);
+      font-size:11px;
+      font-weight:700;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      margin-bottom:12px;
     }
 
     .welcome h2 {
-      font-family: 'Cormorant Garamond', serif;
-      color: var(--navy);
-      font-size: 35px;
-      margin-bottom: 8px;
+      font-family:'Cormorant Garamond',serif;
+      color:var(--navy);
+      font-size:35px;
+      margin-bottom:8px;
     }
 
     .welcome p {
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.7;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.7;
     }
 
     .devocional-content {
-      line-height: 1.8;
-      font-size: 14px;
+      line-height:1.8;
+      font-size:14px;
     }
 
     .devocional-content h2,
     .devocional-content h3 {
-      color: var(--navy);
-      margin: 20px 0 10px;
+      color:var(--navy);
+      margin:20px 0 10px;
     }
 
     .devocional-content p {
-      margin-bottom: 12px;
-    }
-
-    .devocional-content section,
-    .devocional-content .card,
-    .devocional-content article {
-      margin-bottom: 18px;
+      margin-bottom:12px;
     }
 
     .secondary-btn {
-      background: transparent;
-      color: var(--navy);
-      border: 1px solid var(--gold);
-      padding: 12px 22px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: 700;
-      font-size: 11px;
-      letter-spacing: 1px;
+      background:transparent;
+      color:var(--navy);
+      border:1px solid var(--gold);
+      padding:12px 22px;
+      border-radius:6px;
+      cursor:pointer;
+      font-weight:700;
+      font-size:11px;
+      letter-spacing:1px;
     }
 
     .logout-area {
-      text-align: center;
-      margin-top: 20px;
+      text-align:center;
+      margin-top:20px;
     }
 
     footer {
-      background: var(--navy);
-      color: #d5dbe5;
-      padding: 32px 18px;
-      text-align: center;
-      border-top: 2px solid var(--gold);
+      background:var(--navy);
+      color:#d5dbe5;
+      padding:32px 18px;
+      text-align:center;
+      border-top:2px solid var(--gold);
     }
 
     footer .signature {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 25px;
-      color: var(--gold);
-      margin-bottom: 12px;
+      font-family:'Cormorant Garamond',serif;
+      font-size:25px;
+      color:var(--gold);
+      margin-bottom:12px;
     }
 
     footer p {
-      font-size: 12px;
-      line-height: 1.9;
+      font-size:12px;
+      line-height:1.9;
     }
 
     footer a {
-      color: var(--gold);
-      text-decoration: none;
+      color:var(--gold);
+      text-decoration:none;
     }
 
     .footer-line {
-      height: 1px;
-      max-width: 180px;
-      background: rgba(197,166,106,.45);
-      margin: 20px auto;
+      height:1px;
+      max-width:180px;
+      background:rgba(197,166,106,.45);
+      margin:20px auto;
     }
 
-    @media (max-width: 480px) {
+    @media(max-width:480px) {
       .hero {
-        padding: 25px 15px 38px;
+        padding:25px 15px 38px;
       }
 
       .hero-image {
-        height: 210px;
+        height:210px;
       }
 
       .panel {
-        padding: 24px 17px;
+        padding:24px 17px;
       }
 
       .welcome h2 {
-        font-size: 30px;
+        font-size:30px;
       }
     }
   </style>
@@ -390,7 +377,7 @@
 
       <div class="panel">
         <div id="conteudoPalavra" class="devocional-content">
-          <!-- O conteúdo diário será apresentado pelo ficheiro dias.js -->
+          <!-- Conteúdo carregado pelo dias.js -->
         </div>
 
         <div class="logout-area">
@@ -435,7 +422,7 @@
     <p>© 2026 · Uma Palavra de Deus por Dia</p>
   </footer>
 
-  <!-- Biblioteca oficial do Supabase -->
+  <!-- Biblioteca oficial Supabase -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   <script>
@@ -447,17 +434,34 @@
     const SUPABASE_KEY =
       "sb_publishable_7F_7S5UWTRO-l2tDB-PLeQ__J28PZ6v";
 
-    const supabaseClient = window.supabase.createClient(
-      SUPABASE_URL,
-      SUPABASE_KEY
-    );
-
-    const CHAVE_ACESSO = "palavra_de_deus_acesso";
+    let supabaseClient = null;
 
     function mostrarMensagem(texto, sucesso = false) {
       const elemento = document.getElementById("mensagemAcesso");
       elemento.textContent = texto;
       elemento.className = sucesso ? "message success" : "message";
+    }
+
+    function iniciarSupabase() {
+      if (!window.supabase || !window.supabase.createClient) {
+        mostrarMensagem(
+          "Não foi possível carregar a biblioteca do Supabase. Verifica a ligação à internet."
+        );
+        return false;
+      }
+
+      try {
+        supabaseClient = window.supabase.createClient(
+          SUPABASE_URL,
+          SUPABASE_KEY
+        );
+
+        return true;
+      } catch (erro) {
+        console.error("Erro ao iniciar Supabase:", erro);
+        mostrarMensagem("Não foi possível iniciar a ligação ao Supabase.");
+        return false;
+      }
     }
 
     function abrirDevocional() {
@@ -469,9 +473,24 @@
       if (typeof window.mostrarPalavraDoDia === "function") {
         window.mostrarPalavraDoDia();
       } else {
-        document.getElementById("conteudoPalavra").innerHTML =
-          "<p>Não foi possível carregar o devocional. Verifica se o ficheiro dias.js está corretamente instalado.</p>";
+        document.getElementById("conteudoPalavra").textContent =
+          "Não foi possível carregar o devocional. Verifica se o ficheiro dias.js está no repositório.";
       }
+    }
+
+    async function testarLigacao() {
+      const resposta = await fetch(
+        SUPABASE_URL + "/rest/v1/",
+        {
+          method: "GET",
+          headers: {
+            "apikey": SUPABASE_KEY,
+            "Authorization": "Bearer " + SUPABASE_KEY
+          }
+        }
+      );
+
+      return resposta;
     }
 
     async function validarAcesso() {
@@ -486,11 +505,36 @@
         return;
       }
 
+      if (!supabaseClient && !iniciarSupabase()) {
+        return;
+      }
+
       botao.disabled = true;
       botao.textContent = "A VALIDAR...";
       mostrarMensagem("");
 
       try {
+        // Primeiro verifica se a chave é aceite pela API REST.
+        const teste = await testarLigacao();
+
+        if (teste.status === 401 || teste.status === 403) {
+          mostrarMensagem(
+            "O Supabase rejeitou a chave de acesso. Confirma a Publishable key e o projeto."
+          );
+          console.error("Resposta de autenticação:", await teste.text());
+          return;
+        }
+
+        if (!teste.ok) {
+          mostrarMensagem(
+            "A ligação chegou ao Supabase, mas a API devolveu o erro HTTP " +
+            teste.status + "."
+          );
+          console.error("Resposta REST:", await teste.text());
+          return;
+        }
+
+        // Só depois testa a função de validação da pulseira.
         const { data, error } = await supabaseClient.rpc(
           "validar_pulseira",
           {
@@ -499,9 +543,11 @@
         );
 
         if (error) {
-          console.error("Erro Supabase:", error);
+          console.error("Erro RPC:", error);
+
           mostrarMensagem(
-            "Não foi possível validar o código. Verifica a configuração do Supabase."
+            "A chave foi aceite, mas a função validar_pulseira apresentou um erro: " +
+            error.message
           );
           return;
         }
@@ -520,18 +566,22 @@
         }
 
         if (!autorizado) {
-          mostrarMensagem("Código inválido ou sem autorização de acesso.");
+          mostrarMensagem(
+            "Código inválido ou sem autorização de acesso."
+          );
           return;
         }
 
-        localStorage.setItem(CHAVE_ACESSO, "autorizado");
+        localStorage.setItem("palavra_de_deus_acesso", "autorizado");
         abrirDevocional();
 
       } catch (erro) {
-        console.error("Erro inesperado:", erro);
+        console.error("Erro de ligação:", erro);
+
         mostrarMensagem(
-          "Ocorreu um problema de ligação. Tenta novamente."
+          "Não foi possível contactar o Supabase. Verifica a internet e tenta novamente."
         );
+
       } finally {
         botao.disabled = false;
         botao.textContent = "ACEDER AO DEVOCIONAL";
@@ -539,20 +589,18 @@
     }
 
     function atualizarData() {
-      const agora = new Date();
-
       const dataFormatada = new Intl.DateTimeFormat("pt-PT", {
         timeZone: "Africa/Luanda",
         day: "2-digit",
         month: "long",
         year: "numeric"
-      }).format(agora);
+      }).format(new Date());
 
       document.getElementById("dataAtual").textContent = dataFormatada;
     }
 
     function sair() {
-      localStorage.removeItem(CHAVE_ACESSO);
+      localStorage.removeItem("palavra_de_deus_acesso");
 
       document.getElementById("areaDevocional").style.display = "none";
       document.getElementById("painelAcesso").style.display = "block";
@@ -576,14 +624,11 @@
     );
 
     document.addEventListener("DOMContentLoaded", function() {
-      if (localStorage.getItem(CHAVE_ACESSO) === "autorizado") {
-        abrirDevocional();
-      }
+      iniciarSupabase();
     });
-
   </script>
 
-  <!-- Ficheiro com os 120 dias de conteúdo -->
+  <!-- Conteúdo dos 120 dias -->
   <script src="./dias.js"></script>
 
 </body>
