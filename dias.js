@@ -581,3 +581,138 @@
 
     [
       "Mateus 1:18-25",
+          "José recebeu em sonho a orientação do anjo e aceitou acolher Maria. O nascimento de Jesus revelou que Deus estava a cumprir a sua promessa.",
+      "José ensina-nos a escutar a Deus e a agir com responsabilidade. A fé também se manifesta na coragem de proteger e acolher.",
+      "Senhor, dá-me um coração atento à Tua vontade. Ensina-me a agir com responsabilidade e a acolher os outros com amor. Ámen.",
+      "Deus realiza as suas promessas através de corações disponíveis.",
+      "Acolher alguém com respeito e cumprir uma responsabilidade familiar."
+    ],
+
+    [
+      "Mateus 2:1-12",
+      "Os sábios do Oriente seguiram a estrela até encontrarem Jesus. Ao reconhecê-lo, ofereceram presentes e regressaram por outro caminho.",
+      "Encontrar Jesus deve transformar a nossa vida. A fé não é apenas procurar bênçãos, mas reconhecer Cristo e permitir que Ele mude as nossas escolhas.",
+      "Jesus, orienta a minha caminhada. Que eu Te procure com sinceridade e ofereça o melhor de mim. Ámen.",
+      "Quem encontra Jesus descobre um caminho novo.",
+      "Oferecer a Deus o melhor do meu tempo e das minhas capacidades."
+    ],
+
+    [
+      "Mateus 3:1-12",
+      "João Batista anunciou a necessidade de conversão e convidou o povo a preparar o caminho do Senhor. A verdadeira mudança deveria aparecer nos frutos da vida.",
+      "A conversão não é apenas dizer que queremos mudar. É demonstrar através das atitudes que estamos a escolher um caminho melhor.",
+      "Senhor, prepara o meu coração para Te receber. Ajuda-me a abandonar hábitos que me afastam de Ti e a produzir bons frutos. Ámen.",
+      "Um coração convertido demonstra a sua mudança através das atitudes.",
+      "Escolher um hábito concreto para melhorar a partir de hoje."
+    ],
+
+    [
+      "Mateus 4:1-11",
+      "Jesus enfrentou tentações no deserto e respondeu recorrendo à Palavra de Deus. Permaneceu fiel à missão que tinha recebido do Pai.",
+      "Nem tudo o que parece vantajoso é correto. A Palavra de Deus ajuda-nos a discernir e a permanecer fiéis aos nossos valores.",
+      "Jesus, fortalece-me nas minhas escolhas. Dá-me sabedoria para reconhecer o que não me faz bem e coragem para escolher o caminho certo. Ámen.",
+      "A Palavra de Deus fortalece quem deseja permanecer fiel.",
+      "Recusar uma atitude que contrarie os meus valores cristãos."
+    ],
+
+    [
+      "Mateus 5:1-12",
+      "Jesus ensinou as bem-aventuranças, chamando felizes os humildes, misericordiosos, pacificadores e aqueles que procuram a justiça.",
+      "Jesus apresenta uma felicidade diferente daquela que o mundo muitas vezes procura. A verdadeira grandeza nasce de um coração humilde, misericordioso e comprometido com o bem.",
+      "Senhor Jesus, transforma o meu coração. Ensina-me a ser humilde, misericordioso e promotor da paz. Ámen.",
+      "A verdadeira felicidade cresce num coração que pratica o bem.",
+      "Praticar uma atitude de misericórdia ou reconciliação."
+    ],
+
+    [
+      "Mateus 6:25-34",
+      "Jesus ensina os seus discípulos a não viverem dominados pelas preocupações. Convida-os a procurar primeiro o Reino de Deus e a confiar na providência do Pai.",
+      "Planeamos o futuro, mas não devemos permitir que a ansiedade roube a paz do presente. Deus convida-nos a viver com confiança e responsabilidade.",
+      "Pai, entrego-Te as minhas preocupações. Dá-me sabedoria para fazer a minha parte e confiança para deixar nas Tuas mãos aquilo que não posso controlar. Ámen.",
+      "Confia em Deus e vive com responsabilidade o dia de hoje.",
+      "Concentrar-me nas tarefas de hoje sem alimentar preocupações desnecessárias."
+    ],
+
+    [
+      "Mateus 7:24-27",
+      "Jesus compara quem escuta e pratica as suas palavras a alguém que constrói a casa sobre a rocha. A casa permanece firme quando chegam as tempestades.",
+      "Conhecer a Palavra não é suficiente; precisamos de praticá-la. As atitudes construídas sobre os ensinamentos de Cristo dão firmeza à nossa vida.",
+      "Senhor Jesus, ajuda-me a colocar em prática aquilo que aprendo contigo. Sê a base das minhas decisões. Ámen.",
+      "Uma vida construída sobre Cristo permanece firme nas dificuldades.",
+      "Praticar hoje um ensinamento de Jesus que já conheço."
+    ],
+
+    [
+      "Mateus 8:5-13",
+      "Um oficial pediu a Jesus que curasse o seu servo. Demonstrou uma fé tão profunda que reconheceu o poder de Cristo mesmo sem exigir a sua presença física.",
+      "A fé verdadeira reconhece que Deus pode agir para além daquilo que conseguimos compreender. Também nos ensina a interceder por quem precisa.",
+      "Jesus, aumenta a minha fé. Ensina-me a confiar no Teu poder e a rezar por aqueles que precisam de ajuda. Ámen.",
+      "A fé reconhece o poder de Deus mesmo à distância.",
+      "Rezar por uma pessoa que esteja a enfrentar uma dificuldade."
+    ],
+
+    [
+      "Mateus 9:9-13",
+      "Jesus chamou Mateus, um cobrador de impostos, para segui-lo. Depois, explicou que veio chamar os pecadores e que deseja misericórdia.",
+      "Jesus não reduz ninguém aos seus erros. Ele oferece a possibilidade de recomeçar e ensina-nos a olhar para os outros com misericórdia.",
+      "Senhor Jesus, obrigado por me chamares a seguir-Te. Ensina-me a não julgar rapidamente e a acolher as pessoas com misericórdia. Ámen.",
+      "A misericórdia abre portas que o julgamento fecha.",
+      "Evitar julgar alguém e procurar compreender a sua situação."
+    ],
+
+    [
+      "Mateus 10:5-15",
+      "Jesus enviou os seus discípulos a anunciar o Reino de Deus, levando uma mensagem de paz e confiança, sem dependerem de grandes recursos.",
+      "Todos podemos testemunhar o Evangelho através da maneira como vivemos. Nem sempre são necessárias muitas palavras; uma atitude de amor também anuncia Cristo.",
+      "Jesus, ajuda-me a ser testemunha do Teu amor. Que as minhas palavras e atitudes levem paz às pessoas que encontrar. Ámen.",
+      "A missão cristã começa onde colocamos o amor em prática.",
+      "Transmitir uma mensagem de esperança a alguém através das minhas atitudes."
+    ],
+
+    [
+      "Mateus 11:28-30",
+      "Jesus convida os cansados e sobrecarregados a aproximarem-se dele. Promete-lhes descanso e apresenta um caminho de mansidão e humildade.",
+      "Não precisamos de carregar tudo sozinhos. Cristo convida-nos a entregar-lhe os pesos do coração e a aprender com a sua mansidão.",
+      "Jesus, recebe as minhas preocupações e ensina-me a viver com humildade. Dá-me descanso interior e força para continuar. Ámen.",
+      "Em Cristo encontramos descanso para o coração.",
+      "Fazer uma pausa para rezar e entregar a Deus uma preocupação."
+    ],
+
+    [
+      "Mateus 12:9-14",
+      "Jesus curou um homem com a mão paralisada, mostrando que fazer o bem e salvar a vida está acima de interpretações rígidas da lei.",
+      "A religião deve conduzir-nos ao amor. Quando uma regra ou costume nos torna indiferentes à necessidade do próximo, precisamos de recordar a misericórdia de Cristo.",
+      "Senhor, ensina-me a colocar o amor acima do orgulho. Que eu nunca seja indiferente a quem precisa de ajuda. Ámen.",
+      "A misericórdia deve orientar as nossas atitudes.",
+      "Colocar a necessidade de alguém acima da minha comodidade."
+    ],
+
+    [
+      "Mateus 13:1-9",
+      "Jesus contou a parábola do semeador. As sementes caíram em diferentes terrenos, mas apenas a terra boa permitiu que crescessem e produzissem fruto.",
+      "A Palavra de Deus precisa de encontrar espaço no nosso coração. É necessário afastar distrações e cultivar atitudes que permitam à fé crescer.",
+      "Senhor, prepara o meu coração para receber a Tua Palavra. Ajuda-me a produzir frutos de amor, justiça e bondade. Ámen.",
+      "Um coração disponível transforma a Palavra em frutos.",
+      "Eliminar uma distração e dedicar tempo à leitura bíblica."
+    ],
+
+    [
+      "Mateus 14:22-33",
+      "Os discípulos enfrentaram o vento no lago. Jesus aproximou-se deles e chamou Pedro a confiar, mostrando que a fé deve permanecer firme mesmo diante do medo.",
+      "As dificuldades podem fazer-nos perder a confiança. Quando isso acontecer, precisamos de voltar o olhar para Cristo e procurar a sua presença.",
+      "Jesus, quando o medo surgir, ajuda-me a confiar em Ti. Não permitas que as dificuldades me afastem da fé. Ámen.",
+      "Olhar para Cristo ajuda-nos a atravessar as tempestades.",
+      "Enfrentar uma preocupação com oração e uma atitude de confiança."
+    ],
+
+    [
+      "Mateus 15:10-20",
+      "Jesus explicou que a verdadeira impureza não vem simplesmente do exterior, mas das más intenções e atitudes que nascem do coração.",
+      "A aparência não revela tudo o que existe dentro de nós. Deus deseja transformar as nossas intenções para que as nossas palavras e ações sejam boas.",
+      "Senhor, purifica o meu coração. Afasta de mim as palavras e intenções que possam ferir os outros. Ámen.",
+      "A verdadeira mudança começa dentro do coração.",
+      "Examinar as minhas intenções antes de falar ou agir."
+    ],
+
+    [
+      "Mateus 16:13-20",
