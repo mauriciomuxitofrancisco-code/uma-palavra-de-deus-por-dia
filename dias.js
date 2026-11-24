@@ -1017,3 +1017,115 @@
 
     [
       "João 19:25-30",
+"Junto à cruz, Jesus confiou a sua mãe ao discípulo amado e, depois de cumprir a sua missão, entregou o espírito.",
+      "Mesmo no sofrimento, Jesus manifestou cuidado e amor. A cruz convida-nos a permanecer próximos de quem sofre e a não abandonar as pessoas nos momentos difíceis.",
+      "Jesus, obrigado pelo Teu amor. Ensina-me a permanecer ao lado de quem precisa de apoio e a viver com fidelidade. Ámen.",
+      "O amor de Cristo permanece fiel até ao fim.",
+      "Acompanhar alguém que precise de atenção ou apoio."
+    ],
+
+    [
+      "João 20:19-23",
+      "Os discípulos estavam reunidos com medo quando Jesus ressuscitado apareceu no meio deles. Ofereceu-lhes a paz e enviou-os em missão.",
+      "A presença de Cristo transforma o medo em coragem e a tristeza em esperança. A paz recebida deve tornar-se também uma missão para os outros.",
+      "Jesus ressuscitado, entra no meu coração e concede-me a Tua paz. Dá-me coragem para testemunhar o Teu amor. Ámen.",
+      "A presença de Cristo transforma o medo em missão.",
+      "Levar paz a uma situação de conflito através de palavras e atitudes."
+    ],
+
+    [
+      "João 20:24-29",
+      "Tomé teve dificuldade em acreditar no testemunho dos outros discípulos. Quando Jesus apareceu, convidou-o a acreditar e Tomé reconheceu-o como Senhor e Deus.",
+      "Ter dúvidas não precisa de significar abandonar a fé. Podemos procurar compreender, rezar e aproximar-nos de Cristo com sinceridade.",
+      "Senhor Jesus, fortalece a minha fé nos momentos de dúvida. Ajuda-me a procurar-Te com sinceridade e confiança. Ámen.",
+      "A fé cresce quando procuramos Cristo com um coração sincero.",
+      "Apresentar a Deus uma dúvida ou pergunta que tenho sobre a minha fé."
+    ],
+
+    [
+      "João 21:1-14",
+      "Os discípulos passaram a noite sem pescar nada. Jesus apareceu na margem e orientou-os a lançar novamente as redes, que ficaram cheias de peixes.",
+      "Nem sempre os nossos esforços produzem resultados imediatos. Escutar Jesus pode dar uma nova direção ao nosso trabalho e renovar a esperança.",
+      "Jesus, orienta o meu trabalho e os meus esforços. Ajuda-me a não desistir e a reconhecer a Tua presença no quotidiano. Ámen.",
+      "Com Cristo, até uma nova tentativa pode tornar-se oportunidade.",
+      "Recomeçar uma tarefa que não correu como eu esperava."
+    ],
+
+    [
+      "João 21:15-19",
+      "Jesus perguntou a Pedro se o amava e confiou-lhe o cuidado das suas ovelhas. Depois da sua falha, Pedro recebeu uma nova missão.",
+      "Os nossos erros não precisam de ser o fim da nossa história. Jesus oferece a possibilidade de recomeçar e convida-nos a demonstrar amor através do serviço.",
+      "Senhor Jesus, obrigado por me ofereceres novas oportunidades. Ajuda-me a demonstrar o meu amor por Ti através do cuidado com os outros. Ámen.",
+      "O amor por Cristo torna-se visível no cuidado pelo próximo.",
+      "Assumir uma responsabilidade com espírito de serviço."
+    ],
+
+    [
+      "João 1:14-18",
+      "A Palavra fez-se carne e habitou entre nós. Jesus revelou a graça e a verdade de Deus, tornando visível o amor do Pai.",
+      "Deus não permaneceu distante da humanidade. Em Jesus, aproximou-se de nós e mostrou que o amor divino se manifesta na proximidade e na misericórdia.",
+      "Jesus, obrigado por vires ao nosso encontro. Ensina-me a levar a Tua presença aos outros através da bondade e da verdade. Ámen.",
+      "Em Jesus, o amor de Deus tornou-se próximo de nós.",
+      "Aproximar-me de alguém com quem tenho estado distante."
+    ],
+
+    [
+      "João 6:35-40",
+      "Jesus declara que é o pão da vida e que veio cumprir a vontade do Pai. Promete acolher aqueles que se aproximam dele.",
+      "Cristo não rejeita quem o procura com sinceridade. A sua promessa convida-nos a aproximar-nos dele com confiança e a permanecer na fé.",
+      "Jesus, recebe-me e fortalece a minha fé. Ajuda-me a permanecer unido a Ti e a confiar no amor do Pai. Ámen.",
+      "Em Cristo encontramos acolhimento e alimento para a alma.",
+      "Aproximar-me de Deus com uma oração sincera e confiante."
+    ],
+
+    [
+      "João 10:11-18",
+      "Jesus apresenta-se como o Bom Pastor que conhece as suas ovelhas e entrega a vida por elas. O seu amor não abandona o rebanho diante do perigo.",
+      "O cuidado de Jesus ensina-nos a não abandonar as pessoas quando enfrentam dificuldades. Amar significa permanecer presente e agir com responsabilidade.",
+      "Bom Pastor, obrigado por cuidares de mim. Ensina-me a ser responsável e atento às pessoas que confiaste ao meu cuidado. Ámen.",
+      "O amor verdadeiro não abandona quem precisa de cuidado.",
+      "Demonstrar atenção e responsabilidade por alguém que conta comigo."
+    ],
+
+    [
+      "João 13:12-17",
+      "Depois de lavar os pés dos discípulos, Jesus explicou que lhes tinha dado um exemplo para que também servissem uns aos outros.",
+      "A humildade de Jesus deve transformar a nossa maneira de viver. Não devemos considerar uma tarefa pequena demais quando ela pode beneficiar alguém.",
+      "Senhor, livra-me do orgulho. Dá-me disponibilidade para servir e humildade para aprender com o Teu exemplo. Ámen.",
+      "Servir com humildade é seguir os passos de Jesus.",
+      "Realizar um serviço sem reclamar e com espírito de alegria."
+    ],
+
+    [
+      "João 14:15-21",
+      "Jesus relaciona o amor com a fidelidade aos seus mandamentos e promete a presença do Espírito Santo. Os discípulos não ficariam abandonados.",
+      "Amar Jesus significa procurar viver aquilo que Ele ensinou. O Espírito Santo acompanha-nos e fortalece-nos nessa caminhada.",
+      "Jesus, ajuda-me a demonstrar o meu amor através das minhas atitudes. Espírito Santo, acompanha-me e orienta-me. Ámen.",
+      "O amor a Cristo manifesta-se numa vida fiel aos seus ensinamentos.",
+      "Praticar um mandamento de Jesus numa situação concreta."
+    ],
+
+    [
+      "João 15:9-17",
+      "Jesus convida os discípulos a permanecerem no seu amor e a amarem-se uns aos outros como Ele os amou. Chama-lhes amigos e confia-lhes uma missão.",
+      "O amor cristão não deve ser apenas sentimento. É uma escolha diária de respeito, generosidade, perdão e compromisso com o bem.",
+      "Jesus, ensina-me a permanecer no Teu amor. Que eu saiba amar com generosidade e tratar cada pessoa com dignidade. Ámen.",
+      "O amor de Cristo é o modelo para as nossas relações.",
+      "Demonstrar amor através de uma atitude de respeito, perdão ou ajuda."
+    ],
+
+    [
+      "João 20:19-31",
+      "Jesus ressuscitado apareceu aos discípulos, ofereceu-lhes a paz e mostrou a Tomé os sinais da sua paixão. Tomé respondeu com uma profissão de fé.",
+      "A ressurreição é o centro da esperança cristã. Mesmo quando surgem dúvidas e dificuldades, podemos procurar Cristo e renovar a nossa confiança nele.",
+      "Senhor ressuscitado, fortalece a minha fé. Que a Tua paz permaneça no meu coração e me ajude a viver como testemunha do Evangelho. Ámen.",
+      "A fé em Cristo ressuscitado renova a esperança de cada dia.",
+      "Viver este dia com esperança e partilhar a paz com alguém."
+    ]
+
+  ];
+
+  // ==========================================
+  // FUNÇÕES DE DATA
+  // ==========================================
+ 
