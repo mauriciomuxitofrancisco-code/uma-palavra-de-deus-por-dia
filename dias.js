@@ -855,4 +855,165 @@
 
     [
       "João 1:1-5",
-      
+       "No princípio existia a Palavra, que estava com Deus e era Deus. Nela estava a vida, e essa vida era a luz da humanidade. A luz brilha nas trevas.",
+      "Jesus é a Palavra eterna e a luz que orienta a nossa vida. Quando nos aproximamos dele, encontramos sentido, verdade e esperança.",
+      "Jesus, luz do mundo, ilumina o meu caminho. Ajuda-me a afastar tudo o que me impede de viver segundo o Teu amor. Ámen.",
+      "A luz de Cristo continua a brilhar mesmo nas trevas.",
+      "Procurar uma atitude que leve mais luz e esperança à minha família."
+    ],
+
+    [
+      "João 2:1-11",
+      "Durante um casamento em Caná, Jesus transformou água em vinho. A pedido de Maria, realizou o seu primeiro sinal e manifestou a sua glória.",
+      "Maria ensina-nos a confiar em Jesus e a escutar as suas orientações. Deus pode transformar situações quando nos colocamos disponíveis para colaborar.",
+      "Senhor Jesus, transforma aquilo que precisa de mudança na minha vida. Dá-me um coração atento e disponível para fazer a Tua vontade. Ámen.",
+      "Quando confiamos em Jesus, abrimos espaço para a transformação.",
+      "Escutar com atenção uma orientação sábia e colocá-la em prática."
+    ],
+
+    [
+      "João 3:16-21",
+      "Deus amou tanto o mundo que enviou o seu Filho para que todos tenham vida. Jesus veio como luz, convidando as pessoas a viverem na verdade.",
+      "O amor de Deus não é uma recompensa para pessoas perfeitas. É um dom que nos chama a sair das trevas e a escolher a verdade.",
+      "Pai, obrigado pelo Teu amor. Ajuda-me a viver na verdade e a corresponder ao dom que nos ofereceste em Jesus. Ámen.",
+      "O amor de Deus oferece-nos um caminho de vida e esperança.",
+      "Escolher a verdade numa situação em que seria mais fácil esconder algo."
+    ],
+
+    [
+      "João 4:7-15",
+      "Jesus conversou com uma mulher samaritana e falou-lhe da água viva que pode saciar a sede mais profunda da pessoa.",
+      "Muitas vezes procuramos preencher o coração com coisas passageiras. Jesus convida-nos a procurar nele a fonte de uma vida com sentido.",
+      "Jesus, sacia a sede do meu coração. Ajuda-me a procurar em Ti a verdadeira alegria e a partilhá-la com os outros. Ámen.",
+      "Só Cristo pode dar sentido à sede mais profunda do coração.",
+      "Dedicar um momento à oração e afastar uma distração desnecessária."
+    ],
+
+    [
+      "João 5:1-9",
+      "Jesus encontrou um homem doente junto à piscina e perguntou-lhe se queria ficar curado. Depois, ordenou-lhe que se levantasse, tomasse a sua esteira e caminhasse.",
+      "Jesus aproxima-se das nossas dificuldades e convida-nos a não permanecer presos ao desânimo. A esperança deve conduzir-nos a passos concretos.",
+      "Senhor Jesus, dá-me força para enfrentar as minhas dificuldades. Ajuda-me a levantar e a continuar a caminhar com fé. Ámen.",
+      "Com Cristo, podemos encontrar coragem para recomeçar.",
+      "Dar um passo concreto para resolver uma situação que tenho adiado."
+    ],
+
+    [
+      "João 6:32-40",
+      "Jesus apresenta-se como o pão da vida. Quem se aproxima dele encontra alimento espiritual e recebe a promessa de não ser abandonado.",
+      "A nossa vida precisa de alimento espiritual. A Palavra e a Eucaristia ajudam-nos a permanecer unidos a Cristo e a crescer na fé.",
+      "Jesus, pão da vida, alimenta a minha fé. Aproxima-me de Ti e ensina-me a viver unido ao Teu amor. Ámen.",
+      "Cristo é o alimento que sustenta a nossa caminhada espiritual.",
+      "Participar com atenção na oração ou na celebração da Eucaristia."
+    ],
+
+    [
+      "João 7:37-39",
+      "Jesus convida os que têm sede a aproximarem-se dele. A passagem relaciona essa promessa com o Espírito que seria recebido pelos que acreditassem.",
+      "O Espírito Santo renova a nossa vida e fortalece a fé. Precisamos de manter o coração aberto à sua ação e orientação.",
+      "Espírito Santo, vem ao meu coração. Renova a minha fé, ilumina as minhas decisões e ensina-me a viver no amor. Ámen.",
+      "Um coração aberto ao Espírito encontra força para florescer.",
+      "Invocar o Espírito Santo antes de uma decisão importante."
+    ],
+
+    [
+      "João 8:1-11",
+      "Jesus encontrou uma mulher acusada pelos outros. Em vez de participar na condenação, convidou todos a examinarem a própria consciência e ofereceu à mulher uma oportunidade de mudança.",
+      "Jesus não aprova o pecado, mas também não reduz uma pessoa aos seus erros. A misericórdia deve acompanhar a verdade e abrir espaço para a conversão.",
+      "Senhor Jesus, ensina-me a não condenar os outros. Dá-me humildade para reconhecer os meus erros e misericórdia para acolher quem precisa de recomeçar. Ámen.",
+      "A misericórdia corrige sem destruir a dignidade.",
+      "Evitar comentários condenatórios e tratar alguém com compreensão."
+    ],
+
+    [
+      "João 9:1-11",
+      "Jesus encontrou um homem que era cego desde o nascimento e devolveu-lhe a visão. O acontecimento revelou a ação de Deus e despertou a fé.",
+      "Nem sempre compreendemos o sofrimento das pessoas. Em vez de procurar culpados, devemos agir com compaixão e ajudar sempre que possível.",
+      "Jesus, abre os meus olhos para reconhecer as necessidades dos outros. Livra-me dos preconceitos e ensina-me a agir com compaixão. Ámen.",
+      "A fé também nos ensina a olhar para os outros com compaixão.",
+      "Ajudar alguém sem fazer julgamentos sobre a sua situação."
+    ],
+
+    [
+      "João 10:1-18",
+      "Jesus apresenta-se como o Bom Pastor que conhece as suas ovelhas e cuida delas. Diferente de quem abandona o rebanho, Ele entrega a vida por amor.",
+      "Cristo conhece cada pessoa e não nos trata como desconhecidos. Escutar a sua voz significa aprender a reconhecer os caminhos do amor e da verdade.",
+      "Jesus, meu Bom Pastor, guia os meus passos. Ajuda-me a reconhecer a Tua voz e a seguir os Teus ensinamentos. Ámen.",
+      "O Bom Pastor conhece-nos e nunca deixa de cuidar de nós.",
+      "Escutar a Palavra de Deus antes de tomar uma decisão."
+    ],
+
+    [
+      "João 11:25-27",
+      "Jesus declarou ser a ressurreição e a vida. Diante de Marta, revelou que a esperança em Deus ultrapassa os limites da morte.",
+      "A esperança cristã não se limita ao que vemos. Em Cristo encontramos uma promessa de vida que sustenta a nossa fé mesmo nos momentos de dor.",
+      "Jesus, fortalece a minha esperança. Ajuda-me a confiar na Tua promessa de vida e a levar consolo a quem sofre. Ámen.",
+      "Em Cristo, a esperança é maior do que o medo.",
+      "Levar uma palavra de conforto a alguém que esteja a passar por um momento difícil."
+    ],
+
+    [
+      "João 12:24-26",
+      "Jesus compara a semente que cai na terra e dá fruto com a necessidade de uma vida que se entrega ao serviço. Quem deseja segui-lo é chamado a servir.",
+      "Uma vida centrada apenas em si mesma torna-se limitada. O amor cresce quando partilhamos o tempo, os dons e as capacidades com os outros.",
+      "Senhor, ensina-me a viver com generosidade. Que os meus dons produzam frutos de serviço e de amor. Ámen.",
+      "A vida ganha frutos quando é colocada ao serviço do bem.",
+      "Usar uma capacidade minha para ajudar outra pessoa."
+    ],
+
+    [
+      "João 13:1-17",
+      "Durante a última ceia, Jesus lavou os pés dos discípulos. Sendo Mestre e Senhor, mostrou que a verdadeira grandeza se manifesta no serviço humilde.",
+      "Jesus não ensinou apenas com palavras. Deu o exemplo. Seguir Cristo significa abandonar o orgulho e estar disponível para servir.",
+      "Jesus, ensina-me a servir com humildade. Que eu não tenha vergonha de realizar tarefas simples para ajudar os outros. Ámen.",
+      "Quem ama verdadeiramente não considera o serviço uma humilhação.",
+      "Fazer uma tarefa simples para aliviar o trabalho de alguém."
+    ],
+
+    [
+      "João 14:1-7",
+      "Jesus pediu aos discípulos que não deixassem o coração ficar perturbado. Apresentou-se como caminho, verdade e vida, indicando a relação com o Pai.",
+      "Quando o futuro parece incerto, podemos encontrar orientação em Cristo. Seguir Jesus significa escolher a verdade e construir a vida sobre os seus ensinamentos.",
+      "Jesus, sê o caminho que orienta as minhas decisões. Dá-me serenidade quando o futuro parecer incerto. Ámen.",
+      "Com Jesus como caminho, encontramos direção para a vida.",
+      "Tomar uma decisão procurando agir com verdade e responsabilidade."
+    ],
+
+    [
+      "João 15:1-8",
+      "Jesus compara-se à videira e os discípulos aos ramos. Ensina que é necessário permanecer unidos a Ele para produzir frutos.",
+      "A fé precisa de ser alimentada diariamente. Quando nos afastamos de Cristo, perdemos a referência que orienta as nossas atitudes.",
+      "Senhor Jesus, mantém-me unido a Ti. Que a minha vida produza frutos de amor, paciência e bondade. Ámen.",
+      "Permanecer em Cristo é a fonte de uma vida que dá bons frutos.",
+      "Praticar uma atitude de amor que demonstre a minha união com Cristo."
+    ],
+
+    [
+      "João 16:7-15",
+      "Jesus prometeu enviar o Espírito da verdade para orientar os discípulos. O Espírito ajudaria a compreender e a testemunhar a mensagem de Cristo.",
+      "Não caminhamos sozinhos na fé. O Espírito Santo orienta a nossa consciência e ajuda-nos a reconhecer aquilo que nos aproxima de Deus.",
+      "Espírito Santo, guia os meus pensamentos e decisões. Ensina-me a viver na verdade e a testemunhar Jesus. Ámen.",
+      "O Espírito Santo orienta quem se deixa conduzir por Deus.",
+      "Pedir a orientação do Espírito Santo antes de uma escolha."
+    ],
+
+    [
+      "João 17:20-23",
+      "Jesus rezou pela unidade dos seus discípulos e também por aqueles que acreditariam através da sua palavra. Pediu que todos permanecessem unidos.",
+      "A divisão enfraquece as comunidades e as relações. A oração de Jesus convida-nos a construir pontes, respeitar as diferenças e procurar a comunhão.",
+      "Pai, torna-nos unidos no amor. Afasta de nós o orgulho e ajuda-nos a trabalhar pela paz nas nossas famílias e comunidades. Ámen.",
+      "A unidade é um testemunho visível do amor de Cristo.",
+      "Promover a união numa família, grupo ou comunidade."
+    ],
+
+    [
+      "João 18:33-38",
+      "Jesus falou com Pilatos sobre o seu Reino e afirmou que veio dar testemunho da verdade. Pilatos perguntou-lhe o que era a verdade.",
+      "A verdade nem sempre é a opção mais fácil, mas é essencial para uma vida coerente. Seguir Jesus significa não negociar os nossos valores por conveniência.",
+      "Jesus, ajuda-me a amar a verdade. Dá-me coragem para agir corretamente mesmo quando isso exigir esforço. Ámen.",
+      "Quem segue Cristo procura viver na verdade.",
+      "Assumir com honestidade uma responsabilidade ou um erro."
+    ],
+
+    [
+      "João 19:25-30",
