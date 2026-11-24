@@ -1129,3 +1129,306 @@
   // FUNÇÕES DE DATA
   // ==========================================
  
+function dataAngola() {
+    const partes = new Intl.DateTimeFormat("en-CA", {
+      timeZone: FUSO,
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit"
+    }).formatToParts(new Date());
+
+    const resultado = {};
+
+    partes.forEach(function (parte) {
+      if (parte.type !== "literal") {
+        resultado[parte.type] = parte.value;
+      }
+    });
+
+    return `${resultado.year}-${resultado.month}-${resultado.day}`;
+  }
+
+  function dataLegivel(dataISO) {
+    const partes = dataISO.split("-").map(Number);
+
+    return new Intl.DateTimeFormat("pt-PT", {
+      timeZone: FUSO,
+      day: "numeric",
+      month: "long",
+      year: "numeric"
+    }).format(new Date(Date.UTC(
+      partes[0],
+      partes[1] - 1,
+      partes[2],
+      12
+    )));
+  }
+
+  function calcularDia() {
+    const hoje = dataAngola();
+
+    const inicio = Date.parse(DATA_INICIO + "T00:00:00Z");
+    const atual = Date.parse(hoje + "T00:00:00Z");
+    const fim = Date.parse(DATA_FIM + "T00:00:00Z");
+
+    if (atual < inicio) return 0;
+    if (atual > fim) return 119;
+
+    return Math.floor((atual - inicio) / 86400000);
+  }
+
+  // ==========================================
+  // OBTER DEVOCIONAL
+  // ==========================================
+
+  function obterPrograma(numero) {
+    const indice = Math.min(
+      Math.max(numero, 0),
+      devocionais.length - 1
+    );
+
+    const dados = devocionais[indice];
+
+    return {
+      numero: indice + 1,
+      leitura: dados[0],
+      resumo: dados[1],
+      reflexao: dados[2],
+      oracao: dados[3],
+      frase: dados[4],
+      proposito: dados[5]
+    };
+  }
+
+  // ==========================================
+  // ESTILOS
+  // ==========================================
+
+  function aplicarEstilos() {
+    if (document.getElementById("estilo-palavra")) return;
+
+    const estilo = document.createElement("style");
+    estilo.id = "estilo-palavra";
+
+    estilo.textContent = `
+      #conteudo {
+        background: transparent !important;
+        color: #ffffff !important;
+        padding: 0 !important;
+        border: 0 !important;
+        width: 100%;
+      }
+
+      #conteudo .daily-card {
+        width: 100%;
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 28px;
+        color: #ffffff;
+        background: linear-gradient(145deg, #192b49, #101c35);
+        border: 1px solid #c9a96e88;
+        border-radius: 22px;
+        box-shadow: 0 20px 55px #0005;
+      }
+
+      #conteudo .daily-header {
+        text-align: center;
+        padding: 18px 10px 28px;
+        margin-bottom: 25px;
+        border-bottom: 1px solid #c9a96e77;
+      }
+
+      #conteudo .daily-header h2 {
+        color: #ffffff !important;
+        font-family: Georgia, serif;
+        font-size: clamp(25px, 5vw, 36px);
+        font-weight: 500;
+        line-height: 1.3;
+        margin: 0 0 15px;
+      }
+
+      #conteudo .daily-date {
+        color: #aeb9c9 !important;
+        margin: 8px 0;
+      }
+
+      #conteudo .daily-number {
+        color: #c9a96e !important;
+        font-weight: bold;
+        letter-spacing: 2px;
+        margin: 12px 0 0;
+      }
+
+      #conteudo .daily-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      #conteudo .daily-section {
+        min-width: 0;
+        padding: 23px;
+        background: linear-gradient(145deg, #243957, #192b49);
+        border: 1px solid #c9a96e88;
+        border-radius: 17px;
+        box-shadow: 0 7px 0 #0b1528, 0 13px 25px #0004;
+      }
+
+      #conteudo .daily-section h3 {
+        color: #c9a96e !important;
+        font-family: Georgia, serif;
+        font-size: 21px;
+        line-height: 1.35;
+        margin: 0 0 13px;
+      }
+
+      #conteudo .daily-section p {
+        color: #ffffff !important;
+        font-size: 16px;
+        line-height: 1.85;
+        margin: 0;
+        overflow-wrap: anywhere;
+      }
+
+      #conteudo .daily-section p + p {
+        margin-top: 10px;
+      }
+
+      #conteudo .daily-quote {
+        margin: 0;
+        color: #ffffff;
+        font-family: Georgia, serif;
+        font-size: 18px;
+        line-height: 1.8;
+        text-align: center;
+      }
+
+      @media (min-width: 700px) {
+        #conteudo .daily-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        #conteudo .daily-section:nth-child(3),
+        #conteudo .daily-section:nth-child(4),
+        #conteudo .daily-section:nth-child(5) {
+          grid-column: 1 / -1;
+        }
+      }
+
+      @media (max-width: 600px) {
+        #conteudo .daily-card {
+          padding: 17px;
+          border-radius: 18px;
+        }
+
+        #conteudo .daily-section {
+          padding: 20px;
+        }
+
+        #conteudo .daily-section h3 {
+          font-size: 20px;
+        }
+
+        #conteudo .daily-section p {
+          font-size: 15px;
+        }
+      }
+    `;
+
+    document.head.appendChild(estilo);
+  }
+
+  // ==========================================
+  // SEGURANÇA HTML
+  // ==========================================
+
+  function escaparHTML(valor) {
+    return String(valor).replace(/[&<>"']/g, function (caractere) {
+      return {
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      }[caractere];
+    });
+  }
+
+  // ==========================================
+  // MOSTRAR PALAVRA DO DIA
+  // ==========================================
+
+  function mostrarPalavraDoDia() {
+    const destino = document.getElementById("conteudo");
+
+    if (!destino) {
+      console.error(
+        'Uma Palavra de Deus por Dia: elemento "conteudo" não encontrado.'
+      );
+      return;
+    }
+
+    aplicarEstilos();
+
+    const indice = calcularDia();
+    const item = obterPrograma(indice);
+
+    const dataPrograma = new Date(
+      Date.parse(DATA_INICIO + "T00:00:00Z") +
+      indice * 86400000
+    ).toISOString().slice(0, 10);
+
+    destino.innerHTML = `
+      <section class="daily-card" aria-label="Palavra de Deus do dia">
+
+        <header class="daily-header">
+          <h2>Uma Palavra de Deus por Dia</h2>
+
+          <p class="daily-date">
+            ${escaparHTML(dataLegivel(dataPrograma))}
+          </p>
+
+          <p class="daily-number">
+            DIA ${String(item.numero).padStart(3, "0")} DE 120
+          </p>
+        </header>
+
+        <div class="daily-grid">
+
+          <article class="daily-section">
+            <h3>1. Leitura</h3>
+            <p><strong>${escaparHTML(item.leitura)}</strong></p>
+            <p>${escaparHTML(item.resumo)}</p>
+          </article>
+
+          <article class="daily-section">
+            <h3>2. Reflexão</h3>
+            <p>${escaparHTML(item.reflexao)}</p>
+          </article>
+
+          <article class="daily-section">
+            <h3>3. Oração</h3>
+            <p>${escaparHTML(item.oracao)}</p>
+          </article>
+
+          <article class="daily-section">
+            <h3>4. Frase inspiradora</h3>
+            <blockquote class="daily-quote">
+              “${escaparHTML(item.frase)}”
+            </blockquote>
+          </article>
+
+          <article class="daily-section">
+            <h3>5. Propósito do dia</h3>
+            <p>${escaparHTML(item.proposito)}</p>
+          </article>
+
+        </div>
+      </section>
+    `;
+  }
+
+  // ==========================================
+  // DISPONIBILIZAR FUNÇÕES AO SITE
+  // ==========================================
+ 
