@@ -17,9 +17,7 @@
   --muted: #aeb9c9;
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
@@ -29,9 +27,7 @@ body {
   color: var(--white);
 }
 
-button, input {
-  font: inherit;
-}
+button, input { font: inherit; }
 
 .topbar {
   display: flex;
@@ -67,9 +63,7 @@ button, input {
   align-items: center;
 }
 
-.hero-text {
-  padding: 25px 0;
-}
+.hero-text { padding: 25px 0; }
 
 .eyebrow {
   color: var(--gold);
@@ -163,13 +157,8 @@ input {
   outline: none;
 }
 
-input:focus {
-  border-color: var(--gold);
-}
-
-input::placeholder {
-  color: #aeb9c9;
-}
+input:focus { border-color: var(--gold); }
+input::placeholder { color: #aeb9c9; }
 
 button {
   width: 100%;
@@ -218,18 +207,14 @@ button:disabled {
   font-family: Georgia, serif;
 }
 
-#conteudo p {
-  line-height: 1.8;
-}
+#conteudo p { line-height: 1.8; }
 
 #conteudo button {
   background: var(--navy);
   color: white;
 }
 
-#conteudo button:hover {
-  background: var(--navy2);
-}
+#conteudo button:hover { background: var(--navy2); }
 
 .footer {
   text-align: center;
@@ -253,40 +238,22 @@ button:disabled {
   margin: 0 8px;
 }
 
-.footer a:hover {
-  text-decoration: underline;
-}
+.footer a:hover { text-decoration: underline; }
 
 @media(max-width: 760px) {
-  .topbar {
-    padding: 18px 5%;
-  }
-
-  .container {
-    margin: 25px auto;
-  }
-
+  .topbar { padding: 18px 5%; }
+  .container { margin: 25px auto; }
   .hero {
     grid-template-columns: 1fr;
     gap: 15px;
   }
-
-  .hero-text {
-    padding: 15px 5px;
-  }
-
-  .hero-image {
-    min-height: 310px;
-  }
-
+  .hero-text { padding: 15px 5px; }
+  .hero-image { min-height: 310px; }
   .access-card {
     margin-top: 30px;
     padding: 23px;
   }
-
-  #conteudo {
-    padding: 22px;
-  }
+  #conteudo { padding: 22px; }
 }
 </style>
 </head>
@@ -301,7 +268,6 @@ button:disabled {
 <main class="container">
 
   <section id="entrada">
-
     <div class="hero">
 
       <div class="hero-text">
@@ -354,7 +320,6 @@ button:disabled {
       <p id="mensagem" role="status" aria-live="polite"></p>
 
     </div>
-
   </section>
 
   <div id="conteudo"></div>
@@ -368,10 +333,10 @@ button:disabled {
 
   <p>
     <a
-      href="https://www.instagram.com/mauricio_franciscoo/"
+      href="https://www.instagram.com/mauricio_franciscooo/"
       target="_blank"
       rel="noopener noreferrer">
-      Instagram · @mauricio_franciscoo
+      Instagram · @mauricio_franciscooo
     </a>
   </p>
 
@@ -392,14 +357,13 @@ const SUPABASE_URL =
   "https://okcmbnucjzkeiduivsny.supabase.co";
 
 const SUPABASE_KEY =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9rY21ibnVjanprZWlkdWl2c255Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTUzNjA2NjgsImV4cCI6MjExMDkzNjY2OH0.YSoeQXBfObu74-xYNq_A0VqOfWnmpfl8FMzCugIejok";
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJIUzI1NiIsInR5cCI6IkpXVCJ9";
 
 let db = null;
 
 /* INICIAR LIGAÇÃO */
 
 function iniciarSupabase() {
-
   if (
     !window.supabase ||
     typeof window.supabase.createClient !== "function"
@@ -424,7 +388,6 @@ try {
 /* VALIDAR PULSEIRA */
 
 async function validarCodigo(codigo) {
-
   if (!db) {
     throw new Error(
       "Não foi possível iniciar a ligação ao Supabase."
@@ -433,9 +396,7 @@ async function validarCodigo(codigo) {
 
   const { data, error } = await db.rpc(
     "validar_pulseira",
-    {
-      p_codigo: codigo
-    }
+    { p_codigo: codigo }
   );
 
   if (error) {
@@ -453,7 +414,6 @@ async function validarCodigo(codigo) {
 /* VERIFICAR CÓDIGO */
 
 async function verificarCodigo() {
-
   const campo = document.getElementById("codigo");
   const mensagem = document.getElementById("mensagem");
   const botao = document.getElementById("botaoEntrar");
@@ -470,26 +430,18 @@ async function verificarCodigo() {
   botao.disabled = true;
 
   try {
-
     const valido = await validarCodigo(codigo);
 
     if (valido) {
-
       localStorage.setItem("codigo_pulseira", codigo);
-
       mensagem.textContent = "";
-
       mostrarConteudo();
-
     } else {
-
       mensagem.textContent =
         "Código inválido, suspenso ou com a validade terminada.";
-
     }
 
   } catch (erro) {
-
     console.error("Falha na validação:", erro);
 
     mensagem.textContent =
@@ -497,35 +449,26 @@ async function verificarCodigo() {
       (erro.message || "Erro de ligação ao Supabase.");
 
   } finally {
-
     botao.disabled = false;
-
   }
 }
 
 /* MOSTRAR PALAVRA DO DIA */
 
 function mostrarConteudo() {
-
   document.getElementById("entrada").style.display = "none";
 
   const area = document.getElementById("conteudo");
-
   area.style.display = "block";
 
   if (typeof window.mostrarPalavraDoDia === "function") {
-
     window.mostrarPalavraDoDia();
-
   } else {
-
     area.innerHTML =
       "<p>Não foi possível carregar a Palavra do Dia. Atualiza a página.</p>";
-
   }
 
   if (!document.getElementById("botaoSair")) {
-
     const botaoSair = document.createElement("button");
 
     botaoSair.id = "botaoSair";
@@ -534,49 +477,37 @@ function mostrarConteudo() {
     botaoSair.onclick = sair;
 
     area.appendChild(botaoSair);
-
   }
 }
 
 /* SAIR */
 
 function sair() {
-
   localStorage.removeItem("codigo_pulseira");
-
   location.reload();
-
 }
 
 /* VERIFICAR ACESSO GUARDADO */
 
 async function verificarAcessoGuardado() {
-
   const codigo = localStorage.getItem("codigo_pulseira");
 
   if (!codigo) return;
 
   try {
-
     const valido = await validarCodigo(codigo);
 
     if (valido) {
-
       mostrarConteudo();
-
     } else {
-
       localStorage.removeItem("codigo_pulseira");
-
     }
 
   } catch (erro) {
-
     console.error(
       "Erro ao verificar acesso guardado:",
       erro
     );
-
   }
 }
 
@@ -589,11 +520,9 @@ document
 document
   .getElementById("codigo")
   .addEventListener("keydown", function(evento) {
-
     if (evento.key === "Enter") {
       verificarCodigo();
     }
-
   });
 
 verificarAcessoGuardado();
