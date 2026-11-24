@@ -716,3 +716,143 @@
 
     [
       "Mateus 16:13-20",
+      "Jesus perguntou aos discípulos quem pensavam que Ele era. Pedro reconheceu-o como o Messias, o Filho do Deus vivo.",
+      "A fé exige uma relação pessoal com Jesus. Não basta conhecer aquilo que os outros dizem sobre Ele; precisamos de descobrir quem Cristo é para nós.",
+      "Jesus, ajuda-me a conhecer-Te cada vez melhor. Que a minha fé seja sincera e se manifeste nas minhas escolhas. Ámen.",
+      "Conhecer Jesus transforma a maneira como vivemos.",
+      "Dedicar tempo a refletir sobre o lugar de Jesus na minha vida."
+    ],
+
+    [
+      "Mateus 17:1-8",
+      "Jesus manifestou a sua glória diante de Pedro, Tiago e João. Os discípulos ouviram a voz do Pai que os convidava a escutar o Filho.",
+      "A vida cristã exige atenção à voz de Jesus. Entre tantas opiniões, precisamos de reservar espaço para escutar a Palavra e deixar-nos orientar por ela.",
+      "Pai, abre os meus ouvidos para escutar Jesus. Que a Sua Palavra ilumine as minhas escolhas. Ámen.",
+      "Quem escuta Jesus encontra orientação para a vida.",
+      "Escutar com atenção alguém e evitar interromper ou julgar."
+    ],
+
+    [
+      "Mateus 18:21-35",
+      "Jesus contou a parábola do servo que recebeu perdão, mas não quis perdoar o seu companheiro. A história ensina que devemos oferecer aos outros a misericórdia que recebemos.",
+      "O perdão é essencial para a vida cristã. Não significa ignorar o mal, mas recusar que o ressentimento governe o nosso coração.",
+      "Senhor, ensina-me a perdoar e a procurar a reconciliação. Dá-me um coração misericordioso como o Teu. Ámen.",
+      "Quem recebe misericórdia é chamado a oferecer misericórdia.",
+      "Dar um passo em direção à reconciliação com alguém."
+    ],
+
+    [
+      "Mateus 19:13-15",
+      "Jesus acolheu as crianças e afirmou que o Reino dos Céus pertence aos que se aproximam de Deus com a simplicidade e a confiança próprias de uma criança.",
+      "A simplicidade não significa falta de maturidade. Significa aproximar-nos de Deus sem orgulho, com confiança e disponibilidade para aprender.",
+      "Jesus, dá-me um coração simples e humilde. Ensina-me a confiar em Ti e a acolher os outros com bondade. Ámen.",
+      "A simplicidade abre o coração à presença de Deus.",
+      "Praticar a humildade e acolher alguém com atenção."
+    ],
+
+    [
+      "Mateus 20:25-28",
+      "Jesus ensinou que a verdadeira grandeza não está em dominar os outros, mas em servir. Ele próprio veio para servir e entregar a sua vida.",
+      "Na visão de Jesus, liderar significa assumir responsabilidades e ajudar. O serviço cristão não procura aplausos, mas o bem do próximo.",
+      "Senhor Jesus, ensina-me a servir sem orgulho. Que eu esteja disponível para ajudar e não procure apenas reconhecimento. Ámen.",
+      "A grandeza cristã mede-se pela capacidade de servir.",
+      "Realizar um serviço útil sem esperar elogios."
+    ],
+
+    [
+      "Mateus 21:1-11",
+      "Jesus entrou em Jerusalém montado num jumento e foi recebido pelo povo com aclamações. A sua chegada revelou um Rei humilde e diferente das expectativas humanas.",
+      "Jesus mostra que a verdadeira autoridade não precisa de ostentação. A humildade deve orientar a maneira como tratamos e conduzimos os outros.",
+      "Jesus, ensina-me a reconhecer-Te como Senhor da minha vida. Dá-me humildade para seguir o Teu exemplo. Ámen.",
+      "Cristo reina através do amor e da humildade.",
+      "Evitar procurar destaque e valorizar o trabalho de outras pessoas."
+    ],
+
+    [
+      "Mateus 22:34-40",
+      "Jesus resumiu a lei no amor a Deus com todo o coração e ao próximo como a nós mesmos. Toda a vida cristã encontra nesses mandamentos a sua orientação.",
+      "O amor a Deus não pode estar separado do respeito pelo próximo. A nossa fé deve tornar-nos mais atentos, justos e bondosos.",
+      "Senhor, ensina-me a amar-Te com todo o coração e a respeitar cada pessoa que encontro. Ámen.",
+      "Amar a Deus é também aprender a amar o próximo.",
+      "Demonstrar amor através de uma atitude concreta de respeito ou ajuda."
+    ],
+
+    [
+      "Mateus 23:1-12",
+      "Jesus criticou aqueles que ensinavam, mas não praticavam o que diziam. Ensinou que a verdadeira grandeza nasce da humildade e do serviço.",
+      "A coerência é indispensável à fé. Não devemos exigir dos outros aquilo que não estamos dispostos a praticar na nossa própria vida.",
+      "Senhor, ajuda-me a viver aquilo que ensino e digo. Livra-me da vaidade e dá-me um coração humilde. Ámen.",
+      "A fé verdadeira é coerência entre palavras e atitudes.",
+      "Praticar hoje aquilo que costumo aconselhar aos outros."
+    ],
+
+    [
+      "Mateus 24:42-47",
+      "Jesus aconselhou os discípulos a permanecerem vigilantes e fiéis nas suas responsabilidades, sem saberem o momento exato da sua chegada.",
+      "Viver vigilante significa não adiar o bem. Devemos cumprir as nossas responsabilidades e procurar estar preparados através de uma vida coerente.",
+      "Jesus, ajuda-me a viver com atenção e fidelidade. Que eu não adie as boas atitudes que posso praticar hoje. Ámen.",
+      "A fidelidade de hoje prepara o caminho de amanhã.",
+      "Cumprir uma responsabilidade sem esperar que alguém me cobre."
+    ],
+
+    [
+      "Mateus 25:31-40",
+      "Jesus identifica-se com os famintos, os estrangeiros, os doentes e os necessitados. Ensina que servir os mais pequenos é uma forma de servir o próprio Cristo.",
+      "A fé torna-se concreta quando reconhecemos Cristo nas pessoas que precisam de atenção. A caridade não deve ficar apenas nas palavras.",
+      "Senhor Jesus, abre os meus olhos para reconhecer-Te nos necessitados. Dá-me generosidade para ajudar com respeito. Ámen.",
+      "Servir quem precisa é uma forma de encontrar Cristo.",
+      "Praticar uma obra de misericórdia de acordo com as minhas possibilidades."
+    ],
+
+    [
+      "Mateus 26:36-46",
+      "No Getsémani, Jesus rezou ao Pai diante do sofrimento que se aproximava. Mesmo angustiado, procurou permanecer fiel à vontade do Pai.",
+      "A oração não significa que nunca teremos dificuldades. Ela ajuda-nos a atravessar os momentos exigentes com confiança e entrega a Deus.",
+      "Pai, ajuda-me a confiar na Tua vontade. Dá-me força para cumprir as minhas responsabilidades mesmo quando o caminho for difícil. Ámen.",
+      "A oração fortalece-nos para permanecer fiéis.",
+      "Rezar antes de enfrentar uma responsabilidade difícil."
+    ],
+
+    [
+      "Mateus 27:45-54",
+      "Durante a crucificação, Jesus entregou a sua vida. O centurião, ao observar os acontecimentos, reconheceu que Jesus era verdadeiramente Filho de Deus.",
+      "A cruz revela a profundidade do amor de Cristo. O seu sacrifício convida-nos a viver com gratidão, compaixão e compromisso com o bem.",
+      "Jesus, obrigado pelo amor que demonstraste por nós. Ensina-me a responder a esse amor através de uma vida de fé e serviço. Ámen.",
+      "A cruz recorda-nos que o amor de Cristo não tem medida.",
+      "Fazer um gesto de amor e sacrifício em benefício de alguém."
+    ],
+
+    [
+      "Mateus 28:16-20",
+      "Depois da ressurreição, Jesus enviou os discípulos a anunciar o Evangelho e prometeu permanecer com eles todos os dias.",
+      "A missão de anunciar Jesus continua através de cada cristão. Podemos testemunhar a fé na família, na comunidade e no lugar onde vivemos.",
+      "Jesus, acompanha-me na missão de testemunhar o Teu amor. Dá-me coragem e sabedoria para anunciar o Evangelho através da minha vida. Ámen.",
+      "Quem encontra Cristo é chamado a partilhar a sua esperança.",
+      "Partilhar uma mensagem de fé ou esperança com alguém."
+    ],
+
+    [
+      "Mateus 5:13-16",
+      "Jesus chama os discípulos de sal da terra e luz do mundo. As boas obras devem tornar visível a bondade do Pai.",
+      "Não precisamos de grandes feitos para testemunhar Cristo. A honestidade, a solidariedade e a bondade podem iluminar o ambiente onde vivemos.",
+      "Senhor, faz de mim sal e luz. Que as minhas atitudes ajudem outras pessoas a reconhecer a Tua bondade. Ámen.",
+      "Uma pequena atitude de bondade pode iluminar um dia inteiro.",
+      "Ser exemplo de honestidade e bondade no lugar onde estiver."
+    ],
+
+    [
+      "Mateus 6:1-6",
+      "Jesus ensina a praticar a caridade e a oração sem procurar aplausos. O Pai conhece as intenções e vê aquilo que é feito com sinceridade.",
+      "A fé não deve ser um espetáculo. O valor de uma boa ação está no amor que a inspira, e não na quantidade de elogios que recebemos.",
+      "Pai, purifica as minhas intenções. Ensina-me a fazer o bem com sinceridade, mesmo quando ninguém estiver a observar. Ámen.",
+      "O bem feito com amor não precisa de aplausos.",
+      "Fazer uma boa ação discretamente, sem procurar reconhecimento."
+    ],
+
+    // ==========================================
+    // JOÃO — DIAS 91 A 120
+    // ==========================================
+
+    [
+      "João 1:1-5",
+      
