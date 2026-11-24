@@ -496,3 +496,88 @@
 
     [
       "Salmo 22:1-5",
+       "O salmista expressa a sua angústia, mas recorda que os antepassados confiaram em Deus e foram amparados. A oração une sofrimento e esperança.",
+      "A Bíblia não esconde os momentos de dor. Podemos falar sinceramente com Deus e recordar que a nossa história não se resume às dificuldades.",
+      "Senhor, acompanha-me quando me sentir desanimado. Ajuda-me a recordar a Tua fidelidade e a encontrar esperança. Ámen.",
+      "Mesmo na angústia, podemos continuar a procurar Deus.",
+      "Oferecer uma palavra de conforto a alguém que esteja triste."
+    ],
+
+    [
+      "Salmo 23:1-6",
+      "O Senhor é apresentado como pastor que conduz, alimenta e protege. Mesmo atravessando um vale escuro, o salmista confia na presença de Deus.",
+      "Deus acompanha-nos nos momentos tranquilos e nos momentos difíceis. A sua presença convida-nos a não perder a esperança.",
+      "Senhor, guia os meus passos como um bom pastor. Dá-me paz, proteção e confiança para seguir o Teu caminho. Ámen.",
+      "Com Deus como pastor, nunca caminhamos sem orientação.",
+      "Procurar seguir uma orientação de Deus numa decisão concreta."
+    ],
+
+    [
+      "Salmo 24:1-6",
+      "A terra pertence ao Senhor. O salmo recorda que quem deseja aproximar-se de Deus deve procurar pureza de coração e atitudes sinceras.",
+      "A fé exige coerência entre aquilo em que acreditamos e aquilo que fazemos. Aproximar-nos de Deus também significa cuidar da nossa conduta.",
+      "Senhor, purifica o meu coração. Ajuda-me a viver com sinceridade e a procurar sempre o que é justo. Ámen.",
+      "Um coração sincero encontra espaço para Deus.",
+      "Examinar as minhas atitudes e corrigir algo que não esteja certo."
+    ],
+
+    [
+      "Salmo 25:4-10",
+      "O salmista pede que Deus lhe ensine os seus caminhos e o conduza na verdade. Reconhece a misericórdia e a fidelidade do Senhor.",
+      "Não precisamos de caminhar apenas segundo as nossas ideias. Deus pode ensinar-nos a escolher melhor e a reconhecer quando precisamos de mudar.",
+      "Senhor, mostra-me os Teus caminhos. Ensina-me a agir com humildade e a aprender com os meus erros. Ámen.",
+      "Quem se deixa ensinar por Deus encontra direção.",
+      "Procurar aprender uma lição antes de responder a uma dificuldade."
+    ],
+
+    [
+      "Salmo 26:1-8",
+      "O salmista pede que Deus examine o seu coração e afirma o desejo de caminhar com sinceridade e permanecer na presença do Senhor.",
+      "A integridade exige que sejamos verdadeiros mesmo quando ninguém nos vê. A nossa relação com Deus deve influenciar todas as áreas da vida.",
+      "Pai, examina o meu coração e ajuda-me a corrigir o que precisa de mudança. Ensina-me a viver com sinceridade. Ámen.",
+      "A sinceridade diante de Deus começa no interior.",
+      "Agir com honestidade numa tarefa ou responsabilidade."
+    ],
+
+    [
+      "Salmo 27:1-6",
+      "O salmista declara que Deus é a sua luz e salvação. Mesmo diante de ameaças, escolhe confiar e procurar a presença do Senhor.",
+      "O medo pode surgir, mas não precisa de controlar as nossas decisões. A confiança em Deus dá-nos coragem para enfrentar o que está à nossa frente.",
+      "Senhor, sê a minha luz nos momentos de incerteza. Fortalece a minha confiança e ajuda-me a não desistir. Ámen.",
+      "A luz de Deus é maior do que as nossas incertezas.",
+      "Enfrentar com coragem uma tarefa que tenho evitado por medo."
+    ],
+
+    [
+      "Salmo 28:6-9",
+      "O salmista bendiz o Senhor porque ouviu a sua oração. Deus é reconhecido como força e proteção do seu povo.",
+      "A oração não deve terminar apenas no pedido. Também precisamos de reconhecer as respostas, agradecer e confiar no cuidado de Deus.",
+      "Senhor, obrigado porque escutas a minha oração. Fortalece a minha fé e ajuda-me a reconhecer a Tua bondade. Ámen.",
+      "Quem reconhece a bondade de Deus aprende a agradecer.",
+      "Agradecer por uma oração ou pedido que tenha sido atendido."
+    ],
+
+    [
+      "Salmo 29:1-11",
+      "O salmo celebra a voz poderosa do Senhor sobre a criação e termina recordando que Deus concede força e paz ao seu povo.",
+      "A grandeza de Deus não deve provocar apenas admiração, mas também confiança. O Senhor pode dar-nos força para agir e paz para enfrentar o dia.",
+      "Deus poderoso, concede-me força para cumprir as minhas responsabilidades e paz para viver com equilíbrio. Ámen.",
+      "A força de Deus também se manifesta na paz que oferece.",
+      "Ser uma presença de paz numa conversa ou situação difícil."
+    ],
+
+    [
+      "Salmo 30:2-6",
+      "O salmista agradece porque Deus o ouviu e transformou o seu lamento em alegria. A tristeza não teve a última palavra na sua história.",
+      "Os momentos difíceis não definem toda a nossa vida. Deus pode ajudar-nos a recuperar a esperança e a encontrar novos motivos para agradecer.",
+      "Senhor, obrigado por me acompanhares nos dias bons e difíceis. Renova a minha esperança e ensina-me a louvar-Te sempre. Ámen.",
+      "A alegria pode renascer quando confiamos na bondade de Deus.",
+      "Procurar uma razão para agradecer, mesmo num dia difícil."
+    ],
+
+    // ==========================================
+    // MATEUS — DIAS 61 A 90
+    // ==========================================
+
+    [
+      "Mateus 1:18-25",
