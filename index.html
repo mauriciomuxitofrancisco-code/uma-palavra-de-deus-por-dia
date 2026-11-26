@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -378,7 +379,6 @@
 
       <div class="panel">
 
-        <!-- ID CORRIGIDO PARA dias.js -->
         <div id="conteudo" class="devocional-content">
           <!-- Conteúdo carregado pelo dias.js -->
         </div>
@@ -443,6 +443,9 @@
 
     const SUPABASE_KEY =
       "sb_publishable_7F_7S5UWTRO-l2tDB-PLeQ__J28PZ6v";
+
+    const CHAVE_ACESSO =
+      "palavra_de_deus_acesso";
 
     let supabaseClient = null;
 
@@ -582,8 +585,9 @@
           return;
         }
 
+        // Guarda a autorização neste navegador.
         localStorage.setItem(
-          "palavra_de_deus_acesso",
+          CHAVE_ACESSO,
           "autorizado"
         );
 
@@ -621,9 +625,7 @@
     }
 
     function sair() {
-      localStorage.removeItem(
-        "palavra_de_deus_acesso"
-      );
+      localStorage.removeItem(CHAVE_ACESSO);
 
       document.getElementById("areaDevocional").style.display =
         "none";
@@ -654,10 +656,18 @@
       }
     );
 
+    // RECUPERA AUTOMATICAMENTE O ACESSO GUARDADO
     document.addEventListener(
       "DOMContentLoaded",
       function() {
         iniciarSupabase();
+
+        const acessoGuardado =
+          localStorage.getItem(CHAVE_ACESSO);
+
+        if (acessoGuardado === "autorizado") {
+          abrirDevocional();
+        }
       }
     );
 
