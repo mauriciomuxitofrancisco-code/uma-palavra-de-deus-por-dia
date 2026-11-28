@@ -1283,11 +1283,15 @@ function dataAngola() {
       }
 
       #conteudo .daily-section p {
-        color: #ffffff !important;
+        color: #52687b !important;
         font-size: 16px;
         line-height: 1.85;
         margin: 0;
         overflow-wrap: anywhere;
+      }
+
+      #conteudo .daily-section:first-child p {
+        color: #ffffff !important;
       }
 
       #conteudo .daily-section p + p {
