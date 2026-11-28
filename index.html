@@ -1,680 +1,255 @@
-
 <!DOCTYPE html>
 <html lang="pt">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#101d35">
+  <meta name="theme-color" content="#194c7e">
+  <meta name="description" content="Um momento diário de encontro com a Palavra de Deus.">
   <title>Uma Palavra de Deus por Dia</title>
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --navy:#101d35;
-      --navy2:#1b2d4d;
-      --gold:#c5a66a;
-      --ivory:#f7f5ef;
-      --white:#fff;
-      --text:#263247;
-      --muted:#697386;
-      --border:#e8e3d8;
-    }
-
-    * {
-      box-sizing:border-box;
-      margin:0;
-      padding:0;
-    }
-
-    body {
-      background:var(--ivory);
-      color:var(--text);
-      font-family:'Montserrat',sans-serif;
-      min-height:100vh;
-    }
-
-    button,input {
-      font:inherit;
-    }
-
-    .topbar {
-      background:var(--navy);
-      color:white;
-      text-align:center;
-      padding:15px 12px;
-      border-bottom:2px solid var(--gold);
-    }
-
-    .topbar span {
-      color:var(--gold);
-      font-size:11px;
-      letter-spacing:3px;
-      text-transform:uppercase;
-    }
-
-    .hero {
-      background:var(--navy);
-      color:white;
-      padding:35px 20px 45px;
-      text-align:center;
-    }
-
-    .hero-image {
-      width:100%;
-      max-width:760px;
-      height:280px;
-      object-fit:cover;
-      object-position:center;
-      border-radius:8px;
-      border:1px solid rgba(197,166,106,.6);
-      display:block;
-      margin:0 auto 30px;
-    }
-
-    .hero h1 {
-      font-family:'Cormorant Garamond',serif;
-      font-size:clamp(36px,7vw,58px);
-      line-height:1.05;
-      color:var(--ivory);
-      margin-bottom:15px;
-    }
-
-    .hero h1 span {
-      color:var(--gold);
-    }
-
-    .hero p {
-      max-width:620px;
-      margin:auto;
-      color:#d5dbe5;
-      font-size:14px;
-      line-height:1.8;
-    }
-
-    .gold-line {
-      width:65px;
-      height:2px;
-      background:var(--gold);
-      margin:22px auto;
-    }
-
-    main {
-      width:100%;
-      max-width:760px;
-      padding:0 18px;
-      margin:-20px auto 50px;
-      position:relative;
-    }
-
-    .panel {
-      background:var(--white);
-      border:1px solid var(--border);
-      border-radius:12px;
-      padding:28px 22px;
-      box-shadow:0 12px 35px rgba(16,29,53,.07);
-      margin-bottom:22px;
-    }
-
-    .panel h2 {
-      font-family:'Cormorant Garamond',serif;
-      font-size:30px;
-      color:var(--navy);
-      text-align:center;
-      margin-bottom:10px;
-    }
-
-    .subtitle {
-      text-align:center;
-      font-size:13px;
-      line-height:1.7;
-      color:var(--muted);
-      margin-bottom:22px;
-    }
-
-    .field-label {
-      display:block;
-      font-size:12px;
-      font-weight:700;
-      color:var(--navy);
-      margin-bottom:9px;
-    }
-
-    input {
-      width:100%;
-      border:1px solid var(--border);
-      background:#fbfaf7;
-      border-radius:7px;
-      padding:15px;
-      font-size:15px;
-      outline:none;
-      color:var(--navy);
-      text-align:center;
-      letter-spacing:1px;
-      text-transform:uppercase;
-    }
-
-    input:focus {
-      border-color:var(--gold);
-      box-shadow:0 0 0 3px rgba(197,166,106,.12);
-    }
-
-    .primary-btn {
-      width:100%;
-      background:var(--navy);
-      color:white;
-      border:1px solid var(--gold);
-      padding:15px;
-      border-radius:7px;
-      margin-top:15px;
-      font-weight:700;
-      font-size:12px;
-      letter-spacing:1.5px;
-      cursor:pointer;
-    }
-
-    .primary-btn:disabled {
-      opacity:.6;
-      cursor:wait;
-    }
-
-    .message {
-      margin-top:15px;
-      text-align:center;
-      font-size:13px;
-      line-height:1.6;
-      color:#a33b36;
-      overflow-wrap:anywhere;
-    }
-
-    .success {
-      color:#28734c;
-    }
-
-    #areaDevocional {
-      display:none;
-    }
-
-    .welcome {
-      text-align:center;
-      padding:12px 0 22px;
-    }
-
-    .welcome .date {
-      color:var(--gold);
-      font-size:11px;
-      font-weight:700;
-      letter-spacing:2px;
-      text-transform:uppercase;
-      margin-bottom:12px;
-    }
-
-    .welcome h2 {
-      font-family:'Cormorant Garamond',serif;
-      color:var(--navy);
-      font-size:35px;
-      margin-bottom:8px;
-    }
-
-    .welcome p {
-      color:var(--muted);
-      font-size:13px;
-      line-height:1.7;
-    }
-
-    .devocional-content {
-      line-height:1.8;
-      font-size:14px;
-    }
-
-    .devocional-content h2,
-    .devocional-content h3 {
-      color:var(--navy);
-      margin:20px 0 10px;
-    }
-
-    .devocional-content p {
-      margin-bottom:12px;
-    }
-
-    .secondary-btn {
-      background:transparent;
-      color:var(--navy);
-      border:1px solid var(--gold);
-      padding:12px 22px;
-      border-radius:6px;
-      cursor:pointer;
-      font-weight:700;
-      font-size:11px;
-      letter-spacing:1px;
-    }
-
-    .logout-area {
-      text-align:center;
-      margin-top:20px;
-    }
-
-    footer {
-      background:var(--navy);
-      color:#d5dbe5;
-      padding:32px 18px;
-      text-align:center;
-      border-top:2px solid var(--gold);
-    }
-
-    footer .signature {
-      font-family:'Cormorant Garamond',serif;
-      font-size:25px;
-      color:var(--gold);
-      margin-bottom:12px;
-    }
-
-    footer p {
-      font-size:12px;
-      line-height:1.9;
-    }
-
-    footer a {
-      color:var(--gold);
-      text-decoration:none;
-    }
-
-    .footer-line {
-      height:1px;
-      max-width:180px;
-      background:rgba(197,166,106,.45);
-      margin:20px auto;
-    }
-
-    @media(max-width:480px) {
-      .hero {
-        padding:25px 15px 38px;
-      }
-
-      .hero-image {
-        height:210px;
-      }
-
-      .panel {
-        padding:24px 17px;
-      }
-
-      .welcome h2 {
-        font-size:30px;
-      }
-    }
+    :root{--blue:#194c7e;--blue-dark:#12385f;--blue-soft:#eaf3fa;--bg:#eff5fa;--white:#fff;--ink:#1d3449;--muted:#718397;--line:#dce6ee;--green:#20a464;--shadow:0 12px 34px rgba(27,65,99,.08)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{min-height:100vh;background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif}
+    button,input{font:inherit}
+    .site-shell{width:min(100%,760px);margin:0 auto;padding:22px 17px 30px}
+    .brand{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 2px 20px}
+    .brand-name{font-family:Manrope,sans-serif;font-size:17px;font-weight:800;letter-spacing:-.5px;color:var(--blue-dark)}
+    .brand-mark{width:38px;height:38px;border-radius:13px;background:var(--blue);color:#fff;display:grid;place-items:center;font-size:20px;box-shadow:0 5px 14px #194c7e25}
+    .welcome-card,.content-card,.footer-card{background:var(--white);border:1px solid var(--line);border-radius:23px;box-shadow:var(--shadow)}
+    .welcome-card{padding:27px 23px;margin-bottom:20px}
+    .eyebrow{font-size:11px;font-weight:800;letter-spacing:1.5px;color:var(--blue);text-transform:uppercase;margin-bottom:10px}
+    h1{font-family:Manrope,sans-serif;font-size:clamp(27px,6vw,38px);line-height:1.15;letter-spacing:-1.1px;color:var(--ink);margin-bottom:9px}
+    .intro{font-size:14px;line-height:1.7;color:var(--muted);margin-bottom:22px}
+    .field-label{display:block;font-size:11px;letter-spacing:1px;font-weight:800;color:var(--ink);margin-bottom:9px}
+    #codigoPulseira{width:100%;height:52px;padding:0 15px;border:1px solid var(--line);border-radius:13px;background:#f8fafc;color:var(--ink);font-size:14px;outline:none;text-align:center;letter-spacing:1px;text-transform:uppercase}
+    #codigoPulseira:focus{border-color:var(--blue);box-shadow:0 0 0 3px #194c7e18}
+    .primary-btn{width:100%;min-height:51px;margin-top:12px;border:0;border-radius:13px;background:var(--blue);color:#fff;font-size:12px;font-weight:800;letter-spacing:.8px;cursor:pointer;box-shadow:0 7px 16px #194c7e25}
+    .primary-btn:disabled{opacity:.65;cursor:wait}
+    .help-line{text-align:center;color:var(--muted);font-size:12px;margin-top:17px}
+    .whatsapp-link{display:flex;justify-content:center;align-items:center;gap:8px;margin-top:10px;padding:12px;border:1px solid #ccebdc;border-radius:12px;background:#f0fbf5;color:#16804d;text-decoration:none;font-size:12px;font-weight:800}
+    .message{margin-top:13px;text-align:center;font-size:13px;line-height:1.6;color:#b04444;overflow-wrap:anywhere}
+    .success{color:#16804d}
+    #areaDevocional{display:none}
+    .day-heading{padding:7px 3px 18px}
+    .day-heading .date{font-size:11px;color:var(--blue);font-weight:800;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:8px}
+    .day-heading h2{font-family:Manrope,sans-serif;font-size:27px;letter-spacing:-.7px;color:var(--ink);margin-bottom:6px}
+    .day-heading p{font-size:13px;color:var(--muted);line-height:1.6}
+    .content-card{padding:19px;margin-bottom:16px}
+    #conteudo{width:100%;min-width:0}
+    #conteudo .daily-card{background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;padding:0!important;margin:0!important;color:var(--ink)!important;font-family:'DM Sans',sans-serif!important}
+    #conteudo .daily-header{padding:0 2px 14px!important;text-align:left!important;background:transparent!important;border:0!important}
+    #conteudo .daily-header h2{display:none!important}
+    #conteudo .daily-header .daily-date{font-size:11px!important;color:var(--blue)!important;font-weight:800!important;letter-spacing:1px!important;text-transform:uppercase!important;margin:0 0 5px!important}
+    #conteudo .daily-header .daily-number{font-size:11px!important;color:var(--muted)!important;margin:0!important}
+    #conteudo .daily-grid{display:flex!important;flex-direction:column!important;gap:13px!important}
+    #conteudo .daily-section{background:#fff!important;border:1px solid var(--line)!important;border-radius:17px!important;padding:17px!important;margin:0!important;box-shadow:0 5px 17px rgba(27,65,99,.045)!important;color:var(--ink)!important}
+    #conteudo .daily-section:first-child{background:var(--blue)!important;border-color:var(--blue)!important;color:#fff!important;padding:23px!important;border-radius:20px!important;box-shadow:0 10px 24px #194c7e20!important}
+    #conteudo .daily-section h3{font-family:Manrope,sans-serif!important;font-size:17px!important;font-weight:800!important;color:var(--blue-dark)!important;margin:0 0 11px!important}
+    #conteudo .daily-section:first-child h3{font-size:11px!important;letter-spacing:1.4px!important;text-transform:uppercase!important;color:#dcecff!important}
+    #conteudo .daily-section p{font-family:'DM Sans',sans-serif!important;font-size:14px!important;line-height:1.8!important;color:#52687b!important;margin:0 0 8px!important}
+    #conteudo .daily-section p:last-child{margin-bottom:0!important}
+    #conteudo .daily-section:first-child p{color:#fff!important;font-size:15px!important;line-height:1.85!important}
+    #conteudo .daily-section:first-child p strong{font-family:Manrope,sans-serif!important;font-size:19px!important;font-weight:800!important;color:#fff!important}
+    #conteudo .daily-section:nth-child(n+2){padding:0!important;overflow:hidden!important}
+    #conteudo .daily-section:nth-child(n+2) h3{display:flex!important;align-items:center!important;min-height:68px!important;padding:15px 17px!important;margin:0!important;cursor:pointer!important;position:relative!important}
+    #conteudo .daily-section:nth-child(n+2) h3:after{content:'＋';margin-left:auto;color:var(--blue);font-size:21px;font-weight:500}
+    #conteudo .daily-section:nth-child(n+2).is-open h3:after{content:'−'}
+    #conteudo .daily-section:nth-child(n+2) p,#conteudo .daily-section:nth-child(n+2) blockquote{display:none!important;padding:0 17px 17px!important}
+    #conteudo .daily-section:nth-child(n+2).is-open p,#conteudo .daily-section:nth-child(n+2).is-open blockquote{display:block!important}
+    #conteudo .daily-section .daily-quote{font-family:Manrope,sans-serif!important;font-size:15px!important;line-height:1.8!important;color:#52687b!important;margin:0!important;text-align:left!important}
+    .logout-area{text-align:center;margin:18px 0 4px}
+    .secondary-btn{border:1px solid var(--line);border-radius:11px;background:#fff;color:var(--blue);padding:12px 20px;font-size:11px;font-weight:800;letter-spacing:.6px;cursor:pointer}
+    .footer-card{padding:23px 16px;text-align:center;margin-top:22px}
+    .signature{font-family:Manrope,sans-serif;font-size:19px;font-weight:800;color:var(--blue-dark);margin-bottom:3px}
+    .creator{font-size:12px;color:var(--muted);margin-bottom:13px}
+    .credentials{font-size:12px;line-height:2;color:#52687b}
+    .credentials a{color:var(--blue);font-weight:700;text-decoration:none}
+    @media(min-width:620px){.site-shell{padding-top:34px}.welcome-card{padding:34px}.content-card{padding:25px}#conteudo .daily-section:first-child{padding:28px!important}#conteudo .daily-section:first-child p strong{font-size:22px!important}}
   </style>
 </head>
-
 <body>
+  <main class="site-shell">
+    <header class="brand">
+      <div class="brand-name">Uma Palavra de Deus por Dia</div>
+      <div class="brand-mark" aria-hidden="true">✦</div>
+    </header>
 
-  <header class="topbar">
-    <span>Uma jornada diária com Deus</span>
-  </header>
-
-  <section class="hero">
-    <img
-      class="hero-image"
-      src="./jesus-fieis.jpg"
-      alt="Jesus Cristo rodeado pelos seus fiéis"
-      onerror="this.style.display='none'"
-    >
-
-    <h1>Uma Palavra de<br><span>Deus por Dia</span></h1>
-
-    <div class="gold-line"></div>
-
-    <p>
-      Um momento diário de encontro com a Palavra,
-      de reflexão, oração e compromisso com Deus.
-    </p>
-  </section>
-
-  <main>
-
-    <section class="panel" id="painelAcesso">
-      <h2>Bem-vindo</h2>
-
-      <p class="subtitle">
-        A tua caminhada de fé começa com a Palavra de Deus.
-        Introduz o código da tua pulseira para aceder ao devocional.
-      </p>
-
-      <label class="field-label" for="codigoPulseira">
-        CÓDIGO DE ACESSO
-      </label>
-
-      <input
-        type="text"
-        id="codigoPulseira"
-        placeholder="Introduz o teu código"
-        autocomplete="off"
-      >
-
-      <button
-        class="primary-btn"
-        id="btnEntrar"
-        type="button"
-        onclick="validarAcesso()"
-      >
-        ACEDER AO DEVOCIONAL
-      </button>
-
+    <section class="welcome-card" id="painelAcesso">
+      <div class="eyebrow">A tua caminhada de fé</div>
+      <h1>Bem-vindo!</h1>
+      <p class="intro">Um momento com Deus começa com a Sua Palavra. Introduz o código da tua pulseira para aceder ao devocional diário.</p>
+      <label class="field-label" for="codigoPulseira">CÓDIGO DA PULSEIRA</label>
+      <input type="text" id="codigoPulseira" placeholder="Introduz o teu código" autocomplete="off" autocapitalize="characters">
+      <button class="primary-btn" id="btnEntrar" type="button" onclick="validarAcesso()">ACEDER À MINHA PALAVRA&nbsp; →</button>
       <div id="mensagemAcesso" class="message" role="status"></div>
+      <p class="help-line">Precisas de ajuda com o teu acesso?</p>
+      <a class="whatsapp-link" href="https://wa.me/244938403923?text=Ol%C3%A1%2C%20preciso%20de%20ajuda%20com%20o%20acesso%20%C3%A0%20minha%20pulseira." target="_blank" rel="noopener">◉&nbsp; CONTACTAR PELO WHATSAPP</a>
     </section>
 
     <section id="areaDevocional">
-
-      <div class="panel welcome">
+      <header class="day-heading">
         <div class="date" id="dataAtual"></div>
-
-        <h2>A tua Palavra de Hoje</h2>
-
-        <p>
-          Reserva este momento para escutar,
-          refletir e caminhar com Deus.
-        </p>
-      </div>
-
-      <div class="panel">
-
-        <div id="conteudo" class="devocional-content">
-          <!-- Conteúdo carregado pelo dias.js -->
-        </div>
-
-        <div class="logout-area">
-          <button class="secondary-btn" onclick="sair()">
-            SAIR DO PAINEL
-          </button>
-        </div>
-
-      </div>
-
+        <h2>A tua Palavra de hoje</h2>
+        <p>Escolhe um momento, aprofunda a mensagem e leva-a contigo ao longo do dia.</p>
+      </header>
+      <section class="content-card">
+        <div id="conteudo"><!-- Conteúdo original carregado pelo dias.js --></div>
+        <div class="logout-area"><button class="secondary-btn" type="button" onclick="sair()">SAIR DO DEVOCIONAL</button></div>
+      </section>
     </section>
 
+    <footer class="footer-card">
+      <div class="signature">Maurício Francisco</div>
+      <div class="creator">Criador</div>
+      <div class="credentials">Instagram: <a href="https://www.instagram.com/mauricio_franciscooo/" target="_blank" rel="noopener">@mauricio_franciscooo</a></div>
+      <div class="credentials">WhatsApp: <a href="https://wa.me/244938403923" target="_blank" rel="noopener">938 403 923</a></div>
+    </footer>
   </main>
 
-  <footer>
-    <div class="signature">Maurício Francisco</div>
-
-    <p>
-      Uma Palavra de Deus por Dia<br>
-      Um momento com Deus, todos os dias.
-    </p>
-
-    <div class="footer-line"></div>
-
-    <p>
-      Instagram:
-      <a
-        href="https://www.instagram.com/mauricio_franciscooo/"
-        target="_blank"
-        rel="noopener"
-      >
-        @mauricio_franciscooo
-      </a>
-    </p>
-
-    <p>
-      WhatsApp:
-      <a
-        href="https://wa.me/244938403923"
-        target="_blank"
-        rel="noopener"
-      >
-        Fale comigo · 938 403 923
-      </a>
-    </p>
-
-    <div class="footer-line"></div>
-
-    <p>© 2026 · Uma Palavra de Deus por Dia</p>
-  </footer>
-
-  <!-- Biblioteca oficial Supabase -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
   <script>
     "use strict";
-
-    const SUPABASE_URL =
-      "https://okcmbnucjzkeiduivsny.supabase.co";
-
-    const SUPABASE_KEY =
-      "sb_publishable_7F_7S5UWTRO-l2tDB-PLeQ__J28PZ6v";
-
-    const CHAVE_ACESSO =
-      "palavra_de_deus_acesso";
-
+    const SUPABASE_URL = "https://okcmbnucjzkeiduivsny.supabase.co";
+    const SUPABASE_KEY = "sb_publishable_7F_7S5UWTRO-l2tDB-PLeQ__J28PZ6v";
+    const CHAVE_ACESSO = "palavra_de_deus_acesso";
     let supabaseClient = null;
 
     function mostrarMensagem(texto, sucesso = false) {
       const elemento = document.getElementById("mensagemAcesso");
-
       elemento.textContent = texto;
-
-      elemento.className = sucesso
-        ? "message success"
-        : "message";
+      elemento.className = sucesso ? "message success" : "message";
     }
 
     function iniciarSupabase() {
-      if (
-        !window.supabase ||
-        !window.supabase.createClient
-      ) {
-        mostrarMensagem(
-          "Não foi possível carregar o Supabase. Verifica a ligação à internet."
-        );
-
+      if (!window.supabase || !window.supabase.createClient) {
+        mostrarMensagem("Não foi possível carregar o serviço de acesso. Verifica a ligação à internet.");
         return false;
       }
-
       try {
-        supabaseClient = window.supabase.createClient(
-          SUPABASE_URL,
-          SUPABASE_KEY
-        );
-
+        supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
         return true;
-
       } catch (erro) {
         console.error("Erro ao iniciar Supabase:", erro);
-
-        mostrarMensagem(
-          "Não foi possível iniciar a ligação ao Supabase."
-        );
-
+        mostrarMensagem("Não foi possível iniciar a ligação ao serviço de acesso.");
         return false;
       }
+    }
+
+    function prepararCartoes() {
+      const destino = document.getElementById("conteudo");
+      const secoes = destino ? destino.querySelectorAll(".daily-section") : [];
+      if (secoes.length !== 5) return;
+      secoes.forEach((secao, indice) => {
+        if (indice === 0 || secao.dataset.interactive === "true") return;
+        secao.dataset.interactive = "true";
+        const titulo = secao.querySelector("h3");
+        if (!titulo) return;
+        titulo.setAttribute("role", "button");
+        titulo.setAttribute("tabindex", "0");
+        titulo.setAttribute("aria-expanded", "false");
+        const alternar = () => {
+          const aberto = secao.classList.toggle("is-open");
+          titulo.setAttribute("aria-expanded", String(aberto));
+        };
+        titulo.addEventListener("click", alternar);
+        titulo.addEventListener("keydown", evento => {
+          if (evento.key === "Enter" || evento.key === " ") {
+            evento.preventDefault();
+            alternar();
+          }
+        });
+      });
+    }
+
+    function observarConteudo() {
+      const destino = document.getElementById("conteudo");
+      if (!destino || destino.dataset.observer === "true") return;
+      destino.dataset.observer = "true";
+      new MutationObserver(() => prepararCartoes()).observe(destino, {childList:true,subtree:true});
+      prepararCartoes();
+    }
+
+    function atualizarData() {
+      const dataFormatada = new Intl.DateTimeFormat("pt-PT", {
+        timeZone: "Africa/Luanda", day: "2-digit", month: "long", year: "numeric"
+      }).format(new Date());
+      document.getElementById("dataAtual").textContent = dataFormatada;
     }
 
     function abrirDevocional() {
       document.getElementById("painelAcesso").style.display = "none";
-
       document.getElementById("areaDevocional").style.display = "block";
-
       atualizarData();
-
-      if (
-        typeof window.mostrarPalavraDoDia === "function"
-      ) {
+      observarConteudo();
+      if (typeof window.mostrarPalavraDoDia === "function") {
         window.mostrarPalavraDoDia();
-
+        prepararCartoes();
       } else {
-        document.getElementById("conteudo").textContent =
-          "Não foi possível carregar o devocional. Verifica se o ficheiro dias.js está no repositório.";
+        document.getElementById("conteudo").textContent = "Não foi possível carregar o devocional. Verifica se o ficheiro dias.js está no repositório.";
       }
     }
 
     async function validarAcesso() {
       const campo = document.getElementById("codigoPulseira");
       const botao = document.getElementById("btnEntrar");
-
       const codigo = campo.value.trim();
-
       if (!codigo) {
-        mostrarMensagem(
-          "Introduz o código da tua pulseira."
-        );
-
+        mostrarMensagem("Introduz o código da tua pulseira.");
         campo.focus();
-
         return;
       }
-
-      if (
-        !supabaseClient &&
-        !iniciarSupabase()
-      ) {
-        return;
-      }
-
+      if (!supabaseClient && !iniciarSupabase()) return;
       botao.disabled = true;
       botao.textContent = "A VALIDAR...";
-
       mostrarMensagem("");
-
       try {
-        const { data, error } =
-          await supabaseClient.rpc(
-            "validar_pulseira",
-            {
-              p_codigo: codigo
-            }
-          );
-
+        const {data,error} = await supabaseClient.rpc("validar_pulseira", {p_codigo:codigo});
         if (error) {
-          console.error(
-            "Erro na validação da pulseira:",
-            error
-          );
-
-          mostrarMensagem(
-            "Erro ao validar o código: " +
-            error.message
-          );
-
+          console.error("Erro na validação da pulseira:", error);
+          mostrarMensagem("Não foi possível validar o código neste momento. Tenta novamente.");
           return;
         }
-
         let autorizado = false;
-
-        if (data === true) {
-          autorizado = true;
-
-        } else if (Array.isArray(data)) {
-          autorizado = data.length > 0;
-
-        } else if (
-          data &&
-          typeof data === "object"
-        ) {
-          autorizado =
-            data.valido === true ||
-            data.ativo === true ||
-            data.autorizado === true;
-        }
-
+        if (data === true) autorizado = true;
+        else if (Array.isArray(data)) autorizado = data.length > 0;
+        else if (data && typeof data === "object") autorizado = data.valido === true || data.ativo === true || data.autorizado === true;
         if (!autorizado) {
-          mostrarMensagem(
-            "Código inválido ou sem autorização de acesso."
-          );
-
+          mostrarMensagem("Código inválido ou sem autorização de acesso.");
           return;
         }
-
-        // Guarda a autorização neste navegador.
-        localStorage.setItem(
-          CHAVE_ACESSO,
-          "autorizado"
-        );
-
+        localStorage.setItem(CHAVE_ACESSO, "autorizado");
         abrirDevocional();
-
       } catch (erro) {
-        console.error(
-          "Erro de ligação:",
-          erro
-        );
-
-        mostrarMensagem(
-          "Não foi possível contactar o Supabase. Verifica a internet e tenta novamente."
-        );
-
+        console.error("Erro de ligação:", erro);
+        mostrarMensagem("Não foi possível contactar o serviço de acesso. Verifica a internet e tenta novamente.");
       } finally {
         botao.disabled = false;
-
-        botao.textContent =
-          "ACEDER AO DEVOCIONAL";
+        botao.textContent = "ACEDER À MINHA PALAVRA  →";
       }
-    }
-
-    function atualizarData() {
-      const dataFormatada =
-        new Intl.DateTimeFormat("pt-PT", {
-          timeZone: "Africa/Luanda",
-          day: "2-digit",
-          month: "long",
-          year: "numeric"
-        }).format(new Date());
-
-      document.getElementById("dataAtual").textContent =
-        dataFormatada;
     }
 
     function sair() {
       localStorage.removeItem(CHAVE_ACESSO);
-
-      document.getElementById("areaDevocional").style.display =
-        "none";
-
-      document.getElementById("painelAcesso").style.display =
-        "block";
-
-      document.getElementById("codigoPulseira").value =
-        "";
-
-      mostrarMensagem(
-        "A sessão foi encerrada.",
-        true
-      );
-
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
+      document.getElementById("areaDevocional").style.display = "none";
+      document.getElementById("painelAcesso").style.display = "block";
+      document.getElementById("codigoPulseira").value = "";
+      mostrarMensagem("A sessão foi encerrada.", true);
+      window.scrollTo({top:0,behavior:"smooth"});
     }
 
-    document.getElementById("codigoPulseira").addEventListener(
-      "keydown",
-      function(event) {
-        if (event.key === "Enter") {
-          validarAcesso();
-        }
-      }
-    );
+    document.getElementById("codigoPulseira").addEventListener("keydown", evento => {
+      if (evento.key === "Enter") validarAcesso();
+    });
 
-    // RECUPERA AUTOMATICAMENTE O ACESSO GUARDADO
-    document.addEventListener(
-      "DOMContentLoaded",
-      function() {
-        iniciarSupabase();
-
-        const acessoGuardado =
-          localStorage.getItem(CHAVE_ACESSO);
-
-        if (acessoGuardado === "autorizado") {
-          abrirDevocional();
-        }
-      }
-    );
-
+    document.addEventListener("DOMContentLoaded", () => {
+      iniciarSupabase();
+      observarConteudo();
+      if (localStorage.getItem(CHAVE_ACESSO) === "autorizado") abrirDevocional();
+    });
   </script>
-
-  <!-- Conteúdo dos 120 dias -->
   <script src="./dias.js"></script>
-
 </body>
 </html>
