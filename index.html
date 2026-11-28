@@ -140,35 +140,58 @@
 
     function prepararCartoes() {
       const destino = document.getElementById("conteudo");
-      const secoes = destino ? destino.querySelectorAll(".daily-section") : [];
-      if (secoes.length !== 5) return;
+      if (!destino) return;
+
+      const secoes = destino.querySelectorAll(".daily-section");
       secoes.forEach((secao, indice) => {
-        if (indice === 0 || secao.dataset.interactive === "true") return;
-        secao.dataset.interactive = "true";
         const titulo = secao.querySelector("h3");
         if (!titulo) return;
+
+        // A primeira secção (Leitura) permanece sempre aberta.
+        if (indice === 0) {
+          secao.classList.remove("is-open");
+          titulo.removeAttribute("role");
+          titulo.removeAttribute("tabindex");
+          titulo.removeAttribute("aria-expanded");
+          return;
+        }
+
         titulo.setAttribute("role", "button");
         titulo.setAttribute("tabindex", "0");
-        titulo.setAttribute("aria-expanded", "false");
-        const alternar = () => {
-          const aberto = secao.classList.toggle("is-open");
-          titulo.setAttribute("aria-expanded", String(aberto));
-        };
-        titulo.addEventListener("click", alternar);
-        titulo.addEventListener("keydown", evento => {
-          if (evento.key === "Enter" || evento.key === " ") {
-            evento.preventDefault();
-            alternar();
-          }
-        });
+        titulo.setAttribute("aria-expanded", String(secao.classList.contains("is-open")));
       });
     }
 
     function observarConteudo() {
       const destino = document.getElementById("conteudo");
       if (!destino || destino.dataset.observer === "true") return;
+
       destino.dataset.observer = "true";
-      new MutationObserver(() => prepararCartoes()).observe(destino, {childList:true,subtree:true});
+
+      function alternarCartao(evento) {
+        const titulo = evento.target.closest(".daily-section h3");
+        if (!titulo || !destino.contains(titulo)) return;
+
+        const secao = titulo.closest(".daily-section");
+        if (!secao) return;
+
+        const secoes = destino.querySelectorAll(".daily-section");
+        if (secoes[0] === secao) return;
+
+        const aberto = secao.classList.toggle("is-open");
+        titulo.setAttribute("aria-expanded", String(aberto));
+      }
+
+      destino.addEventListener("click", alternarCartao);
+      destino.addEventListener("keydown", evento => {
+        if (evento.key !== "Enter" && evento.key !== " ") return;
+        if (!evento.target.closest(".daily-section h3")) return;
+        evento.preventDefault();
+        alternarCartao(evento);
+      });
+
+      const observador = new MutationObserver(() => prepararCartoes());
+      observador.observe(destino, { childList: true, subtree: true });
       prepararCartoes();
     }
 
